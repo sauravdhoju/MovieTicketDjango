@@ -1,8 +1,11 @@
+
 Table User {
   id integer [primary key]
   name varchar
   password varchar //[encrypted]
   email varchar
+  phonenumber integer
+  isAdmin bool
 }
 
 Table Movie {
@@ -10,7 +13,20 @@ Table Movie {
   name string
   description varchar
   added_date date
+  stars integer
 }
+
+Table MovieToGenre {
+  id integer [primary key]
+  Movie_id integer//[foreign key]
+  Genre_id integer//[foreign key]
+}
+
+Table Genre {
+  id integer [primary key]
+  name string
+}
+
 
 Table MovieSchedule {
   id integer [primary key]
@@ -54,6 +70,7 @@ Table Reply {
   user_id integer //[foreign]
   bool reply_to_a_comment //false
   text varchar
+  added_date date
   likes integer
   dislikes integer
 }
@@ -64,10 +81,14 @@ Table Ticket {
   ticket_code varchar //Unique
   seat_id integer
   movie_schedule_id integer //foreign key
+  creation_date integer
 }
 
 Ref: MovieSchedule.(Movie_id) > Movie.(id)
 Ref: MovieSchedule.(Hall_id) > Hall.(id)
+
+Ref: MovieToGenre.Movie_id > Movie.id
+Ref: MovieToGenre.Genre_id > Genre.id
 
 Ref: Seat.reserved_to > User.id
 Ref: Seat.schedule_id > MovieSchedule.id
@@ -81,4 +102,4 @@ Ref: Reply.parent_reply_id > Comment.id
 
 Ref: Ticket.user_id > User.id
 Ref: Ticket.seat_id > Seat.id
-Ref: Ticket.movie_schedule_id >MovieSchedule.id
+Ref: Ticket.movie_schedule_id > MovieSchedule.id
