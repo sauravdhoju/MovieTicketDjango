@@ -68,12 +68,17 @@ Table Ticket {
 
 Ref: MovieSchedule.(Movie_id) > Movie.(id)
 Ref: MovieSchedule.(Hall_id) > Hall.(id)
+
 Ref: Seat.reserved_to > User.id
 Ref: Seat.schedule_id > MovieSchedule.id
+
 Ref: Comment.movie_id > Movie.id
 Ref: Comment.user_id > User.id
+
 Ref: Reply.parent_reply_id > Reply.id 
 Ref: Reply.user_id > User.id 
 Ref: Reply.parent_reply_id > Comment.id 
+
 Ref: Ticket.user_id > User.id
 Ref: Ticket.seat_id > Seat.id
+Ref: Ticket.movie_schedule_id >MovieSchedule.id
