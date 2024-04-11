@@ -38,25 +38,42 @@ Table Seat {
 }
 
 Table Comment {
+  id integer [primary key]
   movie_id integer //[foreign]
   user_id integer //[foreign]
+  stars integer
   text varchar
   added_date date
+  likes integer
+  dislikes integer
+}
+
+Table Reply {
+  id integer [primary key]
+  parent_reply_id integer //foreign
+  user_id integer //[foreign]
+  bool reply_to_a_comment //false
+  text varchar
+  likes integer
+  dislikes integer
 }
 
 Table Ticket {
   id integer [primary key]
   user_id integer //foreign key
   ticket_code varchar //Unique
+  seat_id integer
   movie_schedule_id integer //foreign key
 }
+
 Ref: MovieSchedule.(Movie_id) > Movie.(id)
 Ref: MovieSchedule.(Hall_id) > Hall.(id)
 Ref: Seat.reserved_to > User.id
 Ref: Seat.schedule_id > MovieSchedule.id
 Ref: Comment.movie_id > Movie.id
 Ref: Comment.user_id > User.id
+Ref: Reply.parent_reply_id > Reply.id 
+Ref: Reply.user_id > User.id 
+Ref: Reply.parent_reply_id > Comment.id 
 Ref: Ticket.user_id > User.id
-//Ref: posts.user_id > users.id // many-to-one
-//Ref: users.id < follows.following_user_id
-//Ref: users.id < follows.followed_user_id
+Ref: Ticket.seat_id > Seat.id
