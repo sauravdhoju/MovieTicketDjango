@@ -1,4 +1,3 @@
-
 Table User {
   id integer [primary key]
   name varchar
