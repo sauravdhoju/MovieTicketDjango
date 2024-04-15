@@ -45,7 +45,7 @@ class Comment:
     dislikes = models.PositiveIntegerField()
 
 class Reply:
-    reply_to_a_comment = models.BoolanField(default=True) '''if to reply false'''
+    reply_to_a_comment = models.BoolanField(default=True) 
     parentComment_id = models.PositiveIntegerField()
     user     = models.ForeignKey('auth.User', on_delete = models.CASCADE)
     comment = models.Textfield()
