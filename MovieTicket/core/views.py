@@ -37,6 +37,7 @@ def sign_up(request):
         email = request.POST.get('email')
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
+        print(username, email, password1)
         if password1 != password2:
             return HttpResponse("Your password and confirm password are not same.")
         else:
@@ -52,7 +53,7 @@ def log_in(request):
         user=authenticate(request, username=username,password=passsword)
         if user is not None:
             login(request,user)
-            return redirect("home")
+            return redirect("seat.html")
         else:
             return redirect('signup') 
     return render(request, 'login.html')
