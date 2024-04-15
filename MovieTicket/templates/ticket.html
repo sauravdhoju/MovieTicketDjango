@@ -1,207 +1,413 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ticket</title>
+    <title>Movie Ticket Booking</title>
     <style>
-        .container {
-            width: 27em;
-            margin: 3em auto;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: sans-serif;
         }
-        
-        .card {
-            background: linear-gradient(to bottom, #ffd700 0%, #ffd700 26%, #ecedef 26%, #ecedef 100%);
-            height: 11em;
-            float: left;
-            position: relative;
-            padding: 1em;
-            margin-top: 100px;
+
+        .main {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to right, #66c2ff, #2980b9);
         }
 
-
-        .card-left {
-            border-top-left-radius: 8px;
-            border-bottom-left-radius: 8px;
-            width: 16em;
+        .tickets {
+            width: 550px;
+            height: fit-content;
+            border-radius: 8px;
+            padding: 16px;
+            background: white;
+            box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
 
-        .card-right {
-            width: 6.5em;
-            border-left: 0.18em dashed #fff;
-            border-top-right-radius: 8px;
-            border-bottom-right-radius: 8px;
-        }
-
-        .card-right::before,
-        .card-right::after {
-            content: "";
-            position: absolute;
-            display: block;
-            width: 0.9em;
-            height: 0.9em;
-            background: #a5a5a5;
-            border-radius: 50%;
-            left: -0.5em;
-        }
-
-        .card-right::before {
-            top: -0.4em;
-        }
-
-        .card-right::after {
-            bottom: -0.4em;
-        }
-
-        h1 {
-            font-size: 1.1em;
-            margin-top: 0;
-        }
-
-        h1 span {
-            font-weight: normal;
-        }
-
-        .title,
-        .name,
-        .title h2,
-        .name h2 {
-            font-size: 1em;
-            color: #525252;
-            margin: 0;
-        }
-
-        .fieldName {
-            font-size: 1.2em;
+        .ticket-selector {
+            background: rgb(243, 243, 243);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 16px;
+            border-radius: 8px;
+            transition: transform 0.3s ease; /* Added transition for smooth effect */
         }
 
         .title {
-            margin: 2em 0 0 0;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
         }
 
-        .flex-container {
-            color: #525252;
-            font-size: 0.5em;
+        .seats {
+            width: 100%;
             display: flex;
-            flex-wrap: wrap;
-            gap: 6px 10px;
-            /* padding: 10px; */
-        }
-
-        .flex-container > div {
+            align-items: center;
             justify-content: center;
-            text-align: center;
-        }
-
-        .eye {
+            flex-direction: column;
             position: relative;
-            width: 2em;
-            height: 1.5em;
-            background: #fff;
-            margin: 0 auto;
-            border-radius: 1em;
         }
 
-        .eye::before,
-        .eye::after {
+        .status {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .item {
+            font-size: 14px;
+            position: relative;
+        }
+
+        .item::before {
             content: "";
-            display: block;
             position: absolute;
-            border-radius: 95%;
+            top: 50%;
+            left: -14px;
+            transform: translate(0, -50%);
+            width: 10px;
+            height: 10px;
+            background: rgb(255, 255, 255);
+            outline: 1px solid rgb(120, 120, 120);
+            border-radius: 1px;
         }
 
-        .eye::before {
-            width: 1em;
-            background: #ffd700;
-            height: 1em;
-            z-index: 2;
-            left: 8px;
-            top: 4px;
+        .item:nth-child(2)::before {
+            background: rgb(180, 180, 180);
+            outline: none;
         }
 
-        .eye::after {
-            width: 0.5em;
-            height: 0.5em;
-            background: black;
-            z-index: 3;
-            left: 12px;
-            top: 8px;
+        .item:nth-child(3)::before {
+            background: #47a3ff;
+            outline: none;
         }
 
-        .number {
-            text-align: center;
-            text-transform: uppercase;
+        .item:nth-child(4)::before {
+            background: #e5eb99;
+            outline: none;
         }
 
-        .number h3 {
-            color: #ecedef;
-            margin: 0.9em 0 0;
-            font-size: 2.5em;
+        .all-seats {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-gap: 15px;
+            margin: 60px 0;
+            margin-top: 20px;
+            position: relative;
         }
 
-        .number span {
-            display: block;
-            color: #a2aeae;
+        .seat {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 1px;
+            outline: 1px solid rgb(180, 180, 180);
+            cursor: pointer;
+        }
+
+        .all-seats input:checked+label {
+            background: #47a3ff;
+            outline: none;
+        }
+
+        .seat.booked {
+            background: rgb(180, 180, 180);
+            outline: none;
+        }
+
+        input {
+            display: none;
+        }
+
+        .seats::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+            width: 300px;
+            height: 7px;
+            background: rgb(141, 198, 255);
+            border-radius: 0 0 3px 3px;
+            border-top: 1px solid rgb(180, 180, 180);
+        }
+
+        .screentext {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .timings {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            /* flex-direction: column; */
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .dates-item {
+            width: 80px; /* Adjust width as needed */
+            height: 80px; /* Adjust height as needed */
+            background-color: rgb(233, 233, 233);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px; /* Add margin between date items */
+        }
+
+        .day {
+            font-size: 16px; /* Adjust font size as needed */
+        }
+
+        .date {
+            font-size: 14px; /* Adjust font size as needed */
+        }
+
+        .times {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .time {
+            font-size: 14px;
+            width: fit-content;
+            padding: 7px 14px;
+            background: rgb(233, 233, 233);
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .timings input:checked+label {
+            background: #47a3ff;
+            color: white;
+        }
+
+        .price {
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .total {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .total div {
+            display: flex;
+            gap: 4px;
+        }
+
+        .total span {
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        .price button {
+            background: rgb(60, 60, 60);
+            color: white;
+            font-size: 14px;
+            padding: 7px 14px;
+            border-radius: 2px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* New CSS styles for premium and non-premium seats */
+        .premium-seat {
+            background-color: #e5eb99; /* Yellow background for premium seats */
+        }
+
+        .non-premium-seat {
+            background-color: #eee; /* Light gray background for non-premium seats */
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
 </head>
-<body style="background-color: #a5a5a5;">
-<div class="container">
-    <div class="card card-left">
-        <h1>AK <span>RS </span></h1>
-        <div class="title">
-            <h2>CAPTAIN AMERICA: CIVIL WAR</h2>
-        </div>
-        <div class="name" style>
-            <div style="display: inline-block;">
-                <h2><span id="name" style="color: black; font-size: 20px;">SAURAV DHOJU</span></h2>
-            </div>
-            <span style="display: inline-block; font-size: 0.6em;">name</span>
-        </div>
-        
 
-        <div class="flex-container">
-            <div style="text-align:center;">
-                <h2>1</h2>
-                <span class="fieldName">Hall</span>
+<body>
+    <div class="main">
+        <div class="tickets">
+            <div class="ticket-selector" id="ticketSelector"> <!-- Added id -->
+                <div class="title" id="movieTitle">
+                    <!-- Dynamic movie title will be inserted here -->
+                </div>
+                <div class="seats">
+                    <!-- Dynamic seat selection based on movie details -->
+                    <div class="status">
+                        <div class="item">Available</div>
+                        <div class="item">Booked</div>
+                        <div class="item">Selected</div>
+                        <div class="item">Premium</div>
+                    </div>
+                    <div class="all-seats" id="seatSelection">
+                        <!-- Dynamic seat selection checkboxes will be inserted here -->
+                    </div>
+                </div>
+                <div class="screentext">All Eyes Here Please</div>
+                <div class="timings" id="timings">
+                    <!-- Dynamic date and time selection will be inserted here -->
+                </div>
             </div>
-            <div style="text-align:center;">
-                <h2>100</h2>
-                <span class="fieldName">Seat</span>
-            </div>
-            <div style="text-align:center;">
-                <h2>12.00</h2>
-                <span class="fieldName">Time</span>
-            </div>
-            <div style="text-align:center;">
-                <h2>2003.04.10</h2>
-                <span class="fieldName">Date</span>
+            <div class="price">
+                <div class="total">
+                    <span><span class="count">0</span> Tickets</span>
+                    <div>NRs. <div class="amount">0</div>
+                    </div>
+                </div>
+                <button type="button">Book</button>
             </div>
         </div>
     </div>
 
-    <div class="card card-right">
-        <div class="eye"></div>
-        <div class="number">
-            <h3>100</h3>
-            <span>seat</span>
-        </div>
-        <svg id="barcode"></svg>
-    </div>
-</div>
+    <script>
+        // JavaScript code
 
-<script>
-    var randomNumber = Math.floor(Math.random() * 900000) + 100000;
-    JsBarcode("#barcode", randomNumber.toString(), {
-        format: "CODE128",
-        width: 1.25,
-        height: 25,
-        displayValue: false
-    });
-</script>
+        // Movie details object
+        let movieDetails = {
+            title: "Pathhan",
+            dates: [],
+            times: [],
+            seats: []
+        };
 
+        // Function to add a new date
+        function addDate(day, fullDate) {
+            movieDetails.dates.push({ day, fullDate });
+        }
+
+        // Function to add a new time
+        function addTime(time) {
+            movieDetails.times.push(time);
+        }
+
+        // Function to add a new seat
+        function addSeat(seatNumber, isPremium) {
+            movieDetails.seats.push({ seatNumber, isPremium });
+        }
+
+        // Example: Admin adds new dates, times, and seats
+        addDate("Fri", "April 12"); // Non-premium date
+        addDate("Sat", "April 13",); // Premium date
+        addDate("Sun", "April 14"); // Premium date
+        addDate("Mon", "April 15"); // Premium date
+        addTime("11:00");
+        addTime("14:30");
+        addTime("18:00");
+        addTime("21:30");
+
+        const numRows = 6; // Specify the number of rows
+        const seatsPerRow = 20; // Specify the number of seats per row
+
+        const totalSeats = numRows * seatsPerRow;
+
+        // Assuming two middle rows are premium
+        const premiumRowStart = Math.floor(numRows / 2);
+        const premiumRowEnd = premiumRowStart + 1;
+
+        for (let i = 1; i <= totalSeats; i++) {
+            const row = Math.ceil(i / seatsPerRow); // Calculate the row number
+            const isPremium = row === premiumRowStart || row === premiumRowEnd; // Rows matching premiumRowStart or premiumRowEnd are premium
+            addSeat(i, isPremium);
+        }
+            // Function to dynamically populate movie details
+        function populateMovieDetails() {
+            document.getElementById('movieTitle').textContent = movieDetails.title;
+
+            const seatSelection = document.getElementById('seatSelection');
+            const timings = document.getElementById('timings');
+
+            // Populate seat selection
+            seatSelection.innerHTML = '';
+            movieDetails.seats.forEach(seat => {
+                // Determine the class based on premium status
+                const seatClass = seat.isPremium ? 'premium-seat' : 'non-premium-seat';
+
+                seatSelection.insertAdjacentHTML(
+                    "beforeend",
+                    `<input type="checkbox" name="tickets" id="s${seat.seatNumber}" data-seat="${seat.seatNumber}" data-price="${seat.isPremium ? 300 : 200}"/>
+                    <label for="s${seat.seatNumber}" class="seat ${seatClass}"></label>`
+                );
+            });
+
+
+            // Populate date selection
+            timings.innerHTML = '';
+            movieDetails.dates.forEach((date, index) => {
+                // Determine the class based on premium status
+                const dateClass = date.isPremium ? 'premium' : 'non-premium';
+
+                timings.insertAdjacentHTML(
+                    "beforeend",
+                    `<input type="radio" name="date" id="d${index + 1}" ${index === 0 ? 'checked' : ''}>
+                    <label for="d${index + 1}" class="dates-item ${dateClass}">
+                        <div class="day">${date.day}</div>
+                        <div class="date">${date.fullDate}</div>
+                    </label>`
+                );
+            });
+
+            // Populate time selection
+            timings.insertAdjacentHTML(
+                "beforeend",
+                `<div class="times">
+                    ${movieDetails.times.map(time => `<input type="radio" name="time" id="${time}" checked>
+                    <label for="${time}" class="time">${time}</label>`).join('')}
+                </div>`
+            );
+        }
+
+        // Call the function to populate movie details
+        populateMovieDetails();
+
+
+        // Function to update total ticket count and amount
+        function updateTotalCountAndAmount(ticket) {
+            let amount = parseInt(document.querySelector(".amount").innerHTML);
+            let count = parseInt(document.querySelector(".count").innerHTML);
+
+            if (ticket.checked) {
+                count++;
+                amount += 200;
+            } else {
+                count--;
+                amount -= 200;
+            }
+
+            document.querySelector(".amount").innerHTML = amount;
+            document.querySelector(".count").innerHTML = count;
+        }
+
+        // Add event listeners to the checkboxes for seat selection
+        let tickets = document.querySelectorAll(".all-seats input[type='checkbox']");
+        tickets.forEach((ticket) => {
+            ticket.addEventListener("change", () => {
+                updateTotalCountAndAmount(ticket);
+            });
+        });
+    </script>
 </body>
+
 </html>
