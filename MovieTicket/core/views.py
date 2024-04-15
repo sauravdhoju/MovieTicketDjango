@@ -4,10 +4,10 @@ from django.contrib.auth import login, authenticate, logout, get_user_model
 from django.contrib.auth.models import User 
 from django.contrib.auth.decorators import login_required
 from core.models import MovieSchedule
+# import requests, json
+from . models import Movie
 
 
-# from django.render import render redirect/
-# Create your views here.
 def index(request):
     return render(request, 'home.html')
 
@@ -61,3 +61,38 @@ def log_in(request):
 def log_out(request):
     logout(request)
     return redirect('login')
+
+def addMovie(request):
+    if request.method=='POST':
+        movie_name = request.POST.get('movie_name')
+        dic = parse(movie_name)
+        if data_dict is not none:
+            movie = Movie(name = dic['Name'],
+                  description  = dic['Plot'],
+                  added_date=timezone.now(),
+                  average_rating = dic['imdbRating']
+                )
+            print(movie)
+            # movie.save()
+            return render(request, 'addMovie.html', {'created': True})
+        else:
+            return render(request, 'addMovie.html', {'created': False})
+    return render(request, 'addMovie.html')
+
+
+def parse(movie_name):
+    '''returns Title, Plot, imdbRating, Actors,
+    Genre, Director, Runtime, Language, Writer'''
+    url = "http://www.omdbapi.com/"
+    api_key = "dfc1ebee"
+    response = requests.get(url, params={
+        "apikey": api_key,
+        "t": movie_name
+    })
+    if response.status_code == 200:
+        return json.loads(response.json())    
+    else:
+        return none
+
+def ticket(request):
+    return render(request, 'ticket.html')
