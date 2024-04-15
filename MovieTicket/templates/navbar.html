@@ -1,0 +1,58 @@
+<!-- navbar.html -->
+<nav>
+    <div class="logo">
+        <h1>AK<span>RS</span></h1>
+    </div>
+    <div class="right">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Search</a></li>
+            <!-- Add more navigation links as needed -->
+            <li><a href="{% url 'loginSignup' %}" >Login | Register</a></li>
+        </ul>
+    </div>
+</nav>
+
+<style>
+    /* CSS styling for the navbar */
+    nav {
+        background-color: #333;
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav .logo h1 {
+        font-size: 25px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    nav .logo h1 span {
+        color: #ffe100;
+        margin-left: 8px;
+        text-decoration: underline;
+    }
+
+    nav .right ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav .right ul li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    nav .right ul li a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.4s;
+    }
+
+    nav .right ul li a:hover {
+        color: #ffe100;
+    }
+</style>

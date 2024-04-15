@@ -34,36 +34,6 @@
         background: #171717;
       }
 
-      section nav .logo h1{
-        font-size: 25px;
-        color: #fff;
-        cursor: pointer;
-      }
-
-      section nav .logo h1 span{
-        color: #ffe100;
-        margin-left: 8px;
-        text-decoration: underline;
-      }
-
-      section nav .right ul{
-        list-style: none;
-      }
-
-      section nav .right ul li{
-        display: inline-block;
-        margin: 0 5px;
-      }
-
-      section nav .right ul li a{
-        color: #fff;
-        text-decoration: none;
-        transition: 0.4s;
-      }
-
-      section nav .right ul li a:hover{
-        color: #ffe100;
-      }
 
 
 
@@ -778,8 +748,9 @@
     </style>
   </head>
 <body>
+  {% include 'navbar.html' %}
     <section>
-        <nav>
+        <!-- <nav>
             <div class="logo">
                 <h1>AK<span>RS</span></h1>
             </div>
@@ -790,7 +761,7 @@
                     <li><a href="{% url 'loginSignup' %}" >Login | Register</a></li>
                 </ul>
             </div>
-        </nav>
+        </nav> -->
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
@@ -1644,10 +1615,6 @@
 
     </div>
 
-
-
-
-
     <div class="newsletter">
 
         <h1>Newsletter</h1>
@@ -1663,15 +1630,6 @@
 
 
     <p class="end">Design By<span><i class="fa-solid fa-face-grin"></i>Anish-Kiran-Roj-Saurav</span></p>
-
-
-
-
-
-
-
-
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
