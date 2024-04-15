@@ -114,7 +114,7 @@
         left: 50px;
     }
 
-    #register {
+    #signup {
         left: 450px;
     }
 
@@ -133,7 +133,7 @@
             <div class="button-box">
                 <div id="btn"></div>
                 <button type="button" class="toggle_btn" onclick="login()"> Log In</button>
-                <button type="button" class="toggle_btn" onclick="register()"> Register</button>
+                <button type="button" class="toggle_btn" onclick="signup()"> Sign Up</button>
             </div>
             <form id= "login" name="login" class="input-group" method="post">
                 {% csrf_token %}
@@ -142,22 +142,22 @@
                 <!-- <input type="checkbox" class="chech-box"><span>Remember Password</span> -->
                 <button type="Submit" class="submit-btn" name="login">Log in</button>
             </form>
-            <form id="signup" id="signup" class="input-group" method="post">
+            <form id="signup" name="signup" class="input-group" method="post">
                 {% csrf_token %}
                 <input type="text" class="input-field" placeholder="Username" id="Username" required>
                 <input type="text" class="input-field" placeholder="Email" id="Email" required>
                 <input type="password" class="input-field" placeholder="Enter Password" id="Password" required>
                 <!-- <input type="checkbox" class="chech-box"><span>I agree to the terms and conditions.</span> -->
-                <button type="Submit" class="submit-btn" name="signup">Sign-up</button>
+                <button type="Submit" class="submit-btn" name="sign-up">Sign-up</button>
             </form>
         </div>
     </div>
     <script>
         var x = document.getElementById("login");
-        var y = document.getElementById("register");
+        var y = document.getElementById("signup");
         var z = document.getElementById("btn");
 
-        function register(){
+        function signup(){
             x.style.left = "-400px";
             y.style.left = "50px";
             z.style.left = "110px";
@@ -167,7 +167,6 @@
             y.style.left = "450px";
             z.style.left = "0px";
         }
-
     </script>
 </body>
 </html>
