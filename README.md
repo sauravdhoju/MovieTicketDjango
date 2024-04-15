@@ -1,11 +1,11 @@
 TODO: 
 ======
 - [ ] load Movies model object / db with IMDB api
-- [ ] make login/ register form work
+- [x] make login/ register form work
 - [ ] create specific movie page with url pattern /movie-id/
 - [ ] create admin dashboard for editing and selecting homepage movies
 - [ ] make search functional: incase searched movie is not in db. try adding it thru api. if failed tell
-- [ ] 
+- [ ] add movies through api
 
 
 optional:
