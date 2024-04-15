@@ -1,0 +1,7 @@
+<form id="movie_add" name="movie_add" class="input-group" method="post">
+    {% csrf_token %}
+    <input type="text" class="input-field" placeholder="Movie_name" id="Username" required>
+    <input type="text" class="input-field" placeholder="Email" id="Email" required>
+    <input type="text" class="input-field" placeholder="Enter Password" id="Password" required>
+    <button type="Submit" class="submit-btn" name="sign-up">Sign-up</button>
+</form>
