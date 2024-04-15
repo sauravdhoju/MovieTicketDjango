@@ -47,6 +47,9 @@ def login_signup(request):
 
     def search(request, movie_name):
         movies_in_db = Movie.objects.all()
-        movie_names = [movie.name for movie in movies_in_db]
-        if movie_name in movie_names:
-            return redirect(request, '')
+        movie_list
+        for movie in movies_in_db:
+            if movie.name == movie_name:
+
+
+        return render(request, 'movie.html', )
