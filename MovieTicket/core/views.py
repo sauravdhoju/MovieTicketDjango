@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.contrib.auth import login, authenticate, logout, get_user_model
 from django.contrib.auth.models import User 
 from django.contrib.auth.decorators import login_required
-from .models import Movie, 
+from . models import Movie, MovieSchedule
 
 
 # from django.render import render redirect/
@@ -35,10 +35,18 @@ def login_signup(request):
     #
     # return render(request, 'login.html')
 
-@login_required(login_url = 'loginSignup')
+    @login_required(login_url = 'loginSignup')
     def movie(request, movie_id):
         try:
-            event = Movie.objects.get(pk=movie_id)  # pk stands for primary key
-        except Event.DoesNotExist:
-            # Handle the case where the event with the given ID doesn't exist
-            return render(request, 'event_not_found.html')
+            movie = Movie.objects.get(pk=movie_id)  # pk stands for primary key
+        except movie.DoesNotExist:
+            return render(request, 'movie_not_found.html')
+        if movie:
+            print(movie)
+            return render(request, 'movie.html', {'movie': movie})
+
+    def search(request, movie_name):
+        movies_in_db = Movie.objects.all()
+        movie_names = [movie.name for movie in movies_in_db]
+        if movie_name in movie_names:
+            return redirect(request, '')
