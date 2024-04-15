@@ -1,6 +1,5 @@
 from django.db import models
 from datetime import datetime
-
 class MovieSchedule(models.Model):
     def __str__(self):
         return self.name+' at '+ str(self.schedule_date )
