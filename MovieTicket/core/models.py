@@ -1,19 +1,19 @@
 from django.db import models
 from datetime import datetime
 
-class Movie(models.Model):
-    def __str__(self):
-        return self.name+' at '+ str(self.event_date )
-    name  = models.CharField(max_length=255)
-    description = models.TextField()
-    added_date  = models.DateTimeField()
-    average_rating = models.FloatField(default=0)  # Average rating
-
 class MovieSchedule(models.Model):
     def __str__(self):
         return self.name+' at '+ str(self.schedule_date )
     movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
     schedule_date= models.DateTimeField()
+
+    class Movie(models.Model):
+        def __str__(self):
+            return self.name+' at '+ str(self.event_date )
+    name  = models.CharField(max_length=255)
+    description = models.TextField()
+    added_date  = models.DateTimeField()
+    average_rating = models.FloatField(default=0)  # Average rating
 
 class MovieToGenre(models.Model):
     Movie_id = models.ForeignKey('Movie', on_delete = models.CASCADE)
