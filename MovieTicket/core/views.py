@@ -35,21 +35,21 @@ def login_signup(request):
     #
     # return render(request, 'login.html')
 
-    @login_required(login_url = 'loginSignup')
-    def movie(request, movie_id):
-        try:
-            movie = Movie.objects.get(pk=movie_id)  # pk stands for primary key
-        except movie.DoesNotExist:
-            return render(request, 'movie_not_found.html')
-        if movie:
-            print(movie)
-            return render(request, 'movie.html', {'movie': movie})
-
-    def search(request, movie_name):
-        movies_in_db = Movie.objects.all()
-        movie_list
-        for movie in movies_in_db:
-            if movie.name == movie_name:
-
-
-        return render(request, 'movie.html', )
+    # @login_required(login_url = 'loginSignup')
+    # def movie(request, movie_id):
+    #     try:
+    #         movie = Movie.objects.get(pk=movie_id)  # pk stands for primary key
+    #     except movie.DoesNotExist:
+    #         return render(request, 'movie_not_found.html')
+    #     if movie:
+    #         print(movie)
+    #         return render(request, 'movie.html', {'movie': movie})
+    #
+    # def search(request, movie_name):
+    #     movies_in_db = Movie.objects.all()
+    #     movie_list
+    #     for movie in movies_in_db:
+    #         if movie.name == movie_name:
+    #
+    #
+    #     return render(request, 'movie.html', )
