@@ -4,8 +4,8 @@ from django.contrib.auth import login, authenticate, logout, get_user_model
 from django.contrib.auth.models import User 
 from django.contrib.auth.decorators import login_required
 from core.models import MovieSchedule
-# import requests, json
-from . models import Movie
+import requests, json
+from . models import Movie, Genre, MovieToGenre
 from django.contrib import messages
 import re
 
@@ -85,35 +85,95 @@ def log_out(request):
 
 def addMovie(request):
     if request.method=='POST':
-        movie_name = request.POST.get('movie_name')
-        dic = parse(movie_name)
-        if data_dict is not none:
-            movie = Movie(name = dic['Name'],
-                  description  = dic['Plot'],
-                  added_date=timezone.now(),
-                  average_rating = dic['imdbRating']
-                )
-            print(movie)
-            # movie.save()
-            return render(request, 'addMovie.html', {'created': True})
+        name = request.POST.get('name')
+        description = request.POST.get('description'),
+        if Movie.objects.filter(name=movie_name).exists():
+            messages.error(request, 'The movie is already added! add another movie.')
+            return render(request, 'addMovie.html')
+        elif not name or not description:
+            messages.error(request, 'please fill all the forms!')
+            return render(request, 'addMovie.html')
         else:
-            return render(request, 'addMovie.html', {'created': False})
+            movie = Movie(name = name, description  = description, added_date=timezone.now())
+            movie.save()
+            genre_string = dic['Genre']
+            for g in genre_string.split(","):
+                if not Genre.objects.filter(name=g).exists():
+                    new_genre = Genre(name=genre)
+                    print(f'{g} is new.')
+                    # new_genre.save()
+                else:
+                    print(f'{g} is already present.')
+                gen = Genre.objects.get(name=g)
+                movie.genre_set.add(gen)
+            # movie.save()
+            print(genre_string, ' ? ', movie.genre_set.all())
+            messages.success(request, movie_name+' was successfully added!.')
+            return render(request, 'addMovie.html')
     return render(request, 'addMovie.html')
 
+# def addMovie(request):
+#     if request.method=='POST':
+#         movie_name = request.POST.get('movie_name')
+#         if Movie.objects.filter(name=movie_name).exists():
+#             messages.error(request, 'The movie is already added! add another movie.')
+#             return render(request, 'addMovie.html', {'created': True})
+#         # dic = parse(movie_name) api not working at all + json is unparsable
+#         # print(dic)
+#         dic = {
+#                 'Name':          movie_name,
+#                 'Plot':          request.POST.get('Description'),
+#                 'Genre':         request.POST.get('Genres'),
+#                 }
+#         if dic == None:
+#             messages.error(request, 'couldnt find the movie through api! for it')
+#             print(movie_name)
+#             return render(request, 'addMovie.html')
+#         else:
+#             movie = Movie(name = dic['Name'],
+#                           description  = dic['Plot'],
+#                           added_date=timezone.now(),
+#                           )
+#             print([ dic['Name'], dic['Plot'], timezone.now()])
+#             genre_string = dic['Genre']
+#             for g in genre_string.split(","):
+#                 if not Genre.objects.filter(name=g).exists():
+#                     new_genre = Genre(name=genre)
+#                     print(f'{g} is new.')
+#                     # new_genre.save()
+#                 else:
+#                     print(f'{g} is already present.')
+#                 gen = Genre.objects.get(name=g)
+#                 movie.genre_set.add(gen)
+#             # movie.save()
+#             print(genre_string, ' ? ', movie.genre_set.all())
+#             messages.success(request, movie_name+' was successfully added!.')
+#             return render(request, 'addMovie.html')
+#     return render(request, 'addMovie.html')
 
-def parse(movie_name):
-    '''returns Title, Plot, imdbRating, Actors,
-    Genre, Director, Runtime, Language, Writer'''
-    url = "http://www.omdbapi.com/"
-    api_key = "dfc1ebee"
-    response = requests.get(url, params={
-        "apikey": api_key,
-        "t": movie_name
-    })
-    if response.status_code == 200:
-        return json.loads(response.json())    
-    else:
-        return none
+
+
+# def parse(movie_name):
+#     '''returns Title, Plot, imdbRating, Actors,
+#     Genre, Director, Runtime, Language, Writer'''
+#     url = "http://www.omdbapi.com/"
+#     api_key = "dfc1ebee"
+#     response = requests.get(url, params={
+#         "apikey": api_key,
+#         "t": movie_name
+#         })
+#     if response.status_code == 200:
+#         return json.loads(response.json())    
+#     else:
+#         api_key = "1b40d701"
+#         response = requests.get(url, params={
+#             "apikey": api_key,
+#             "t": movie_name
+#             })
+#         if response.status_code == 200:
+#             return json.loads(response.json())    
+#         else:
+#             return None
 
 def ticket(request):
     return render(request, 'ticket.html')
