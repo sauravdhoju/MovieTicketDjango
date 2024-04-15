@@ -11,7 +11,7 @@ class Movie(models.Model):
     description = models.TextField()
     added_date  = models.DateTimeField()
     average_rating = models.FloatField(default=0)  # Average rating
-    total_reviews = models.IntegerField(default=0) 
+    # total_reviews = models.IntegerField(default=0) 
 
 class MovieSchedule(models.Model):
     def __str__(self):
@@ -34,6 +34,7 @@ class Hall(models.Seat):
 
 class MovieUserRating(models.Model):
     user     = models.ForeignKey('auth.User', on_delete = models.CASCADE)
+    Movie_id = models.ForeignKey('Movie.id', on_delete = models.CASCADE)
     rating = models.FloatField(default=0)  # Average rating
 
 class Comment:
