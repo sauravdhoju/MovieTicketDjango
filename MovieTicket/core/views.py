@@ -6,30 +6,33 @@ from django.contrib.auth.decorators import login_required
 from core.models import MovieSchedule
 # import requests, json
 from . models import Movie
+from django.contrib import messages
+import re
 
-
-def index(request):
+def home(request):
     return render(request, 'home.html')
 
-    # @login_required(login_url = 'loginSignup')
-    # def movie(request, movie_id):
-    #     try:
-    #         movie = Movie.objects.get(pk=movie_id)  # pk stands for primary key
-    #     except movie.DoesNotExist:
-    #         return render(request, 'movie_not_found.html')
-    #     if movie:
-    #         print(movie)
-    #         return render(request, 'movie.html', {'movie': movie})
-    #
-    # def search(request, movie_name):
-    #     movies_in_db = Movie.objects.all()
-    #     movie_list
-    #     for movie in movies_in_db:
-    #         if movie.name == movie_name:
-    #
-    #
-    #     return render(request, 'movie.html', )
-
+# @login_required(login_url = 'loginSignup')
+# def movie(request, movie_id):
+#     try:
+#         movie = Movie.objects.get(pk=movie_id)  # pk stands for primary key
+#     except movie.DoesNotExist:
+#         return render(request, 'movie_not_found.html')
+#     if movie:
+#         print(movie)
+#         return render(request, 'movie.html', {'movie': movie})
+#
+# def search(request, movie_name):
+#     movies_in_db = Movie.objects.all()
+#     movie_list
+#     for movie in movies_in_db:
+#         if movie.name == movie_name:
+#
+#
+#     return render(request, 'movie.html', )
+def is_valid_email(email):
+    pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+    return bool(re.match(pattern, email))
 
 def sign_up(request):
     if request.method == 'POST':
@@ -37,25 +40,43 @@ def sign_up(request):
         email = request.POST.get('email')
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
-        print(username, email, password1)
-        if password1 != password2:
-            return HttpResponse("Your password and confirm password are not same.")
+        # print(email)
+        # print(is_valid_email(email))
+        if not username or not password1 or not email or not password2:
+            messages.error(request, 'Please fill out all the fileds.')
+            return render(request, 'signup.html')
+        elif password1 != password2:
+            messages.error(request, "Password didn't matched!")
+            return render(request, 'signup.html')
+        elif len(password1)<8:
+            messages.error(request, "Your password must be at least 8 characters long")
+            return render(request, 'signup.html')
+        elif not is_valid_email(email):
+            messages.error(request, "Invalid email address.")
+            return render(request, 'signup.html')
+        elif User.objects.filter(username=username).exists():
+            messages.error(request, 'User already exists')
+            return render(request, 'signup.html')
         else:
-            my_user = User.objects.create_user(username,email,password1)
-            my_user.save()
-            return redirect('login') 
-    return render(request, 'signup.html')    
+            user = User.objects.create_user(username,email,password1)
+            user.save()
+            login(request, user)
+            return redirect('home')
+    return render(request, 'signup.html')
 
 def log_in(request):
     if request.method=='POST':
         username=request.POST.get('username')
-        passsword=request.POST.get('password')  
-        user=authenticate(request, username=username,password=passsword)
-        if user is not None:
-            login(request,user)
-            return redirect("seat.html")
+        password=request.POST.get('password')  
+        print(username, password)
+        user=authenticate(request, username=username,password=password)
+        if not username or not password:
+            messages.error(request, 'Please fill out all the fields.')
+        if user is None:
+            messages.error(request, 'Couldn\'t find your account!')
         else:
-            return redirect('signup') 
+            login(request,user)
+            return redirect("home")
     return render(request, 'login.html')
 
 def log_out(request):
