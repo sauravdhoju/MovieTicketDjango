@@ -3,7 +3,7 @@ from datetime import datetime
 
 class Movie(models.Model):
     def __str__(self):
-        return self.name+' at '+ str(self.event_date )
+        return self.name+' at '+ str(self.added_date )
     name  = models.CharField(max_length=255)
     description = models.TextField()
     added_date  = models.DateTimeField()
@@ -17,8 +17,8 @@ class MovieSchedule(models.Model):
     schedule_date= models.DateTimeField()
 
 class MovieToGenre(models.Model):
-    Movie_id = models.ForeignKey('Movie', on_delete = models.CASCADE)
-    Genre_id = models.ForeignKey('Genre', on_delete = models.CASCADE)
+    Movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
+    Genre = models.ForeignKey('Genre', on_delete = models.CASCADE)
 
 class Genre(models.Model):
     name = models.CharField(max_length=40)
@@ -31,11 +31,11 @@ class Hall(models.Model):
 
 class MovieUserRating(models.Model):
     user     = models.ForeignKey('auth.User', on_delete = models.CASCADE)
-    Movie_id = models.ForeignKey('Movie', on_delete = models.CASCADE)
+    Movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
     rating = models.FloatField(default=0)  # Average rating
 
 class Comment:
-    Movie_id = models.ForeignKey('Movie', on_delete = models.CASCADE)
+    Movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
     user     = models.ForeignKey('auth.User', on_delete = models.CASCADE)
     comment = models.TextField()
     added_date = models.DateTimeField()
@@ -55,5 +55,5 @@ class Ticket:
     user     = models.ForeignKey('auth.User', on_delete = models.CASCADE)
     ticket_code = models.CharField(max_length=255)
     seat        = models.ForeignKey('Seat', on_delete = models.CASCADE)
-    movie_schedule_id = models.ForeignKey('Movie', on_delete = models.CASCADE)
+    movie_schedule = models.ForeignKey('Movie', on_delete = models.CASCADE)
     creation_date = models.DateTimeField()
