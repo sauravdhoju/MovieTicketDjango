@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: auto;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav h1 {
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            border: 1px solid #555;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            margin-top: 10px;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        section {
+            flex: 1 1 300px;
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            transition: opacity 0.3s ease;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .dashboard-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .stat-container {
+            flex: 1;
+            background-color: #cdcdcd;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-container p {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-container span {
+            font-size: 24px;
+        }
+
+        .dashboard-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <h1>Admin Dashboard</h1>
+        <ul>
+            <li><a href="#dashboard" onclick="showSection('dashboard')">Dashboard</a></li>
+            <li><a href="#view-all-users" onclick="showSection('view-all-users')">View All Users</a></li>
+            <li><a href="#manage-bookings" onclick="showSection('manage-bookings')">Manage Bookings</a></li>
+            <li>
+                <a href="#manage-movies">Manage Movies</a>
+                <ul>
+                    <li><a href="#add-movie" onclick="showForm('add-movie-form')">Add Movie</a></li>
+                    <li><a href="#edit-movie" onclick="showForm('edit-movie-form')">Edit Movie</a></li>
+                    <li><a href="#update-movie" onclick="showForm('update-movie-form')">Update Movie</a></li>
+                    <li><a href="#delete-movie" onclick="showForm('delete-movie-form')">Delete Movie</a></li>
+                </ul>
+            </li>
+            <li><a href="#logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="active">
+        <div class="dashboard-stats">
+            <div class="stat-container">
+                <p>Total Registered Users:</p>
+                <span id="totalUsers">0</span>
+            </div>
+            <div class="stat-container">
+                <p>Total Booked Seats:</p>
+                <span id="totalBookedSeats">0</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Users Section -->
+    <section id="view-all-users">
+        <h2>Users</h2>
+        <input type="text" id="searchUser" placeholder="Search users...">
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- User data will be inserted here dynamically -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Bookings Section -->
+    <section id="manage-bookings">
+        <h2>Bookings</h2>
+        <table id="bookingTable">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>User ID</th>
+                    <th>Movie</th>
+                    <th>Seat Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Booking data will be inserted here dynamically -->
+            </tbody>
+        </table>
+    </section>
+
+
+    <!-- Manage Movies Section -->
+    <section id="manage-movies" class="active">
+        <h2>Manage Movies</h2>
+        <!-- Add Movie Form -->
+        <form id="add-movie-form" class="movie-form" style="display: none;">
+            <label for="add-movie-title">Title:</label>
+            <input type="text" id="add-movie-title" name="title" required>
+
+            <label for="add-movie-director">Director:</label>
+            <input type="text" id="add-movie-director" name="director" required>
+
+            <label for="add-movie-genre">Genre:</label>
+            <input type="text" id="add-movie-genre" name="genre" required>
+
+            <input type="submit" value="Add Movie">
+        </form>
+
+        <!-- Edit Movie Form -->
+        <form id="edit-movie-form" class="movie-form" style="display: none;">
+            <label for="edit-movie-id">Movie ID:</label>
+            <input type="number" id="edit-movie-id" name="id" required>
+
+            <label for="edit-movie-new-title">New Title:</label>
+            <input type="text" id="edit-movie-new-title" name="title" required>
+
+            <label for="edit-movie-new-director">New Director:</label>
+            <input type="text" id="edit-movie-new-director" name="director" required>
+
+            <label for="edit-movie-new-genre">New Genre:</label>
+            <input type="text" id="edit-movie-new-genre" name="genre" required>
+
+            <input type="submit" value="Edit Movie">
+        </form>
+
+        <!-- Update Movie Form -->
+        <form id="update-movie-form" class="movie-form" style="display: none;">
+            <label for="update-movie-id">Movie ID:</label>
+            <input type="number" id="update-movie-id" name="id" required>
+
+            <label for="update-movie-title">New Title:</label>
+            <input type="text" id="update-movie-title" name="title">
+
+            <label for="update-movie-director">New Director:</label>
+            <input type="text" id="update-movie-director" name="director">
+
+            <label for="update-movie-genre">New Genre:</label>
+            <input type="text" id="update-movie-genre" name="genre">
+
+            <input type="submit" value="Update Movie">
+        </form>
+
+        <!-- Delete Movie Form -->
+        <form id="delete-movie-form" class="movie-form" style="display: none;">
+            <label for="delete-movie-id">Movie ID:</label>
+            <input type="number" id="delete-movie-id" name="id" required>
+
+            <input type="submit" value="Delete Movie">
+        </form>
+    </section>
+
+    <script>
+        // Function to show/hide sections based on navigation clicks
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                if (section.id === sectionId) {
+                    section.classList.add('active');
+                    section.style.opacity = 1;
+                    section.style.pointerEvents = 'auto';
+                } else {
+                    section.classList.remove('active');
+                    section.style.opacity = 0;
+                    section.style.pointerEvents = 'none';
+                }
+            });
+        }
+
+        // Function to show/hide forms for managing movies
+        function showForm(formId) {
+            const forms = document.querySelectorAll('.movie-form');
+            forms.forEach(form => {
+                if (form.id === formId) {
+                    form.style.display = 'block';
+                } else {
+                    form.style.display = 'none';
+                }
+            });
+        }
+
+        // Function to generate random user data
+        function generateRandomUser() {
+            const id = Math.floor(Math.random() * 1000) + 1;
+            const name = `User${id}`;
+            const email = `user${id}@example.com`;
+            return { id, name, email };
+        }
+
+        // Function to generate random booking data
+        function generateRandomBooking(users) {
+            const id = Math.floor(Math.random() * 1000) + 1;
+            const userId = users[Math.floor(Math.random() * users.length)].id;
+            const movie = `Movie${id}`;
+            const seatNumber = Math.floor(Math.random() * 10) + 1; // Random seat number between 1 and 10
+            return { id, userId, movie, seatNumber };
+        }
+
+        // Function to generate random data for users and bookings
+        function generateRandomData() {
+            const users = [];
+            for (let i = 0; i < 10; i++) {
+                users.push(generateRandomUser());
+            }
+
+            const bookings = [];
+            for (let i = 0; i < 10; i++) {
+                bookings.push(generateRandomBooking(users));
+            }
+
+            return { users, bookings };
+        }
+
+        // Function to populate the user table with random data
+        function populateUserTable(users) {
+            const userTable = document.getElementById('userTable').getElementsByTagName('tbody')[0];
+            userTable.innerHTML = ''; // Clear previous data
+            users.forEach(user => {
+                const row = userTable.insertRow();
+                row.innerHTML = `<td>${user.id}</td>
+                                 <td>${user.name}</td>
+                                 <td>${user.email}</td>`;
+            });
+        }
+
+        // Function to populate the booking table with random data
+        function populateBookingTable(bookings) {
+            const bookingTable = document.getElementById('bookingTable').getElementsByTagName('tbody')[0];
+            bookingTable.innerHTML = ''; // Clear previous data
+            bookings.forEach(booking => {
+                const row = bookingTable.insertRow();
+                row.innerHTML = `<td>${booking.id}</td>
+                                 <td>${booking.userId}</td>
+                                 <td>${booking.movie}</td>
+                                 <td>${booking.seatNumber}</td>`;
+            });
+        }
+
+        // Function to update total registered users count
+        function updateTotalUsers(users) {
+            document.getElementById('totalUsers').textContent = users.length;
+        }
+
+        // Function to calculate and update total booked seats
+        function updateTotalBookedSeats(bookings) {
+            const totalSeats = bookings.reduce((total, booking) => total + booking.seatNumber, 0);
+            document.getElementById('totalBookedSeats').textContent = totalSeats;
+        }
+
+        // Function to handle user search
+        document.getElementById('searchUser').addEventListener('input', function() {
+            const searchText = this.value.toLowerCase();
+            const userRows = document.getElementById('userTable').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+            Array.from(userRows).forEach(row => {
+                const userName = row.getElementsByTagName('td')[1].innerText.toLowerCase();
+                if (userName.includes(searchText)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        // Initial setup when the page loads
+        window.onload = function() {
+            const { users, bookings } = generateRandomData();
+            populateUserTable(users);
+            populateBookingTable(bookings);
+            updateTotalUsers(users);
+            updateTotalBookedSeats(bookings);
+            showSection('dashboard'); // Show dashboard section by default
+        };
+    </script>
+</body>
+</html>
