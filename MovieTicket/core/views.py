@@ -4,9 +4,8 @@ from datetime import datetime
 from django.contrib.auth import login, authenticate, logout, get_user_model
 from django.contrib.auth.models import User 
 from django.contrib.auth.decorators import login_required
-from core.models import MovieSchedule
 import requests, json
-from . models import Movie, Genre, MovieToGenre, Actor, MovieToActor, Writer, MovieToWriter, Director, MovieToDirector, Language, MovieToLanguage
+from . models import Movie, Genre, MovieToGenre, Actor, MovieToActor, Writer, MovieToWriter, Director, MovieToDirector, Language, MovieToLanguage, MovieSchedule
 from django.contrib import messages
 import re
 
@@ -273,23 +272,24 @@ def search(request):
     return render(request, 'search.html', {'result':movies_in_db
                                           })
 def addSchedule(request, movie_id):
+    movie =  Movie.objects.get(pk=movie_id)
     if request.method=='POST':
         dateTime=request.POST.get('Scheduled_DateTime')
         location=request.POST.get('location')  
         seat_count=request.POST.get('seat_count')  
-        print(dateTime, location, seatCount)
-        if not dateTime or not location or not seatCount:
+        # print(dateTime, location, seatCount)
+        if not dateTime or not location or not seat_count:
             messages.error(request, 'Please fill out all the fields.')
-        if not dateTime or not location or not seatCount:
-            messages.error(request, 'Please fill out all the fields.')
+        # if not dateTime or not location or not seatCount:
+        #     messages.error(request, 'Please fill out all the fields.')
         else:
-            schedule = MovieSchedule(movie=movie_id,
+            schedule = MovieSchedule(movie=movie,
                           schedule_date=dateTime,
                           location = location,
                           seat_count= seat_count
                           ) 
             schedule.save()
-    return render(request, 'addSchedule.html')
+    return render(request, 'addSchedule.html', {'movie':movie})
 
 def ticket(request):
     return render(request, 'ticket.html')
