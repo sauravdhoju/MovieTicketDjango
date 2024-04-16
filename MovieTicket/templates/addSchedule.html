@@ -121,7 +121,7 @@
     <label for="seat_count">Seat Count:</label>
     <input type="number" id="seat_count" name="seat_count" min="60" step="10" required>
     {% for message in messages %}
-    <p class="error-message" id="error">{{ message }}</p>
+        <p class="error-message" id="error">{{ message }}</p>
     {% endfor %}
     <div class="button-container">
         <button type="button" onclick="goBack()">Back</button>

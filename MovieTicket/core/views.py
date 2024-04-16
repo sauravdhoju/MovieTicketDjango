@@ -57,14 +57,13 @@ def moviePage(request, movie_id):
         movie = Movie.objects.get(pk=movie_id)
         actors = MovieToActor.objects.filter(movie=movie.name)
         directors = MovieToDirector.objects.filter(movie=movie.name)
-        print(movie.poster)
-        # print(directors)
-        # print(actors)
+        print( request.user.is_superuser)
         return render(request, 'specific_movie.html', {
             'movie': movie, 
             'actors': actors,
             'directors': directors,
-                                                       })
+            'isSuperuser': request.user.is_superuser,
+            })
     else:
         return render(request, 'page_not_found.html')
 
@@ -290,6 +289,7 @@ def addSchedule(request, movie_id):
                           seat_count= seat_count
                           ) 
             schedule.save()
+            messages.success(request, 'successfully added the schedule.')
     return render(request, 'addSchedule.html', {'movie':movie})
 
 def ticket(request):

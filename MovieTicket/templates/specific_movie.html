@@ -270,6 +270,11 @@ nav a.button:hover {
                         </div>
                     </section>
                     <a class="button button7" href="{% url 'book' movie.id %}">Book Ticket </a>
+                    {%if isSuperuser%}
+                        <a class="button button7" href="{% url 'addSchedule' movie.id %}">Add Schedule</a>
+                        <!-- <a class="button button7" href="{% url 'addSchedule' movie.id %}">Edit Movie</a> -->
+                        <!-- <a class="button button7" href="{% url 'addSchedule' movie.id %}">Delete Movie</a> -->
+                    {% endif %}
                     </div>
                 </div>
         </section>
@@ -282,8 +287,6 @@ nav a.button:hover {
             </form>
         </section>
             </div>
-
-
             <script>
             </script>
 </body>
