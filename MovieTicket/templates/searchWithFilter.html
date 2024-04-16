@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Movie Search</title>
+        <style>
+/* Reset default browser styles */
+body, input {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+
+    header {
+        background-color: #333;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-bar {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .search-bar input[type="search"] {
+        padding: 10px;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-right: 10px;
+    }
+
+    .search-bar button {
+        padding: 10px;
+        border: none;
+        border-radius: 5%;
+        background-color: #636363;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .search-bar button:hover {
+        background-color: #ff5b5b;
+    }
+
+    .show-filter-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 10px;
+    }
+
+    .show-filter-button:hover {
+        background-color: #0056b3;
+    }
+
+    .filters {
+        background-color: #fff;
+        padding: 20px;
+        r     margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
+    }
+
+    .filter-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .filter {
+        flex: 1;
+        margin-right: 10px;
+    }
+
+    .filter label {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    .filter input[type="text"],
+    .filter select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .filter select {
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+    .reset-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        background-color: #dc3545;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 10px;
+    }
+
+    .reset-button:hover {
+        background-color: #c82333;
+    }
+
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 20px;
+    }
+
+    .movie-card {
+        width: calc(20% - 20px); /* 20% for 5 columns */
+        margin-bottom: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .movie-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .movie-card img {
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .movie-details {
+        padding: 20px;
+    }
+
+    .movie-details h2 {
+        margin-bottom: 10px;
+    }
+
+    .movie-details p {
+        color: #666;
+        margin-bottom: 10px;
+    }
+
+    .ratings span {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .ratings span:first-child {
+        color: #ff9800;
+    }
+
+    .ratings span:last-child {
+        color: #4caf50;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Media Query for 5 columns on larger screens */
+    @media screen and (max-width: 1200px) {
+        .movie-card {
+            width: calc(25% - 20px); /* 25% for 4 columns */
+        }
+    }
+
+    /* Media Query for 4 columns on medium screens */
+    @media screen and (max-width: 992px) {
+        .movie-card {
+            width: calc(33.33% - 20px); /* 33.33% for 3 columns */
+        }
+    }
+
+    /* Media Query for 3 columns on smaller screens */
+    @media screen and (max-width: 768px) {
+        .movie-card {
+            width: calc(50% - 20px); /* 50% for 2 columns */
+        }
+    }
+
+    /* Media Query for 1 column on extra small screens */
+    @media screen and (max-width: 576px) {
+        .movie-card {
+            width: calc(100% - 20px); /* 100% for 1 column */
+        }
+    }
+        </style>
+    </head>
+    <body>
+        <header>
+            <form class="search-bar" method="post">
+                {% csrf_token %} 
+                <input type="search" id="search-input" name="query" placeholder="Search for movies...">
+                <button type="submit" id="search-button">Search</button>
+            </form>
+            <!-- <button class="show-filter-button" id="show-filters">Show Filters</button> -->
+            <!-- <div class="filters" id="filters"> -->
+            <!--     <div class="filter-container"> -->
+            <!--         <div class="filter"> -->
+            <!--             <label for="sort-by">Sort By:</label> -->
+            <!--             <select id="sort-by"> -->
+            <!--                 <option value="title">Title</option> -->
+            <!--                 <option value="year">Year</option> -->
+            <!--                 <!-- Add more sorting options if needed --> -->
+            <!--             </select> -->
+            <!--         </div> -->
+            <!--         <div class="filter"> -->
+            <!--             <label for="genre-filter">Genre:</label> -->
+            <!--             <select id="genre-filter"> -->
+            <!--                 <!-- Options for genres will be added dynamically --> -->
+            <!--             </select> -->
+            <!--         </div> -->
+            <!--     </div> -->
+            <!--     <div class="filter-container"> -->
+            <!--         <div class="filter"> -->
+            <!--             <label for="language-filter">Language:</label> -->
+            <!--             <select id="language-filter"> -->
+            <!--                 <!-- Options for languages will be added dynamically --> -->
+            <!--             </select> -->
+            <!--         </div> -->
+            <!--         <div class="filter"> -->
+            <!--             <label for="year-filter">Year:</label> -->
+            <!--             <input type="text" id="year-filter" placeholder="Filter by year..."> -->
+            <!--         </div> -->
+            <!--     </div> -->
+            <!--     <button class="reset-button" id="reset-filters">Reset Filters</button> -->
+            <!-- </div> -->
+        </header>
+
+        <main id="movie-container">
+            {% for m in searchResult %}
+            <div class="movie-card">
+                <img src="{{m.movie.poster}}" alt="{{mg.movie.name}}" onclick="window.location.href='{% url 'moviepage' m.movie.id %}'">
+                <div class="movie-details" >
+                    <h2 href='{% url 'moviepage' m.movie.id %}'>{{m.movie.name}}</h2>
+                    <!-- <p> -->
+                    <!-- Genres:  -->
+                    <!--     {%for g in m.genres%} -->
+                    <!--         {{g.genre}},  -->
+                    <!--     {%endfor%} -->
+                    <!-- </p> -->
+                    <!-- <p>Language:  -->
+                    <!--     {%for l in m.languages%} -->
+                    <!--         {{l.language}},  -->
+                    <!--     {%endfor%} -->
+                    <!-- </p> -->
+                    <!-- <p>Director: -->
+                    <!--     {%for d in m.directors%} -->
+                    <!--         {{d.director}},  -->
+                    <!--     {%endfor%} -->
+                    <!-- </p> -->
+                    <!-- <p>Writer: -->
+                    <!--     {%for w in m.writers%} -->
+                    <!--         {{w.writer}},  -->
+                    <!--     {%endfor%} -->
+                    <!-- </p> -->
+                    <!-- <p>Actors: -->
+                    <!--     {%for a in m.actors%} -->
+                    <!--         {{a.actor}},  -->
+                    <!--     {%endfor%} -->
+                    <!-- </p> -->
+                    <!-- <div class="ratings"> -->
+                    <!--     <span>IMDb: {{m.movie.average_rating}}</span> -->
+                    <!-- </div> -->
+                </div>
+            </div>
+            {% endfor %}
+        </main>
+        <script>
+            <!-- const showFiltersButton = document.getElementById('show-filters'); -->
+            <!-- const filterPanel = document.getElementById('filters'); -->
+            <!-- const resetFiltersButton = document.getElementById('reset-filters'); -->
+            <!---->
+            <!-- showFiltersButton.addEventListener('click', function() { -->
+            <!--     filterPanel.style.display = filterPanel.style.display === 'none' ? 'flex' : 'none'; -->
+            <!-- }); -->
+            <!---->
+            <!-- resetFiltersButton.addEventListener('click', function() { -->
+            <!--     document.getElementById('sort-by').selectedIndex = 0; -->
+            <!--     document.getElementById('genre-filter').selectedIndex = 0; -->
+            <!--     document.getElementById('language-filter').selectedIndex = 0; -->
+            <!--     document.getElementById('year-filter').value = ''; -->
+            <!-- }); -->
+        </script>
+    </body>
+</html>
