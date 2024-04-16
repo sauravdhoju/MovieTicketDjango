@@ -12,12 +12,12 @@ import re
 
 class moviex():
     def __init__(self, movie_name):
-        self.movie  = Movie.objects.get(name=movie_name)
-        self.genres = MovieToGenre.objects.filter(movie=movie_name)
-        self.actors = MovieToActor.objects.filter(movie=movie_name)
-        self.writers = MovieToWriter.objects.filter(movie=movie_name)
-        self.directors  = MovieToDirector.objects.filter(movie=movie_name)
-        self.languages  = MovieToLanguage.objects.filter(movie=movie_name)
+        self.movie     = Movie.objects.get(name=movie_name)
+        self.genres    = MovieToGenre.objects.filter(movie=movie_name)
+        self.actors    = MovieToActor.objects.filter(movie=movie_name)
+        self.writers   = MovieToWriter.objects.filter(movie=movie_name)
+        self.directors = MovieToDirector.objects.filter(movie=movie_name)
+        self.languages = MovieToLanguage.objects.filter(movie=movie_name)
 
 def retriveMovieListObj(movieList):
     movies = []
@@ -82,24 +82,8 @@ def bookMoviePage(request, movie_id):
                                                        })
     else:
         return render(request, 'page_not_found.html')
-# @login_required(login_url = 'loginSignup')
-# def movie(request, movie_id):
-#     try:
-#         movie = Movie.objects.get(pk=movie_id)  # pk stands for primary key
-#     except movie.DoesNotExist:
-#         return render(request, 'movie_not_found.html')
-#     if movie:
-#         print(movie)
-#         return render(request, 'movie.html', {'movie': movie})
-#
-# def search(request, movie_name):
-#     movies_in_db = Movie.objects.all()
-#     movie_list
-#     for movie in movies_in_db:
-#         if movie.name == movie_name:
-#
-#
-#     return render(request, 'movie.html', )
+
+
 def is_valid_email(email):
     pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
     return bool(re.match(pattern, email))
@@ -272,123 +256,26 @@ def addMovieData():
             MovieToLanguage.objects.create(movie=movie, language=language)
         print(f"{movie_name} added successfully!")
 
-# Example usage (assuming you have a file named 'movies_data.json')
-# addMovieData()
-# def addMovieData():
-#     with open('movies_data.json', 'r') as file:
-#         data = json.load(file)
-#         for movie in data:
-#             for entity in data[movie]:
-#                 if entity == "Response" and data[movie][entity] == "False":
-#                     print(f"couldn't find the {movie} in json")
-#                     break
-#                 else:
-#                     if Movie.objects.filter(name=movie).exists():
-#                         print(f"{movie} already exist in db.")
-#                         break
-#                     else:
-#                         movie = Movie(name = data[movie]['Title'],
-#                          description  = data[movie]['Plot']+'\nAwards'+data[movie]['Awards'],
-#                          added_date=timezone.now(),
-#                          released_date = data[movie]['Released'],
-#                          average_rating = data[movie]['imdbRating'],
-#                          length = data[movie]['Runtime'],
-#                          poster = data[movie]['Poster'],
-#                         )
-#                         genrestring = str(data[movie]['Genre'])
-#                         for g in genre_string.split(","):
-#                             print(g)
-#                             # if not Genre.objects.filter(name=g).exists():
-#                             #     new_genre = Genre(name=genre)
-#                             #     print(f'{g} is new.')
-#                             #     # new_genre.save()
-#                             # else:
-#                             #     print(f'{g} is already present.')
-#                             # gen = Genre.objects.get(name=g)
-#                             # movie.genre_set.add(gen)
-#                         # movie.save()
-#                         print(genre_string, ' ? ', movie.genre_set.all())
-#
-#                         da = [
-#                             data[movie]['Title'],
-#                             data[movie]['Plot']+'\nAwards'+data[movie]['Awards'],
-#                             # timezone.now()
-#                             data[movie]['imdbRating'],
-#                             data[movie]['Released'],
-#                             data[movie]['Runtime'],
-#                             data[movie]['Poster'],
-#                             data[movie]['Genre'],
-#                             data[movie]['Writer'],
-#                             data[movie]['Actors'],
-#                             data[movie]['Director'],
-#                             data[movie]['Language'],
-#                         ]
-#                         # for d in da: 
-#                         #     print(d)
-# addMovieData()
-# def addMovie(request):
-#     if request.method=='POST':
-#         movie_name = request.POST.get('movie_name')
-#         if Movie.objects.filter(name=movie_name).exists():
-#             messages.error(request, 'The movie is already added! add another movie.')
-#             return render(request, 'addMovie.html', {'created': True})
-#         # dic = parse(movie_name) api not working at all + json is unparsable
-#         dic = parse(movie_name)
-#         # print(dic)
-#         dic = {
-#                 'Name':          movie_name,
-#                 'Plot':          request.POST.get('Description'),
-#                 'Genre':         request.POST.get('Genres'),
-#                 }
-#         if dic == None:
-#             messages.error(request, 'couldnt find the movie through api! for it')
-#             print(movie_name)
-#             return render(request, 'addMovie.html')
-#         else:
-#             movie = Movie(name = dic['Name'],
-#                           description  = dic['Plot'],
-#                           added_date=timezone.now(),
-#                           )
-#             print([ dic['Name'], dic['Plot'], timezone.now()])
-#             genre_string = dic['Genre']
-#             for g in genre_string.split(","):
-#                 if not Genre.objects.filter(name=g).exists():
-#                     new_genre = Genre(name=genre)
-#                     print(f'{g} is new.')
-#                     # new_genre.save()
-#                 else:
-#                     print(f'{g} is already present.')
-#                 gen = Genre.objects.get(name=g)
-#                 movie.genre_set.add(gen)
-#             # movie.save()
-#             print(genre_string, ' ? ', movie.genre_set.all())
-#             messages.success(request, movie_name+' was successfully added!.')
-#             return render(request, 'addMovie.html')
-#     return render(request, 'addMovie.html')
+def search(request):
+    if request.method=='POST':
+        query=request.POST.get('query')
+        genres=request.POST.get('genres')
+        writers=request.POST.get('writers')
+        languages=request.POST.get('languages')
+        actors=request.POST.get('actors')
+        directors=request.POST.get('directors')
+        if not username or not password:
+            messages.error(request, 'Please fill out all the fields.')
+        if user is None:
+            messages.error(request, 'Couldn\'t find your account!')
+    for movie in movies_in_db:
+        if movie.name == movie_name:
+            return render(request, 'movie.html', )
 
-
-
-# def parse(movie_name):
-#     '''returns Title, Plot, imdbRating, Actors,
-#     Genre, Director, Runtime, Language, Writer'''
-#     url = "http://www.omdbapi.com/"
-#     api_key = "dfc1ebee"
-#     response = requests.get(url, params={
-#         "apikey": api_key,
-#         "t": movie_name
-#         })
-#     if response.status_code == 200:
-#         return json.loads(response.json())    
-#     else:
-#         api_key = "1b40d701"
-#         response = requests.get(url, params={
-#             "apikey": api_key,
-#             "t": movie_name
-#             })
-#         if response.status_code == 200:
-#             return json.loads(response.json())    
-#         else:
-#             return None
+    else:
+        movies_in_db = Movie.objects.all()
+    return render(request, 'search.html', {'movies_in_db':movies_in_db
+                                          })
 
 def ticket(request):
     return render(request, 'ticket.html')
