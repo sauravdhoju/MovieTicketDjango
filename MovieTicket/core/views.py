@@ -8,6 +8,7 @@ import requests, json
 from . models import Movie, Genre, MovieToGenre, Actor, MovieToActor, Writer, MovieToWriter, Director, MovieToDirector, Language, MovieToLanguage, MovieSchedule
 from django.contrib import messages
 import re
+from fuzzywuzzy import fuzz, process
 
 class moviex():
     def __init__(self, movie_name):
@@ -258,20 +259,26 @@ def addMovieData():
 
 def search(request):
     movies = Movie.objects.all()
+    movie_names = list(set([m.name for m in movies]))
     if request.method=='POST':
-        query          = request.GET.getlist('query')
-        genres         = request.GET.getlist('genres')
-        writers        = request.GET.getlist('writers')
-        languages      = request.GET.getlist('languages')
-        actors         = request.GET.getlist('actors')
-        directors      = request.GET.getlist('directors')
-        if movie.name == movie_name:
-            return render(request, 'movie.html' )
-    else:
-        movie_names = list(set([m.name for m in movies]))
-        print(movie_names)
+        query          = request.POST.get('query')
+        if not query:
+            return render(request, 'search.html', {'searchResult' :  retriveMovieListObj(movie_names)})
+
+        # print(movie_names)
+        # print(query)
+        # print(movie_names)
+        # genres         = request.GET.getlist('genres')
+        # writers        = request.GET.getlist('writers')
+        # languages      = request.GET.getlist('languages')
+        # actors         = request.GET.getlist('actors')
+        # directors      = request.GET.getlist('directors')
+        results = process.extract(query, movie_names, scorer=fuzz.partial_ratio, limit=None)
+        sortedL = sorted(results, key=lambda x: x[1], reverse=True)
+        movie_names = [result[0] for result in sortedL]
+        # print(movie_names)
         return render(request, 'search.html', {'searchResult' :  retriveMovieListObj(movie_names)})
-    return render(request, 'search.html', {'searchResult' : movies })
+    return render(request, 'search.html', {'searchResult' :  retriveMovieListObj(movie_names)})
 
 def addSchedule(request, movie_id):
     movie =  Movie.objects.get(pk=movie_id)
