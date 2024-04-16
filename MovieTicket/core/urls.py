@@ -7,5 +7,5 @@ urlpatterns = [
     path('login/',  views.log_in, name = 'login'),
     path('logout/', views.log_out, name='logout'),
     path('movie/<int:movie_id>/', views.moviePage, name='moviepage'),
-    path('movie/<int:movie_id>/booking/', views.bookMoviePage, name='book'),
+    path('booking/<int:movie_id>/', views.bookMoviePage, name='book'),
 ]
