@@ -252,7 +252,7 @@
         <div class="tickets">
             <div class="ticket-selector" id="ticketSelector"> <!-- Added id -->
                 <div class="title" id="movieTitle">
-                    <!-- Dynamic movie title will be inserted here -->
+                    {{movie.name}}
                 </div>
                 <div class="seats">
                     <!-- Dynamic seat selection based on movie details -->
@@ -286,7 +286,6 @@
         // JavaScript code
         // Movie details object
         let movieDetails = {
-            title: "Pathhan",
             dates: [],
             times: [],
             seats: []
@@ -301,7 +300,6 @@
         function addTime(time) {
             movieDetails.times.push(time);
         }
-
         // Function to add a new seat
         function addSeat(seatNumber, isPremium) {
             movieDetails.seats.push({ seatNumber, isPremium });
@@ -333,8 +331,6 @@
 
         // Function to dynamically populate movie details
         function populateMovieDetails() {
-            document.getElementById('movieTitle').textContent = movieDetails.title;
-
             const seatSelection = document.getElementById('seatSelection');
             const timings = document.getElementById('timings');
 
