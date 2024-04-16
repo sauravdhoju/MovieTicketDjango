@@ -4,8 +4,8 @@ TODO:
 - [x] make login/ register form work
 - [x] create specific movie page with url pattern /movie-id/
 - [ ] create admin dashboard for editing and selecting homepage movies
-- [ ] create admin dashboard for editing hall, movie_schedule
-- [ ] create search, that supports filtering with name, genre, actors, language, director
+- [x] create admin dashboard for editing hall, movie_schedule
+- [x] create search, that supports filtering with name, genre, actors, language, director
 - [ ] create dynaimc ticket booking system
 - [x] add movies through json
 
