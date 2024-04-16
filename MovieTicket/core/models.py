@@ -15,8 +15,8 @@ class Movie(models.Model):
 class MovieSchedule(models.Model):
     def __str__(self):
         return self.name+' at '+ str(self.schedule_date )
-    movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
     schedule_date= models.DateTimeField()
+    movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
 
 class MovieToGenre(models.Model):
     movie  = models.CharField(max_length=255)
@@ -52,7 +52,6 @@ class Language(models.Model):
 class Hall(models.Model):
     title = models.CharField(max_length=40)
     location = models.CharField(max_length=255)
-    created_at = models.DateTimeField()
     seats_count = models.PositiveIntegerField()
 
 class MovieUserRating(models.Model):
