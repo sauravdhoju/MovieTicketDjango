@@ -748,31 +748,29 @@
     </head>
     <body>
         {% include 'navbar.html' %}
+
+
         <section>
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        {% for mg in swipierMovieGenre%}
+                        {% for m in swipierMovieGenre%}
                         <div class="swiper-slide">
-                            <div class="image">
+                            <div class="image" onclick="window.location.href='{% url 'moviepage' m.movie.id %}'">
                                 <div class="black">
-                                    <h1>{{mg.movie.name}}</h1>
+                                    <h1>{{m.movie.name}}</h1>
                                     <div class="star">
-                                        <span>{{mg.movie.average_rating}}</span>
+                                        <span>{{m.movie.average_rating}}</span>
                                         <i class="fa-solid fa-star"></i>
-                                        <span>{{mg.movie.length}}</span>
+                                        <span>{{m.movie.length}}</span>
                                     </div>
-                                    <p> {{mg.movie.description}} </p>
+                                    <p> {{m.movie.description}} </p>
                                     <div class="genre">
-                                        {%for g in mg.genres%}
+                                        {%for g in m.genres%}
                                         <a class="category">{{g.genre}}</a>
                                         {%endfor%}
                                     </div>
-                                    <div class="watch">
-                                        <i class="fa-solid fa-play"></i>
-                                        <p>watch the trailer</p>
-                                    </div>
                                 </div>
-                                <img src="{{mg.movie.poster}}" alt="{{mg.movie.name}}">
+                                <img src="{{m.movie.poster}}" alt="{{mg.movie.name}}">
                             </div>
                         </div>
                         {%endfor%}
@@ -789,37 +787,35 @@
             <div class="latest">
                 <h1>Popular Movies</h1>
                 <div class="box">
+                    {% for m in s1movies %}
                     <div class="card">
-                        <div class="details">
+                        <div class="details" onclick="window.location.href='{% url 'moviepage' m.movie.id %}'">
                             <div class="left">
-                                <p class="name">Gajaman</p>
+                                <p class="name">{{m.movie.name}}</p>
                                 <div class="date_quality">
-                                    <p class="quality">HD</p>
-                                    <p class="date">2023</p>
+                                    <!-- <p class="quality">HD</p> -->
+                                    <!-- <p class="date">2023</p> -->
                                 </div>
-                                <p class="category">Animation/Comedy</p>
+                                <p class="category">
+                                {% for g in m.genres %}
+                                    {{g.genre}}
+                                {% endfor %}
+                                </p>
                                 <div class="info">
                                     <div class="rate">
                                         <i class="fa-solid fa-star"></i>
-                                        <p>9.2</p>
+                                        <p>{{m.movie.average_rating}}</p>
                                     </div>
                                     <div class="time">
                                         <i class="fa-regular fa-clock"></i>
-                                        <p>{{movie.length}}</p>
+                                        <p>{{m.movie.length}}</p>
                                     </div>
                                 </div>
-
                             </div>
-
-                            <div class="right">
-
-                                <i class="fa-solid fa-play"></i>
-
-                            </div>
-
                         </div>
-                        <img src="{% static 'gajaman.jpg' %}">
+                        <img src="{{m.movie.poster}}" alt="{{m.movie.name}}">
                     </div>
+                    {% endfor %}
                 </div>
 
             </div>
@@ -831,435 +827,74 @@
 
 
         <div class="upcoming">
-
             <div class="movies_box">
-
                 <h1>Upcoming Movies</h1>
-
                 <div class="box">
-
+                    {% for m in s2movies %}
                     <div class="card">
-
-                        <div class="details">
-
+                        <div class="details" onclick="window.location.href='{% url 'moviepage' m.movie.id %}'">
                             <div class="left">
-
-                                <p class="name">Plane</p>
-                                <div class="date_quality">
-                                    <p class="quality">HD</p>
-                                    <p class="date">2023</p>
-                                </div>
-                                <p class="category">Action/Thriller</p>
-
+                                <p class="name">{{m.movie.name}}</p>
+                                <p class="category">
+                                {% for g in m.genres %}
+                                    {{g.genre}}
+                                {% endfor %}
+                                </p>
                                 <div class="info">
-
+                                    <div class="rate">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>{{m.movie.average_rating}}</p>
+                                    </div>
                                     <div class="time">
                                         <i class="fa-regular fa-clock"></i>
-                                        <p>120min</p>
+                                        <p>{{m.movie.length}}</p>
                                     </div>
-
                                 </div>
-
                             </div>
-
-                            <div class="right">
-
-                                <i class="fa-solid fa-play"></i>
-
-                            </div>
-
                         </div>
-
-                        <img src="{% static 'plane.jpg' %}">
-
+                        <img src="{{m.movie.poster}}" alt="{{m.movie.name}}">
                     </div>
-
-                    <div class="card">
-
-                        <div class="details">
-
-                            <div class="left">
-
-                                <p class="name">John Wick: Chapter 4</p>
-                                <div class="date_quality">
-                                    <p class="quality">HD</p>
-                                    <p class="date">2023</p>
-                                </div>
-                                <p class="category">Action/Neo-noir</p>
-
-                                <div class="info">
-
-                                    <div class="time">
-                                        <i class="fa-regular fa-clock"></i>
-                                        <p>120min</p>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="right">
-
-                                <i class="fa-solid fa-play"></i>
-
-                            </div>
-
-                        </div>
-
-                        <img src="{% static 'john_wick.jpg' %}">
-
-                    </div>
-
-                    <div class="card">
-
-                        <div class="details">
-
-                            <div class="left">
-
-                                <p class="name">Meg 2: The Trench</p>
-                                <div class="date_quality">
-                                    <p class="quality">HD</p>
-                                    <p class="date">2023</p>
-                                </div>
-                                <p class="category">Adventure</p>
-
-                                <div class="info">
-
-                                    <div class="time">
-                                        <i class="fa-regular fa-clock"></i>
-                                        <p>120min</p>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="right">
-
-                                <i class="fa-solid fa-play"></i>
-
-                            </div>
-
-                        </div>
-
-                        <img src="{% static 'meg.jpg' %}">
-
-                    </div>
-
-                    <div class="card">
-
-                        <div class="details">
-
-                            <div class="left">
-
-                                <p class="name">Aquaman and the Lost Kingdom</p>
-                                <div class="date_quality">
-                                    <p class="quality">HD</p>
-                                    <p class="date">2023</p>
-                                </div>
-                                <p class="category">Action/Fantasy</p>
-
-                                <div class="info">
-
-                                    <div class="time">
-                                        <i class="fa-regular fa-clock"></i>
-                                        <p>120min</p>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="right">
-
-                                <i class="fa-solid fa-play"></i>
-
-                            </div>
-
-                        </div>
-
-                        <img src="{% static 'aquaman.jpg' %}">
-
-                    </div>
-
-                    <div class="card">
-
-                        <div class="details">
-
-                            <div class="left">
-
-                                <p class="name">Ant-Man and the Wasp: Quantumania</p>
-                                <div class="date_quality">
-                                    <p class="quality">HD</p>
-                                    <p class="date">2023</p>
-                                </div>
-                                <p class="category">Action/Adventure</p>
-
-                                <div class="info">
-
-                                    <div class="time">
-                                        <i class="fa-regular fa-clock"></i>
-                                        <p>120min</p>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="right">
-
-                                <i class="fa-solid fa-play"></i>
-
-                            </div>
-
-                        </div>
-
-                        <img src="{% static 'ant_man.jpg' %}">
-
-                    </div>
-
+                    {% endfor %}
                 </div>
-
             </div>
-
         </div>
-
-
-
 
 
 
         <div class="show">
-
             <div class="tv_show">
-
                 <h1>World Best TV Show</h1>       
-
                 <div class="box">
-
+                    {% for m in s3movies %}
                     <div class="card">
-
-                        <div class="details">
-
+                        <div class="details" onclick="window.location.href='{% url 'moviepage' m.movie.id %}'">
                             <div class="left">
-
-                                <p class="name">Money Heist</p>
-                                <div class="date_quality">
-                                    <p class="quality">HD</p>
-                                    <p class="date">2017</p>
-                                </div>
-                                <p class="category">Thriller</p>
-
+                                <p class="name">{{m.movie.name}}</p>
+                                <p class="category">
+                                {% for g in m.genres %}
+                                    {{g.genre}}
+                                {% endfor %}
+                                </p>
                                 <div class="info">
-
                                     <div class="rate">
                                         <i class="fa-solid fa-star"></i>
-                                        <p>8.2</p>
+                                        <p>{{m.movie.average_rating}}</p>
                                     </div>
                                     <div class="time">
                                         <i class="fa-regular fa-clock"></i>
-                                        <p>120min</p>
+                                        <p>{{m.movie.length}}</p>
                                     </div>
-
                                 </div>
-
                             </div>
-
-                            <div class="right">
-
-                                <i class="fa-solid fa-play"></i>
-
-                            </div>
-
                         </div>
-
-                        <img src="{% static '/money_heist.jpg' %}">
-
+                        <img src="{{m.movie.poster}}" alt="{{m.movie.name}}">
                     </div>
-
-                    <div class="card">
-
-                        <div class="details">
-
-                            <div class="left">
-
-                                <p class="name">Wednseday</p>
-                                <div class="date_quality">
-                                    <p class="quality">HD</p>
-                                    <p class="date">2022</p>
-                                </div>
-                                <p class="category">Comedy</p>
-
-                                <div class="info">
-
-                                    <div class="rate">
-                                        <i class="fa-solid fa-star"></i>
-                                        <p>8.2</p>
-                                    </div>
-                                    <div class="time">
-                                        <i class="fa-regular fa-clock"></i>
-                                        <p>120min</p>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="right">
-
-                                <i class="fa-solid fa-play"></i>
-
-                            </div>
-
-                        </div>
-                        <img src="{% static 'wednesday.jpg' %}" alt="wednesday">
-
-                    </div>
-
-                    <div class="card">
-
-                        <div class="details">
-
-                            <div class="left">
-
-                                <p class="name">1899</p>
-                                <div class="date_quality">
-                                    <p class="quality">HD</p>
-                                    <p class="date">2022</p>
-                                </div>
-                                <p class="category">Mystery</p>
-
-                                <div class="info">
-
-                                    <div class="rate">
-                                        <i class="fa-solid fa-star"></i>
-                                        <p>7.4</p>
-                                    </div>
-                                    <div class="time">
-                                        <i class="fa-regular fa-clock"></i>
-                                        <p>120min</p>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="right">
-
-                                <i class="fa-solid fa-play"></i>
-
-                            </div>
-
-                        </div>
-
-                        <img src="{% static '1899.jpg' %}">
-
-                    </div>
-
-                    <div class="card">
-
-                        <div class="details">
-
-                            <div class="left">
-
-                                <p class="name">Game of Thrones</p>
-                                <div class="date_quality">
-                                    <p class="quality">HD</p>
-                                    <p class="date">2011</p>
-                                </div>
-                                <p class="category">Drama</p>
-
-                                <div class="info">
-
-                                    <div class="rate">
-                                        <i class="fa-solid fa-star"></i>
-                                        <p>9.2</p>
-                                    </div>
-                                    <div class="time">
-                                        <i class="fa-regular fa-clock"></i>
-                                        <p>120min</p>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="right">
-
-                                <i class="fa-solid fa-play"></i>
-
-                            </div>
-
-                        </div>
-
-                        <img src="{% static 'game_of_thrones.jpg' %}">
-
-                    </div>
-
-                    <div class="card">
-
-                        <div class="details">
-
-                            <div class="left">
-
-                                <p class="name">Arrow</p>
-                                <div class="date_quality">
-                                    <p class="quality">HD</p>
-                                    <p class="date">2012</p>
-                                </div>
-                                <p class="category">Drama</p>
-
-                                <div class="info">
-
-                                    <div class="rate">
-                                        <i class="fa-solid fa-star"></i>
-                                        <p>7.5</p>
-                                    </div>
-                                    <div class="time">
-                                        <i class="fa-regular fa-clock"></i>
-                                        <p>120min</p>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="right">
-
-                                <i class="fa-solid fa-play"></i>
-
-                            </div>
-
-                        </div>
-
-                        <img src="{% static 'arrow.jpg' %}">
-
-                    </div>
-
-
-
+                    {% endfor %}
                 </div>
-
             </div>
-
         </div>
 
-        <div class="newsletter">
-
-            <h1>Newsletter</h1>
-
-            <div class="news_card">
-
-                <input type="email" name="" id="" placeholder="Enter your email">
-                <button type="submit">Subscribe</button>
-
-            </div>
-
-        </div>
-
-
-        <p class="end">Design By<span><i class="fa-solid fa-face-grin"></i>Anish-Kiran-Roj-Saurav</span></p>
-
+        <p class="end">Design By<span> AKRS</span></p>
 
         <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
