@@ -14,6 +14,33 @@ def home(request):
     addMovieData()
     return render(request, 'home.html')
 
+@login_required(login_url = 'login')
+def moviePage(request, movie_id):
+    if Movie.objects.filter(id=movie_id).exists():
+        movie = Movie.objects.get(pk=movie_id)
+        # actors = movie.actors.all()
+        # directors = movie.directors.all()
+        movie_actor_ids = [m2a.actor_id for m2a in MovieToActor.objects.filter(movie=movie_id)]
+        actors = []
+        for act_id in movie_actor_ids:
+            actor = Actor.objects.filter(pk=act_id)
+            actors.append(actor)
+
+        movie_director_ids = [m2d.director_id for m2a in MovieToDirector.objects.filter(movie=movie_id)]
+        print(movie_director_ids)
+        directors = []
+        for dire_id in movie_director_ids:
+            director = Director.objects.filter(pk=act_id)
+            directors.append(director)
+        # print(actors, directors)
+        return render(request, 'specific_movie.html', {
+            'movie': movie, 
+            'actors': actors,
+            'directors': directors,
+                                                       })
+    else:
+        return render(request, 'page_not_found.html')
+
 # @login_required(login_url = 'loginSignup')
 # def movie(request, movie_id):
 #     try:
@@ -144,9 +171,8 @@ def addMovieData():
                 genres_to_create.append(Genre(name=genre_name))
                 print(f'{genre_name} added')
         Genre.objects.bulk_create(genres_to_create)
-        # Associate genres with movie using MovieToGenre (avoid unnecessary save)
         for genre in Genre.objects.filter(name__in=[g.name for g in genres_to_create]):
-            MovieToGenre.objects.create(movie=movie, genre=genre)
+            MovieToGenre.objects.create(movie=movie.name, genre=genre.name)
 
         actor_string = movie_data['Actors']
         actors_to_create = []  # List for bulk creation
@@ -156,9 +182,8 @@ def addMovieData():
                 actors_to_create.append(Actor(name=actor_name))
                 print(f'{actor_name} added')
         Actor.objects.bulk_create(actors_to_create)
-        # Associate actors with movie using MovieToactor (avoid unnecessary save)
         for actor in Actor.objects.filter(name__in=[g.name for g in actors_to_create]):
-            MovieToActor.objects.create(movie=movie, actor=actor)
+            MovieToActor.objects.create(movie=movie.name, actor=actor.name)
 
         writer_string = movie_data['Writer']
         writers_to_create = []  # List for bulk creation
@@ -168,9 +193,8 @@ def addMovieData():
                 writers_to_create.append(Writer(name=writer_name))
                 print(f'{writer_name} added')
         Writer.objects.bulk_create(writers_to_create)
-        # Associate writers with movie using MovieToWriter (avoid unnecessary save)
         for writer in Writer.objects.filter(name__in=[g.name for g in writers_to_create]):
-            MovieToWriter.objects.create(movie=movie, writer=writer)
+            MovieToWriter.objects.create(movie=movie.name, writer=writer.name)
 
         director_string = movie_data['Director']
         directors_to_create = []  # List for bulk creation
@@ -180,9 +204,8 @@ def addMovieData():
                 directors_to_create.append(Director(name=director_name))
                 print(f'{director_name} added')
         Director.objects.bulk_create(directors_to_create)
-        # Associate directors with movie using MovieToDirector (avoid unnecessary save)
         for director in Director.objects.filter(name__in=[g.name for g in directors_to_create]):
-            MovieToDirector.objects.create(movie=movie, director=director)
+            MovieToDirector.objects.create(movie=movie.name, director=director.name)
         print(f"{movie_name} added successfully!")
 
         language_string = movie_data['Language']
