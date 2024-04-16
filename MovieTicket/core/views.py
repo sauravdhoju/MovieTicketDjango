@@ -20,8 +20,9 @@ def moviePage(request, movie_id):
         movie = Movie.objects.get(pk=movie_id)
         actors = MovieToActor.objects.filter(movie=movie.name)
         directors = MovieToDirector.objects.filter(movie=movie.name)
-        print(actors)
-        print(directors)
+        print(movie.poster)
+        # print(actors)
+        # print(directors)
         return render(request, 'specific_movie.html', {
             'movie': movie, 
             'actors': actors,
@@ -30,6 +31,22 @@ def moviePage(request, movie_id):
     else:
         return render(request, 'page_not_found.html')
 
+
+@login_required(login_url = 'login')
+def bookMoviePage(request, movie_id):
+    if Movie.objects.filter(id=movie_id).exists():
+        movie = Movie.objects.get(pk=movie_id)
+        actors = MovieToActor.objects.filter(movie=movie.name)
+        directors = MovieToDirector.objects.filter(movie=movie.name)
+        print(actors)
+        print(directors)
+        return render(request, 'book.html', {
+            'movie': movie, 
+            'actors': actors,
+            'directors': directors,
+                                                       })
+    else:
+        return render(request, 'page_not_found.html')
 # @login_required(login_url = 'loginSignup')
 # def movie(request, movie_id):
 #     try:
