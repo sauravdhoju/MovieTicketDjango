@@ -46,7 +46,7 @@ class Language(models.Model):
 class MovieSchedule(models.Model):
     movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
     schedule_date= models.DateTimeField()
-    location = models.CharField(max_length=255, default="")
+    location = models.TextField()
     seat_count = models.PositiveIntegerField()
 
 class MovieUserRating(models.Model):
