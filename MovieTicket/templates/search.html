@@ -265,12 +265,13 @@ body, input {
                 <button class="reset-button" id="reset-filters">Reset Filters</button>
             </div>
         </header>
+
         <main id="movie-container">
             {% for m in searchResult %}
             <div class="movie-card">
                 <img src="{{m.movie.poster}}" alt="{{mg.movie.name}}">
                 <div class="movie-details">
-                    <h2>Avengers: Infinity War</h2>
+                    <h2>{{m.movie.name}}</h2>
                     <p>
                     Genres: 
                         {%for g in m.genres%}
@@ -278,11 +279,25 @@ body, input {
                         {%endfor%}
                     </p>
                     <p>Language: 
-                        {%for l in m.language%}
+                        {%for l in m.languages%}
                             {{l.language}}, 
                         {%endfor%}
                     </p>
-                    <p>Director: Anthony Russo, Joe Russo</p>
+                    <p>Director:
+                        {%for d in m.directors%}
+                            {{d.director}}, 
+                        {%endfor%}
+                    </p>
+                    <p>Writer:
+                        {%for w in m.writers%}
+                            {{w.writer}}, 
+                        {%endfor%}
+                    </p>
+                    <p>Actors:
+                        {%for a in m.actors%}
+                            {{a.actor}}, 
+                        {%endfor%}
+                    </p>
                     <div class="ratings">
                         <span>IMDb: {{m.movie.average_rating}}</span>
                     </div>
@@ -292,8 +307,8 @@ body, input {
             {% endfor %}
         </main>
 
+
         <script>
-            // Function to toggle filter panel visibility
             const showFiltersButton = document.getElementById('show-filters');
             const filterPanel = document.getElementById('filters');
             const resetFiltersButton = document.getElementById('reset-filters');
