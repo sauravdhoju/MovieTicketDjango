@@ -19,23 +19,33 @@ class moviex():
         self.directors  = MovieToDirector.objects.filter(movie=movie_name)
         self.languages  = MovieToLanguage.objects.filter(movie=movie_name)
 
-class moviexPair():
-    def __init__(self, movie, genres):
-        self.movie = movie
-        self.genres = genres
-def home(request):
-    addMovieData()
-    swiperMovies = [ "Spider-Man: No Way Home",
-                    "Doctor Strange in the Multiverse of Madness",
-                    "Dog",
-                    ]
+def retriveMovieListObj(movieList):
     movies = []
-    for m in swiperMovies:
+    for m in movieList:
         movie = moviex(m)
         movies.append(movie)
+    return movies
 
-    return render(request, 'home.html', {'swipierMovieGenre': movies,
-                                         # 'popularMovieGenre': list
+def home(request):
+    addMovieData()
+    return render(request, 'home.html', {'swipierMovieGenre': retriveMovieListObj([ "Spider-Man: No Way Home",
+                                                            "Doctor Strange in the Multiverse of Madness",
+                                                            "Dog",]),
+                                          's1movies': retriveMovieListObj([ "Dune",
+                                                                            "Eternals",
+                                                                            "The Matrix Resurrections",
+                                                                            "Uncharted",
+                                                                            "Ambulance", ]),
+                                          's2movies': retriveMovieListObj([ "The Lost City",
+                                                                            "Morbius",
+                                                                            "Marry Me",
+                                                                            "Old",
+                                                                            "Free Guy", ]),
+                                          's3movies': retriveMovieListObj([ "The Night House",
+                                                                            "In the Heights",
+                                                                            "Queen Bees",
+                                                                            "Luca",
+                                                                            "No Sudden Move", ]),
                                          })
 
 @login_required(login_url = 'login')
