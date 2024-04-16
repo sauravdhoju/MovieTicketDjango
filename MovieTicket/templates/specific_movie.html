@@ -237,14 +237,14 @@ nav a.button:hover {
                         <div class="movie-info">
                             <h3>Directed by</h3>
                             <p id="movie-director">Director:
-                                {%for a in Directors%}
-                                    {{a.name}},
+                                {%for a in directors%}
+                                    {{a.director}},
                                 {%endfor%}
                             </p>
                             <h3>Starring</h3>
                             <p id="movie-cast">Actors: 
                             {%for a in actors%}
-                                {{a.name}},
+                                {{a.actor}},
                             {%endfor%}
                             </p>
                         </div>

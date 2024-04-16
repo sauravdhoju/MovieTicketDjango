@@ -18,21 +18,10 @@ def home(request):
 def moviePage(request, movie_id):
     if Movie.objects.filter(id=movie_id).exists():
         movie = Movie.objects.get(pk=movie_id)
-        # actors = movie.actors.all()
-        # directors = movie.directors.all()
-        movie_actor_ids = [m2a.actor_id for m2a in MovieToActor.objects.filter(movie=movie_id)]
-        actors = []
-        for act_id in movie_actor_ids:
-            actor = Actor.objects.filter(pk=act_id)
-            actors.append(actor)
-
-        movie_director_ids = [m2d.director_id for m2a in MovieToDirector.objects.filter(movie=movie_id)]
-        print(movie_director_ids)
-        directors = []
-        for dire_id in movie_director_ids:
-            director = Director.objects.filter(pk=act_id)
-            directors.append(director)
-        # print(actors, directors)
+        actors = MovieToActor.objects.filter(movie=movie.name)
+        directors = MovieToDirector.objects.filter(movie=movie.name)
+        print(actors)
+        print(directors)
         return render(request, 'specific_movie.html', {
             'movie': movie, 
             'actors': actors,
