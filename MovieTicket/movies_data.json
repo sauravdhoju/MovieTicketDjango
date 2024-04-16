@@ -1674,5 +1674,1869 @@
         "Production": "N/A",
         "Website": "N/A",
         "Response": "True"
+    },
+    "The Green Knight": {
+        "Title": "The Green Knight",
+        "Year": "2021",
+        "Rated": "R",
+        "Released": "30 Jul 2021",
+        "Runtime": "130 min",
+        "Genre": "Adventure, Drama, Fantasy",
+        "Director": "David Lowery",
+        "Writer": "David Lowery, The Gawain Poet",
+        "Actors": "Dev Patel, Alicia Vikander, Joel Edgerton",
+        "Plot": "A fantasy retelling of the medieval story of Sir Gawain and the Green Knight.",
+        "Language": "Latin, English",
+        "Country": "United States, Canada, Ireland",
+        "Awards": "22 wins & 121 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMjMxNTdiNWMtOWY0My00MjM4LTkwNzMtOGI0YThhN2Q4M2I4XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.6/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "89%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "85/100"
+            }
+        ],
+        "Metascore": "85",
+        "imdbRating": "6.6",
+        "imdbVotes": "116,217",
+        "imdbID": "tt9243804",
+        "Type": "movie",
+        "DVD": "19 Aug 2021",
+        "BoxOffice": "$17,173,321",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Death on the Nile": {
+        "Title": "Death on the Nile",
+        "Year": "2022",
+        "Rated": "PG-13",
+        "Released": "11 Feb 2022",
+        "Runtime": "127 min",
+        "Genre": "Crime, Drama, Mystery",
+        "Director": "Kenneth Branagh",
+        "Writer": "Michael Green, Agatha Christie",
+        "Actors": "Tom Bateman, Annette Bening, Kenneth Branagh",
+        "Plot": "While on vacation on the Nile, Hercule Poirot must investigate the murder of a young heiress.",
+        "Language": "English, French, German",
+        "Country": "United States, United Kingdom",
+        "Awards": "1 win & 8 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNjI4ZTQ1OTYtNTI0Yi00M2EyLThiNjMtMzk1MmZlOWMyMDQwXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.3/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "61%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "52/100"
+            }
+        ],
+        "Metascore": "52",
+        "imdbRating": "6.3",
+        "imdbVotes": "187,750",
+        "imdbID": "tt7657566",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$45,630,104",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Old": {
+        "Title": "Old",
+        "Year": "2021",
+        "Rated": "PG-13",
+        "Released": "23 Jul 2021",
+        "Runtime": "108 min",
+        "Genre": "Drama, Horror, Mystery",
+        "Director": "M. Night Shyamalan",
+        "Writer": "M. Night Shyamalan, Pierre-Oscar L\u00e9vy, Frederik Peeters",
+        "Actors": "Gael Garc\u00eda Bernal, Vicky Krieps, Rufus Sewell",
+        "Plot": "A vacationing family discovers that the secluded beach where they're relaxing for a few hours is somehow causing them to age rapidly, reducing their entire lives into a single day.",
+        "Language": "English",
+        "Country": "United States, Japan, China",
+        "Awards": "1 win & 7 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMjJjZGRhM2YtNTU4NC00OWMwLThhYWUtMWUxNDNhMDZlOTNmXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "5.8/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "50%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "55/100"
+            }
+        ],
+        "Metascore": "55",
+        "imdbRating": "5.8",
+        "imdbVotes": "159,007",
+        "imdbID": "tt10954652",
+        "Type": "movie",
+        "DVD": "04 Oct 2021",
+        "BoxOffice": "$48,276,510",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "The Tomorrow War": {
+        "Title": "The Tomorrow War",
+        "Year": "2021",
+        "Rated": "PG-13",
+        "Released": "02 Jul 2021",
+        "Runtime": "138 min",
+        "Genre": "Action, Adventure, Drama",
+        "Director": "Chris McKay",
+        "Writer": "Zach Dean",
+        "Actors": "Chris Pratt, Yvonne Strahovski, J.K. Simmons",
+        "Plot": "A family man is drafted to fight in a future war where the fate of humanity relies on his ability to confront the past.",
+        "Language": "English",
+        "Country": "United States",
+        "Awards": "8 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNTI2YTI0MWEtNGQ4OS00ODIzLWE1MWEtZGJiN2E3ZmM1OWI1XkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.6/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "52%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "45/100"
+            }
+        ],
+        "Metascore": "45",
+        "imdbRating": "6.6",
+        "imdbVotes": "226,601",
+        "imdbID": "tt9777666",
+        "Type": "movie",
+        "DVD": "02 Jul 2021",
+        "BoxOffice": "N/A",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Free Guy": {
+        "Title": "Free Guy",
+        "Year": "2021",
+        "Rated": "PG-13",
+        "Released": "13 Aug 2021",
+        "Runtime": "115 min",
+        "Genre": "Action, Adventure, Comedy",
+        "Director": "Shawn Levy",
+        "Writer": "Matt Lieberman, Zak Penn",
+        "Actors": "Ryan Reynolds, Jodie Comer, Taika Waititi",
+        "Plot": "When Guy, a bank teller, learns that he is a non-player character in a bloodthirsty, open-world video game, he goes on to become the hero of the story and takes the responsibility of saving the world.",
+        "Language": "English, Japanese, German",
+        "Country": "United States, Canada",
+        "Awards": "Nominated for 1 Oscar. 5 wins & 29 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BOTY2NzFjODctOWUzMC00MGZhLTlhNjMtM2Y2ODBiNGY1ZWRiXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.1/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "80%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "62/100"
+            }
+        ],
+        "Metascore": "62",
+        "imdbRating": "7.1",
+        "imdbVotes": "422,935",
+        "imdbID": "tt6264654",
+        "Type": "movie",
+        "DVD": "27 Sep 2021",
+        "BoxOffice": "$121,626,598",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "The Hitman's Wife's Bodyguard": {
+        "Response": "False",
+        "Error": "Movie not found!"
+    },
+    "The Conjuring: The Devil Made Me Do It": {
+        "Title": "The Conjuring: The Devil Made Me Do It",
+        "Year": "2021",
+        "Rated": "R",
+        "Released": "04 Jun 2021",
+        "Runtime": "112 min",
+        "Genre": "Horror, Mystery, Thriller",
+        "Director": "Michael Chaves",
+        "Writer": "David Leslie Johnson-McGoldrick, James Wan, Chad Hayes",
+        "Actors": "Patrick Wilson, Vera Farmiga, Ruairi O'Connor",
+        "Plot": "Arne Cheyenne Johnson stabs and murders his landlord, claiming to be under demonic possession while Ed and Lorraine Warren investigate the case and try to prove his innocence.",
+        "Language": "English, Latin",
+        "Country": "United States",
+        "Awards": "N/A",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BOWRkOTYzZTQtMzQwNi00NDYwLTk4NjUtN2FjYTI4Y2UzM2RjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.3/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "55%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "53/100"
+            }
+        ],
+        "Metascore": "53",
+        "imdbRating": "6.3",
+        "imdbVotes": "137,599",
+        "imdbID": "tt7069210",
+        "Type": "movie",
+        "DVD": "04 Jun 2021",
+        "BoxOffice": "$65,631,050",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Jungle Cruise": {
+        "Title": "Jungle Cruise",
+        "Year": "2021",
+        "Rated": "PG-13",
+        "Released": "30 Jul 2021",
+        "Runtime": "127 min",
+        "Genre": "Action, Adventure, Comedy",
+        "Director": "Jaume Collet-Serra",
+        "Writer": "Michael Green, Glenn Ficarra, John Requa",
+        "Actors": "Dwayne Johnson, Emily Blunt, Edgar Ram\u00edrez",
+        "Plot": "Based on Disneyland's theme park ride where a small riverboat takes a group of travelers through a jungle filled with dangerous animals and reptiles but with a supernatural element.",
+        "Language": "English, German, Spanish, Tupi, Italian, Portuguese, Latin, French",
+        "Country": "United States",
+        "Awards": "5 wins & 9 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNDE1MGRlNTQtZjc4ZC00MTI0LWEwY2MtODk1YTM2NmFmYTNmXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.6/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "63%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "50/100"
+            }
+        ],
+        "Metascore": "50",
+        "imdbRating": "6.6",
+        "imdbVotes": "211,387",
+        "imdbID": "tt0870154",
+        "Type": "movie",
+        "DVD": "31 Aug 2021",
+        "BoxOffice": "$116,987,516",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Snake Eyes": {
+        "Title": "Snake Eyes",
+        "Year": "1998",
+        "Rated": "R",
+        "Released": "07 Aug 1998",
+        "Runtime": "98 min",
+        "Genre": "Crime, Mystery, Thriller",
+        "Director": "Brian De Palma",
+        "Writer": "Brian De Palma, David Koepp",
+        "Actors": "Nicolas Cage, Gary Sinise, John Heard",
+        "Plot": "A shady police detective finds himself in the middle of a murder conspiracy at an important boxing match in an Atlantic City casino.",
+        "Language": "English",
+        "Country": "United States",
+        "Awards": "1 win & 4 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNmZiODkzNWEtNDkxZC00NDg2LWFiYzktZjY2ZmUwMmM2ZmJlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.1/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "43%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "52/100"
+            }
+        ],
+        "Metascore": "52",
+        "imdbRating": "6.1",
+        "imdbVotes": "86,376",
+        "imdbID": "tt0120832",
+        "Type": "movie",
+        "DVD": "15 Jun 2011",
+        "BoxOffice": "$55,591,409",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Candyman": {
+        "Title": "Candyman",
+        "Year": "1992",
+        "Rated": "R",
+        "Released": "16 Oct 1992",
+        "Runtime": "99 min",
+        "Genre": "Horror, Thriller",
+        "Director": "Bernard Rose",
+        "Writer": "Clive Barker, Bernard Rose",
+        "Actors": "Virginia Madsen, Xander Berkeley, Tony Todd",
+        "Plot": "The Candyman, a murderous soul with a hook for a hand, is accidentally summoned to reality by a skeptic grad student researching the monster's myth.",
+        "Language": "English",
+        "Country": "United States, United Kingdom",
+        "Awards": "5 wins & 10 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BYjVjYjhlNTQtN2UxOC00Njk5LWFjNDctODNjZTI1ZGM0ZDZkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.7/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "79%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "61/100"
+            }
+        ],
+        "Metascore": "61",
+        "imdbRating": "6.7",
+        "imdbVotes": "99,783",
+        "imdbID": "tt0103919",
+        "Type": "movie",
+        "DVD": "27 Nov 2013",
+        "BoxOffice": "$25,792,310",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Space Jam: A New Legacy": {
+        "Title": "Space Jam: A New Legacy",
+        "Year": "2021",
+        "Rated": "PG",
+        "Released": "15 Jul 2021",
+        "Runtime": "115 min",
+        "Genre": "Animation, Adventure, Comedy",
+        "Director": "Malcolm D. Lee",
+        "Writer": "Leo Benvenuti, Steve Rudnick, Timothy Harris",
+        "Actors": "LeBron James, Don Cheadle, Cedric Joe",
+        "Plot": "A rogue artificial intelligence kidnaps the son of famed basketball player LeBron James, who then has to work with Bugs Bunny to win a basketball game.",
+        "Language": "English",
+        "Country": "United States",
+        "Awards": "7 wins & 5 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNWMyMDc3ODYtODMwZS00MGVjLWJhY2QtYWI1NDM0Y2RjOTMzXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "4.5/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "25%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "36/100"
+            }
+        ],
+        "Metascore": "36",
+        "imdbRating": "4.5",
+        "imdbVotes": "79,811",
+        "imdbID": "tt3554046",
+        "Type": "movie",
+        "DVD": "16 Jul 2021",
+        "BoxOffice": "$70,592,228",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "A Quiet Place Part II": {
+        "Title": "A Quiet Place Part II",
+        "Year": "2020",
+        "Rated": "PG-13",
+        "Released": "28 May 2021",
+        "Runtime": "97 min",
+        "Genre": "Drama, Horror, Sci-Fi",
+        "Director": "John Krasinski",
+        "Writer": "John Krasinski, Bryan Woods, Scott Beck",
+        "Actors": "Emily Blunt, Millicent Simmonds, Cillian Murphy",
+        "Plot": "Following the events at home, the Abbott family now face the terrors of the outside world. Forced to venture into the unknown, they realize the creatures that hunt by sound are not the only threats lurking beyond the sand path.",
+        "Language": "English, American Sign ",
+        "Country": "United States",
+        "Awards": "Nominated for 1 BAFTA Award14 wins & 44 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTE2ODU4NDEtNmRjNS00OTk1LTg4NmMtNTAzYzVlNzJmYjgzXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.2/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "91%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "71/100"
+            }
+        ],
+        "Metascore": "71",
+        "imdbRating": "7.2",
+        "imdbVotes": "269,775",
+        "imdbID": "tt8332922",
+        "Type": "movie",
+        "DVD": "13 Jul 2021",
+        "BoxOffice": "$160,072,261",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Cruella": {
+        "Title": "Cruella",
+        "Year": "2021",
+        "Rated": "PG-13",
+        "Released": "28 May 2021",
+        "Runtime": "134 min",
+        "Genre": "Adventure, Comedy, Crime",
+        "Director": "Craig Gillespie",
+        "Writer": "Dana Fox, Tony McNamara, Aline Brosh McKenna",
+        "Actors": "Emma Stone, Emma Thompson, Joel Fry",
+        "Plot": "A live-action prequel feature film following a young Cruella de Vil.",
+        "Language": "English, French",
+        "Country": "United States, United Kingdom, Canada, Ireland",
+        "Awards": "Won 1 Oscar. 29 wins & 43 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BOWI5YTUxOWEtZmRiZS00ZmQxLWE2NzctYTRiODA2NzE1ZjczXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.3/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "75%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "59/100"
+            }
+        ],
+        "Metascore": "59",
+        "imdbRating": "7.3",
+        "imdbVotes": "264,118",
+        "imdbID": "tt3228774",
+        "Type": "movie",
+        "DVD": "27 Aug 2021",
+        "BoxOffice": "$86,103,234",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "The Suicide Squad": {
+        "Title": "The Suicide Squad",
+        "Year": "2021",
+        "Rated": "R",
+        "Released": "05 Aug 2021",
+        "Runtime": "132 min",
+        "Genre": "Action, Adventure, Comedy",
+        "Director": "James Gunn",
+        "Writer": "James Gunn",
+        "Actors": "Margot Robbie, Idris Elba, John Cena",
+        "Plot": "Supervillains Harley Quinn, Bloodsport, Peacemaker, and a collection of nutty cons at Belle Reve prison join the super-secret, super-shady Task Force X as they are dropped off at the remote, enemy-infused island of Corto Maltese.",
+        "Language": "English, Spanish, Japanese, Cantonese",
+        "Country": "United States",
+        "Awards": "4 wins & 42 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNzUzMjkxMzItMTc0MS00MjAxLWFiZGMtY2YwOGM2Yjk1ZjBmXkEyXkFqcGdeQXVyODIyOTEyMzY@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.2/10"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "72/100"
+            }
+        ],
+        "Metascore": "72",
+        "imdbRating": "7.2",
+        "imdbVotes": "407,350",
+        "imdbID": "tt6334354",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$55,817,425",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Black Widow": {
+        "Title": "Black Widow",
+        "Year": "2021",
+        "Rated": "PG-13",
+        "Released": "09 Jul 2021",
+        "Runtime": "134 min",
+        "Genre": "Action, Adventure, Sci-Fi",
+        "Director": "Cate Shortland",
+        "Writer": "Eric Pearson, Jac Schaeffer, Ned Benson",
+        "Actors": "Scarlett Johansson, Florence Pugh, David Harbour",
+        "Plot": "Natasha Romanoff confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises.",
+        "Language": "English, Russian, Norwegian, Hungarian, Macedonian, Finnish",
+        "Country": "United States",
+        "Awards": "14 wins & 34 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNjRmNDI5MjMtMmFhZi00YzcwLWI4ZGItMGI2MjI0N2Q3YmIwXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.7/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "79%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "68/100"
+            }
+        ],
+        "Metascore": "68",
+        "imdbRating": "6.7",
+        "imdbVotes": "423,439",
+        "imdbID": "tt3480822",
+        "Type": "movie",
+        "DVD": "06 Oct 2021",
+        "BoxOffice": "$183,651,655",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "The Boss Baby: Family Business": {
+        "Response": "False",
+        "Error": "Movie not found!"
+    },
+    "Luca": {
+        "Title": "Luca",
+        "Year": "2021",
+        "Rated": "PG",
+        "Released": "18 Jun 2021",
+        "Runtime": "95 min",
+        "Genre": "Animation, Adventure, Comedy",
+        "Director": "Enrico Casarosa",
+        "Writer": "Enrico Casarosa, Jesse Andrews, Simon Stephenson",
+        "Actors": "Jacob Tremblay, Jack Dylan Grazer, Emma Berman",
+        "Plot": "On the Italian Riviera, an unlikely but strong friendship grows between a human being and a sea monster disguised as a human.",
+        "Language": "English, Italian",
+        "Country": "United States, Italy, Japan",
+        "Awards": "Nominated for 1 Oscar. 6 wins & 82 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BZTQyNTU0MDktYTFkYi00ZjNhLWE2ODctMzBkM2U1ZTk3YTMzXkEyXkFqcGdeQXVyNTI4MzE4MDU@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.4/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "91%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "71/100"
+            }
+        ],
+        "Metascore": "71",
+        "imdbRating": "7.4",
+        "imdbVotes": "192,183",
+        "imdbID": "tt12801262",
+        "Type": "movie",
+        "DVD": "18 Jun 2021",
+        "BoxOffice": "$550,000",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "F9": {
+        "Title": "F9: The Fast Saga",
+        "Year": "2021",
+        "Rated": "PG-13",
+        "Released": "25 Jun 2021",
+        "Runtime": "143 min",
+        "Genre": "Action, Crime, Thriller",
+        "Director": "Justin Lin",
+        "Writer": "Daniel Casey, Justin Lin, Alfredo Botello",
+        "Actors": "Vin Diesel, Michelle Rodriguez, Jordana Brewster",
+        "Plot": "Dom and the crew must take on an international terrorist who turns out to be Dom and Mia's estranged brother.",
+        "Language": "English, Japanese, Spanish",
+        "Country": "United States",
+        "Awards": "2 wins & 13 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMjI0NmFkYzEtNzU2YS00NTg5LWIwYmMtNmQ1MTU0OGJjOTMxXkEyXkFqcGdeQXVyMjMxOTE0ODA@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "5.2/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "59%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "58/100"
+            }
+        ],
+        "Metascore": "58",
+        "imdbRating": "5.2",
+        "imdbVotes": "161,020",
+        "imdbID": "tt5433138",
+        "Type": "movie",
+        "DVD": "30 Jul 2021",
+        "BoxOffice": "$173,005,945",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "The Forever Purge": {
+        "Title": "The Forever Purge",
+        "Year": "2021",
+        "Rated": "R",
+        "Released": "02 Jul 2021",
+        "Runtime": "103 min",
+        "Genre": "Action, Crime, Horror",
+        "Director": "Everardo Gout",
+        "Writer": "James DeMonaco",
+        "Actors": "Ana de la Reguera, Tenoch Huerta, Josh Lucas",
+        "Plot": "All the rules are broken as a sect of lawless marauders decides that the annual Purge does not stop at daybreak and instead should never end.",
+        "Language": "English, Spanish",
+        "Country": "United States, Mexico",
+        "Awards": "1 win",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMGE5NjJjNGMtZDkwMy00MGFlLWFkYTktYWFkNTY1NjcwOTY2XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "5.4/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "49%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "53/100"
+            }
+        ],
+        "Metascore": "53",
+        "imdbRating": "5.4",
+        "imdbVotes": "43,107",
+        "imdbID": "tt10327252",
+        "Type": "movie",
+        "DVD": "14 Sep 2021",
+        "BoxOffice": "$44,539,245",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "In the Heights": {
+        "Title": "In the Heights",
+        "Year": "2021",
+        "Rated": "PG-13",
+        "Released": "11 Jun 2021",
+        "Runtime": "143 min",
+        "Genre": "Drama, Musical, Romance",
+        "Director": "Jon M. Chu",
+        "Writer": "Quiara Alegr\u00eda Hudes, Lin-Manuel Miranda",
+        "Actors": "Anthony Ramos, Corey Hawkins, Leslie Grace",
+        "Plot": "In Washington Heights, a sympathetic New York bodega owner saves every penny every day as he imagines and sings about a better life.",
+        "Language": "English, Spanish, Hebrew",
+        "Country": "United States",
+        "Awards": "11 wins & 57 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMzM1ZDY0YTktZTYzZi00MjZjLTllMDMtMmNlMmM5NmY4ZjllXkEyXkFqcGdeQXVyMTA1OTcyNDQ4._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.3/10"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "84/100"
+            }
+        ],
+        "Metascore": "84",
+        "imdbRating": "7.3",
+        "imdbVotes": "51,891",
+        "imdbID": "tt1321510",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$29,975,167",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Escape Room: Tournament of Champions": {
+        "Title": "Escape Room: Tournament of Champions",
+        "Year": "2021",
+        "Rated": "PG-13",
+        "Released": "16 Jul 2021",
+        "Runtime": "88 min",
+        "Genre": "Action, Adventure, Horror",
+        "Director": "Adam Robitel",
+        "Writer": "Will Honley, Maria Melnik, Daniel Tuch",
+        "Actors": "Taylor Russell, Logan Miller, Deborah Ann Woll",
+        "Plot": "Six people unwillingly find themselves locked in another series of escape rooms, slowly uncovering what they have in common to survive. Joining forces with two of the original survivors, they soon discover they've all played the g...",
+        "Language": "English, Ukrainian",
+        "Country": "United States, South Africa, Hungary, Canada",
+        "Awards": "1 win",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMzUxNGIyY2MtNDUxZC00YWY1LTg0MzctM2ExNTNmODlhMTRlXkEyXkFqcGdeQXVyMTE4Nzk0MzE4._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "5.7/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "51%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "48/100"
+            }
+        ],
+        "Metascore": "48",
+        "imdbRating": "5.7",
+        "imdbVotes": "59,038",
+        "imdbID": "tt9844522",
+        "Type": "movie",
+        "DVD": "20 Sep 2021",
+        "BoxOffice": "$25,314,753",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Spirit Untamed": {
+        "Title": "Spirit Untamed",
+        "Year": "2021",
+        "Rated": "PG",
+        "Released": "04 Jun 2021",
+        "Runtime": "88 min",
+        "Genre": "Animation, Adventure, Comedy",
+        "Director": "Elaine Bogan, Ennio Torresan",
+        "Writer": "Aury Wallington, Kristin Hahn, Katherine Nolfi",
+        "Actors": "Isabela Merced, Marsai Martin, Mckenna Grace",
+        "Plot": "Lucky Prescott's life is changed forever when she moves from her home in the city to a small frontier town and befriends a wild mustang named Spirit.",
+        "Language": "English",
+        "Country": "United States, Japan",
+        "Awards": "1 win & 9 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMDVlZTEwMTItNmE4Zi00ZGFhLWI4NjgtMDdiZTA5NDdmNWYyXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "5.5/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "47%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "49/100"
+            }
+        ],
+        "Metascore": "49",
+        "imdbRating": "5.5",
+        "imdbVotes": "4,680",
+        "imdbID": "tt11084896",
+        "Type": "movie",
+        "DVD": "25 Jun 2021",
+        "BoxOffice": "$17,716,215",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Wrath of Man": {
+        "Title": "Wrath of Man",
+        "Year": "2021",
+        "Rated": "R",
+        "Released": "07 May 2021",
+        "Runtime": "119 min",
+        "Genre": "Action, Crime, Thriller",
+        "Director": "Guy Ritchie",
+        "Writer": "Nicolas Boukhrief, \u00c9ric Besnard, Guy Ritchie",
+        "Actors": "Jason Statham, Holt McCallany, Josh Hartnett",
+        "Plot": "A cold and mysterious character working at a cash truck company responsible for moving a lot of money around Los Angeles each week.",
+        "Language": "English, Spanish, Arabic",
+        "Country": "United Kingdom, United States",
+        "Awards": "1 nomination",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNGVkOTlhOTktNjZiNS00NDg3LWIxMDAtZTY5Y2E0YjllN2IxXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.1/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "67%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "57/100"
+            }
+        ],
+        "Metascore": "57",
+        "imdbRating": "7.1",
+        "imdbVotes": "204,643",
+        "imdbID": "tt11083552",
+        "Type": "movie",
+        "DVD": "29 Jun 2021",
+        "BoxOffice": "$27,466,489",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "The Ice Road": {
+        "Title": "The Ice Road",
+        "Year": "2021",
+        "Rated": "PG-13",
+        "Released": "25 Jun 2021",
+        "Runtime": "109 min",
+        "Genre": "Action, Adventure, Thriller",
+        "Director": "Jonathan Hensleigh",
+        "Writer": "Jonathan Hensleigh",
+        "Actors": "Liam Neeson, Marcus Thomas, Laurence Fishburne",
+        "Plot": "After a remote diamond mine collapses in far northern Canada, a 'big-rig' ice road driver must lead an impossible rescue mission over a frozen lake to save the trapped miners.",
+        "Language": "English",
+        "Country": "United States, Canada",
+        "Awards": "2 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BZDFiZTE4NWEtMGNkNC00YjhlLTk0YjMtNDA3NWRhMjc3MTM2XkEyXkFqcGdeQXVyOTA5NzQ0MDQ@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "5.6/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "44%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "42/100"
+            }
+        ],
+        "Metascore": "42",
+        "imdbRating": "5.6",
+        "imdbVotes": "47,490",
+        "imdbID": "tt3758814",
+        "Type": "movie",
+        "DVD": "25 Jun 2021",
+        "BoxOffice": "N/A",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "The Last Duel": {
+        "Title": "The Last Duel",
+        "Year": "2021",
+        "Rated": "R",
+        "Released": "15 Oct 2021",
+        "Runtime": "152 min",
+        "Genre": "Action, Drama, History",
+        "Director": "Ridley Scott",
+        "Writer": "Nicole Holofcener, Ben Affleck, Matt Damon",
+        "Actors": "Matt Damon, Adam Driver, Jodie Comer",
+        "Plot": "The Knight Jean de Carrouges must settle the dispute over his wife Marguerite by challenging his former friend to a duel to the death.",
+        "Language": "English, German, French, Latin",
+        "Country": "United States, United Kingdom",
+        "Awards": "4 wins & 44 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BZGExZTUzYWQtYWJjZi00OTI4LTk4OGYtNTA2YzcwMmNiZTMxXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.4/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "85%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "67/100"
+            }
+        ],
+        "Metascore": "67",
+        "imdbRating": "7.4",
+        "imdbVotes": "180,420",
+        "imdbID": "tt4244994",
+        "Type": "movie",
+        "DVD": "30 Nov 2021",
+        "BoxOffice": "$10,853,945",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Reminiscence": {
+        "Title": "Reminiscence",
+        "Year": "2021",
+        "Rated": "PG-13",
+        "Released": "20 Aug 2021",
+        "Runtime": "116 min",
+        "Genre": "Mystery, Romance, Sci-Fi",
+        "Director": "Lisa Joy",
+        "Writer": "Lisa Joy",
+        "Actors": "Hugh Jackman, Rebecca Ferguson, Thandiwe Newton",
+        "Plot": "Nick Bannister, a private investigator of the mind, navigates the alluring world of the past when his life is changed by new client Mae. A simple case becomes an obsession after she disappears and he fights to learn the truth abou...",
+        "Language": "English, Mandarin, Spanish",
+        "Country": "United States",
+        "Awards": "1 win & 2 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BODBkMTNmMmQtYTNlMy00OTRhLWE5MzgtYTZlMTUyYzY1MzkzXkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "5.9/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "36%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "46/100"
+            }
+        ],
+        "Metascore": "46",
+        "imdbRating": "5.9",
+        "imdbVotes": "65,162",
+        "imdbID": "tt3272066",
+        "Type": "movie",
+        "DVD": "20 Aug 2021",
+        "BoxOffice": "$3,900,193",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "The Prot\u00e9g\u00e9": {
+        "Title": "The Prot\u00e9g\u00e9",
+        "Year": "2021",
+        "Rated": "R",
+        "Released": "20 Aug 2021",
+        "Runtime": "109 min",
+        "Genre": "Action, Thriller",
+        "Director": "Martin Campbell",
+        "Writer": "Richard Wenk",
+        "Actors": "Michael Keaton, Maggie Q, Samuel L. Jackson",
+        "Plot": "Rescued as a child by the legendary assassin Moody, Anna is the world's most skilled contract killer. However, when Moody is brutally killed, she vows revenge for the man who taught her everything she knows.",
+        "Language": "Romanian, Vietnamese, French, English",
+        "Country": "United Kingdom, United States",
+        "Awards": "1 win & 1 nomination",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNGQ2MTQ3ZjQtZmRjMS00ZDJmLTlkYWQtOWVhODllYjJiNGUxXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.1/10"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "48/100"
+            }
+        ],
+        "Metascore": "48",
+        "imdbRating": "6.1",
+        "imdbVotes": "37,874",
+        "imdbID": "tt6079772",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$7,446,823",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "The Eyes of Tammy Faye": {
+        "Title": "The Eyes of Tammy Faye",
+        "Year": "2021",
+        "Rated": "PG-13",
+        "Released": "17 Sep 2021",
+        "Runtime": "126 min",
+        "Genre": "Biography, Drama, Romance",
+        "Director": "Michael Showalter",
+        "Writer": "Fenton Bailey, Randy Barbato, Abe Sylvia",
+        "Actors": "Jessica Chastain, Andrew Garfield, Cherry Jones",
+        "Plot": "An intimate look at the extraordinary rise, fall and redemption of televangelist Tammy Faye Bakker.",
+        "Language": "English",
+        "Country": "United States",
+        "Awards": "Won 2 Oscars. 22 wins & 45 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNTg3ZTU5YjAtMGM2OC00YjQzLWE5MTctOGEwMjU0YWY0MmZkXkEyXkFqcGdeQXVyMjgyOTI1ODY@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.6/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "68%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "55/100"
+            }
+        ],
+        "Metascore": "55",
+        "imdbRating": "6.6",
+        "imdbVotes": "38,721",
+        "imdbID": "tt9115530",
+        "Type": "movie",
+        "DVD": "02 Nov 2021",
+        "BoxOffice": "$2,404,127",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Blue Bayou": {
+        "Title": "Blue Bayou",
+        "Year": "2021",
+        "Rated": "R",
+        "Released": "17 Sep 2021",
+        "Runtime": "117 min",
+        "Genre": "Drama",
+        "Director": "Justin Chon",
+        "Writer": "Justin Chon",
+        "Actors": "Justin Chon, Alicia Vikander, Mark O'Brien",
+        "Plot": "As a Korean-American man raised in the Louisiana bayou works hard to make a life for his family, he must confront the ghosts of his past as he discovers that he could be deported from the only country he has ever called home.",
+        "Language": "English",
+        "Country": "United States, Canada",
+        "Awards": "1 win & 7 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BZjkyNjY1ZDAtMDBmNC00NzU1LTk1MzMtZTc5OWY3ODMwZWIzXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.1/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "75%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "58/100"
+            }
+        ],
+        "Metascore": "58",
+        "imdbRating": "7.1",
+        "imdbVotes": "10,367",
+        "imdbID": "tt11121664",
+        "Type": "movie",
+        "DVD": "07 Oct 2021",
+        "BoxOffice": "$788,675",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Dear Evan Hansen": {
+        "Title": "Dear Evan Hansen",
+        "Year": "2021",
+        "Rated": "PG-13",
+        "Released": "24 Sep 2021",
+        "Runtime": "137 min",
+        "Genre": "Drama, Musical",
+        "Director": "Stephen Chbosky",
+        "Writer": "Steven Levenson",
+        "Actors": "Ben Platt, Julianne Moore, Kaitlyn Dever",
+        "Plot": "Film adaptation of the Tony and Grammy Award-winning musical about Evan Hansen, a high-school senior with social anxiety disorder, and his journey of self-discovery and acceptance after a classmate's suicide.",
+        "Language": "English",
+        "Country": "United States, Japan, China",
+        "Awards": "8 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BYzhhM2YzN2EtNjUwOS00MmU4LTk0YzEtZjUwNGM1YjE0NjVhXkEyXkFqcGdeQXVyNTk5NTQzNDI@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.1/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "29%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "39/100"
+            }
+        ],
+        "Metascore": "39",
+        "imdbRating": "6.1",
+        "imdbVotes": "18,452",
+        "imdbID": "tt9357050",
+        "Type": "movie",
+        "DVD": "14 Oct 2021",
+        "BoxOffice": "$15,002,646",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Respect": {
+        "Title": "Respect",
+        "Year": "2021",
+        "Rated": "PG-13",
+        "Released": "13 Aug 2021",
+        "Runtime": "145 min",
+        "Genre": "Biography, Drama, Music",
+        "Director": "Liesl Tommy",
+        "Writer": "Tracey Scott Wilson, Callie Khouri",
+        "Actors": "Jennifer Hudson, Forest Whitaker, Marlon Wayans",
+        "Plot": "Following the rise of Aretha Franklin's career from a child singing in her father's church's choir to her international superstardom, RESPECT is the remarkable true story of the music icon's journey to find her voice.",
+        "Language": "English",
+        "Country": "United States, Canada",
+        "Awards": "3 wins & 40 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BZWQxODE4MWQtMTZlMi00N2UwLWEzNGEtOGVkZWVmMzgwYTg5XkEyXkFqcGdeQXVyODk2NDQ3MTA@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.6/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "68%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "61/100"
+            }
+        ],
+        "Metascore": "61",
+        "imdbRating": "6.6",
+        "imdbVotes": "17,746",
+        "imdbID": "tt2452150",
+        "Type": "movie",
+        "DVD": "28 Sep 2021",
+        "BoxOffice": "$24,278,399",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Old Henry": {
+        "Title": "Old Henry",
+        "Year": "2021",
+        "Rated": "Not Rated",
+        "Released": "01 Oct 2021",
+        "Runtime": "99 min",
+        "Genre": "Action, Drama, Western",
+        "Director": "Potsy Ponciroli",
+        "Writer": "Potsy Ponciroli",
+        "Actors": "Tim Blake Nelson, Scott Haze, Gavin Lewis",
+        "Plot": "A farmer takes in an injured man with a satchel of cash. When a posse comes for the money, he must decide who to trust. Defending a siege, he reveals a gunslinging talent calling his true identity into question.",
+        "Language": "English, Spanish",
+        "Country": "United States",
+        "Awards": "3 wins & 1 nomination",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BM2ViYWUzODctMGU2ZS00NzRjLThmOTAtYTUyOTE3OTFkYmI2XkEyXkFqcGdeQXVyNjc3MjE2MTY@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.2/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "95%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "69/100"
+            }
+        ],
+        "Metascore": "69",
+        "imdbRating": "7.2",
+        "imdbVotes": "36,142",
+        "imdbID": "tt12731980",
+        "Type": "movie",
+        "DVD": "08 Oct 2021",
+        "BoxOffice": "$42,068",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "No Sudden Move": {
+        "Title": "No Sudden Move",
+        "Year": "2021",
+        "Rated": "R",
+        "Released": "01 Jul 2021",
+        "Runtime": "115 min",
+        "Genre": "Crime, Drama, Mystery",
+        "Director": "Steven Soderbergh",
+        "Writer": "Ed Solomon",
+        "Actors": "Don Cheadle, Benicio Del Toro, David Harbour",
+        "Plot": "A group of criminals are brought together under mysterious circumstances and have to work together to uncover what's really going on when their simple job goes completely sideways.",
+        "Language": "English",
+        "Country": "United States",
+        "Awards": "1 nomination",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNWI2ZDQxZDQtZDMxZi00ZWFhLTg1OGYtYmFkMjRkMDc2NDNkXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.4/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "92%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "76/100"
+            }
+        ],
+        "Metascore": "76",
+        "imdbRating": "6.4",
+        "imdbVotes": "40,882",
+        "imdbID": "tt11525644",
+        "Type": "movie",
+        "DVD": "01 Jul 2021",
+        "BoxOffice": "N/A",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "The Many Saints of Newark": {
+        "Title": "The Many Saints of Newark",
+        "Year": "2021",
+        "Rated": "R",
+        "Released": "01 Oct 2021",
+        "Runtime": "120 min",
+        "Genre": "Crime, Drama",
+        "Director": "Alan Taylor",
+        "Writer": "David Chase, Lawrence Konner",
+        "Actors": "Alessandro Nivola, Leslie Odom Jr., Jon Bernthal",
+        "Plot": "Witness the making of Tony Soprano. The story that reveals the humanity behind Tony's struggles and the influence his family - especially his uncle, Dickie Moltisanti - had over him becoming the most iconic mob boss of all time.",
+        "Language": "English, Italian, Latin",
+        "Country": "United States",
+        "Awards": "4 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BYmQzNmY3YzItOTE3OC00NGZjLTkwZDYtOWVmM2QyMzhiYTgwXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.3/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "71%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "60/100"
+            }
+        ],
+        "Metascore": "60",
+        "imdbRating": "6.3",
+        "imdbVotes": "62,967",
+        "imdbID": "tt8110232",
+        "Type": "movie",
+        "DVD": "01 Oct 2021",
+        "BoxOffice": "$8,237,403",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Those Who Wish Me Dead": {
+        "Title": "Those Who Wish Me Dead",
+        "Year": "2021",
+        "Rated": "R",
+        "Released": "14 May 2021",
+        "Runtime": "100 min",
+        "Genre": "Action, Drama, Thriller",
+        "Director": "Taylor Sheridan",
+        "Writer": "Michael Koryta, Charles Leavitt, Taylor Sheridan",
+        "Actors": "Angelina Jolie, Nicholas Hoult, Finn Little",
+        "Plot": "A teenage murder witness finds himself pursued by twin assassins in the Montana wilderness with a survival expert tasked with protecting him -- and a forest fire threatening to consume them all.",
+        "Language": "English",
+        "Country": "Canada, United States",
+        "Awards": "1 nomination",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMDAxMmQ0NTAtNDllNC00ZjE2LTlkNjUtMmExNmY0MmNkMDQ0XkEyXkFqcGdeQXVyNzYyOTM1ODI@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.0/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "62%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "59/100"
+            }
+        ],
+        "Metascore": "59",
+        "imdbRating": "6.0",
+        "imdbVotes": "72,067",
+        "imdbID": "tt3215824",
+        "Type": "movie",
+        "DVD": "14 May 2021",
+        "BoxOffice": "$7,407,200",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "The Night House": {
+        "Title": "The Night House",
+        "Year": "2020",
+        "Rated": "R",
+        "Released": "20 Aug 2021",
+        "Runtime": "107 min",
+        "Genre": "Horror, Mystery, Thriller",
+        "Director": "David Bruckner",
+        "Writer": "Ben Collins, Luke Piotrowski",
+        "Actors": "Rebecca Hall, Sarah Goldberg, Vondie Curtis-Hall",
+        "Plot": "A widow begins to uncover her recently deceased husband's disturbing secrets.",
+        "Language": "English",
+        "Country": "United Kingdom, United States",
+        "Awards": "1 win & 19 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BZmIwNjJhOGYtNDcyNi00Yjc4LThiNTktMDM2ZjFhM2YxMTljXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.5/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "80%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "68/100"
+            }
+        ],
+        "Metascore": "68",
+        "imdbRating": "6.5",
+        "imdbVotes": "66,404",
+        "imdbID": "tt9731534",
+        "Type": "movie",
+        "DVD": "29 Jan 2021",
+        "BoxOffice": "$7,100,581",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Queen Bees": {
+        "Title": "Queen Bees",
+        "Year": "2021",
+        "Rated": "PG-13",
+        "Released": "11 Jun 2021",
+        "Runtime": "100 min",
+        "Genre": "Comedy, Drama, Romance",
+        "Director": "Michael Lembeck",
+        "Writer": "Donald Martin, Harrison Powell",
+        "Actors": "Ellen Burstyn, Jane Curtin, Loretta Devine",
+        "Plot": "After reluctantly agreeing to move in to a senior's home, a woman encounters a clique of mean-spirited women and an amorous widower.",
+        "Language": "English",
+        "Country": "United States",
+        "Awards": "2 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BZDNiYTEyNWEtMDUwNy00Njg0LTg0YjQtMmIzNTkwZTkwY2Q0XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.3/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "55%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "52/100"
+            }
+        ],
+        "Metascore": "52",
+        "imdbRating": "6.3",
+        "imdbVotes": "2,889",
+        "imdbID": "tt8338076",
+        "Type": "movie",
+        "DVD": "11 Jun 2021",
+        "BoxOffice": "$1,926,706",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Flag Day": {
+        "Title": "Flag Day",
+        "Year": "2021",
+        "Rated": "R",
+        "Released": "20 Aug 2021",
+        "Runtime": "109 min",
+        "Genre": "Crime, Drama",
+        "Director": "Sean Penn",
+        "Writer": "Jez Butterworth, John-Henry Butterworth, Jennifer Vogel",
+        "Actors": "Mitchell McCormick, Tom Anniko, Dylan Penn",
+        "Plot": "A father lives a double life as a counterfeiter, bank robber and con man in order to provide for his daughter.",
+        "Language": "English",
+        "Country": "United States, United Kingdom, Canada",
+        "Awards": "1 win & 7 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BZmVkYjZlZDItMDk4NS00ZjVjLTkyNjYtY2NiNzQ5ODE0ZWRlXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "5.4/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "39%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "53/100"
+            }
+        ],
+        "Metascore": "53",
+        "imdbRating": "5.4",
+        "imdbVotes": "3,556",
+        "imdbID": "tt2304637",
+        "Type": "movie",
+        "DVD": "02 Nov 2021",
+        "BoxOffice": "$424,667",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "The Card Counter": {
+        "Title": "The Card Counter",
+        "Year": "2021",
+        "Rated": "R",
+        "Released": "10 Sep 2021",
+        "Runtime": "111 min",
+        "Genre": "Crime, Drama, Thriller",
+        "Director": "Paul Schrader",
+        "Writer": "Paul Schrader",
+        "Actors": "Oscar Isaac, Tiffany Haddish, Tye Sheridan",
+        "Plot": "Redemption is the long game in Paul Schrader's THE CARD COUNTER. Told with Schrader's trademark cinematic intensity, the revenge thriller tells the story of an ex-military interrogator turned gambler haunted by the ghosts of his p...",
+        "Language": "English",
+        "Country": "United States, United Kingdom, China, Sweden",
+        "Awards": "3 wins & 22 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNTMyNzQ4MmUtMmJiYy00YjlmLWJiMzktNjc1MGNlMzBjYjhiXkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.2/10"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "77/100"
+            }
+        ],
+        "Metascore": "77",
+        "imdbRating": "6.2",
+        "imdbVotes": "42,536",
+        "imdbID": "tt11196036",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$2,657,850",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Together Together": {
+        "Title": "Together Together",
+        "Year": "2021",
+        "Rated": "R",
+        "Released": "23 Apr 2021",
+        "Runtime": "90 min",
+        "Genre": "Comedy, Drama",
+        "Director": "Nikole Beckwith",
+        "Writer": "Nikole Beckwith",
+        "Actors": "Patti Harrison, Ed Helms, Rosalind Chao",
+        "Plot": "When a young loner becomes the gestational surrogate for a single man in his 40s, the two strangers come to realize this unexpected relationship will challenge their perceptions of connection, boundaries and the particulars of love.",
+        "Language": "English",
+        "Country": "United States",
+        "Awards": "2 wins & 8 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BYTI5MmQ0M2UtMjZkZC00Mjk1LTljZmItN2ZlYzQ3MDdkZTQ3XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.4/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "91%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "70/100"
+            }
+        ],
+        "Metascore": "70",
+        "imdbRating": "6.4",
+        "imdbVotes": "9,209",
+        "imdbID": "tt11285280",
+        "Type": "movie",
+        "DVD": "26 Apr 2021",
+        "BoxOffice": "$1,437,938",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Werewolves Within": {
+        "Title": "Werewolves Within",
+        "Year": "2021",
+        "Rated": "R",
+        "Released": "02 Jul 2021",
+        "Runtime": "97 min",
+        "Genre": "Comedy, Horror, Mystery",
+        "Director": "Josh Ruben",
+        "Writer": "Mishna Wolff",
+        "Actors": "Sam Richardson, Milana Vayntrub, George Basil",
+        "Plot": "Feature adaptation of the video game where werewolves attack a small town.",
+        "Language": "English",
+        "Country": "United States, France",
+        "Awards": "2 wins & 3 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BZDlkZmY3ZGUtMjY3ZS00MGE4LWFjMjYtZjNmYTE0YWYxOTJmXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.0/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "86%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "66/100"
+            }
+        ],
+        "Metascore": "66",
+        "imdbRating": "6.0",
+        "imdbVotes": "24,880",
+        "imdbID": "tt9288692",
+        "Type": "movie",
+        "DVD": "02 Jul 2021",
+        "BoxOffice": "$575,783",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "The Humans": {
+        "Title": "The Humans",
+        "Year": "2021",
+        "Rated": "R",
+        "Released": "24 Nov 2021",
+        "Runtime": "108 min",
+        "Genre": "Drama",
+        "Director": "Stephen Karam",
+        "Writer": "Stephen Karam",
+        "Actors": "Richard Jenkins, Jayne Houdyshell, Amy Schumer",
+        "Plot": "During one evening, the Blake family gathers to celebrate thanksgiving in a broken-down flat newly rented by the daughter and her new man. As the darkness falls, we find that all have less to be thankful about.",
+        "Language": "English",
+        "Country": "United States",
+        "Awards": "2 wins & 9 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BZDFhNWJjZDQtODgxNC00ZGZmLTkyYzItNTc0ZTVlODZkYjZkXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.1/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "92%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "78/100"
+            }
+        ],
+        "Metascore": "78",
+        "imdbRating": "6.1",
+        "imdbVotes": "10,736",
+        "imdbID": "tt10023286",
+        "Type": "movie",
+        "DVD": "24 Nov 2021",
+        "BoxOffice": "N/A",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "The Green Sea": {
+        "Title": "The Green Sea",
+        "Year": "2021",
+        "Rated": "N/A",
+        "Released": "13 Jul 2021",
+        "Runtime": "104 min",
+        "Genre": "Drama, Mystery",
+        "Director": "Randal Plunkett",
+        "Writer": "Randal Plunkett",
+        "Actors": "Katharine Isabelle, Hazel Doupe, Ciaron Davies",
+        "Plot": "A lone writer lives a life of isolation until her world changes by the appearance of a strange young girl.",
+        "Language": "English",
+        "Country": "Ireland",
+        "Awards": "N/A",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BZWRjOGE5OWQtNGQyMy00ZDBjLWJiOGYtMzhkM2U0ZTE0ZTAwXkEyXkFqcGdeQXVyMjEzNTUyMzg@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "5.3/10"
+            }
+        ],
+        "Metascore": "N/A",
+        "imdbRating": "5.3",
+        "imdbVotes": "439",
+        "imdbID": "tt7162514",
+        "Type": "movie",
+        "DVD": "13 Jul 2021",
+        "BoxOffice": "N/A",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "The Killing of Kenneth Chamberlain": {
+        "Title": "The Killing of Kenneth Chamberlain",
+        "Year": "2019",
+        "Rated": "N/A",
+        "Released": "19 Nov 2021",
+        "Runtime": "83 min",
+        "Genre": "Drama, Thriller",
+        "Director": "David Midell",
+        "Writer": "David Midell",
+        "Actors": "Frankie Faison, Steve O'Connell, Enrico Natale",
+        "Plot": "Based on the true story of the events that led to the death of Kenneth Chamberlain Sr., an elderly African American veteran with bipolar disorder, who was killed during a conflict with police officers who were dispatched to check ...",
+        "Language": "English",
+        "Country": "United States",
+        "Awards": "13 wins & 5 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMDEzMDA2NDEtODY1NC00ZDFlLWIxNWYtZGY4ODI1ZGU2OGQzXkEyXkFqcGdeQXVyMjQxNDAzNDQ@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.0/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "97%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "82/100"
+            }
+        ],
+        "Metascore": "82",
+        "imdbRating": "7.0",
+        "imdbVotes": "1,470",
+        "imdbID": "tt8906722",
+        "Type": "movie",
+        "DVD": "17 Sep 2021",
+        "BoxOffice": "N/A",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "The Lost Leonardo": {
+        "Title": "The Lost Leonardo",
+        "Year": "2021",
+        "Rated": "PG-13",
+        "Released": "13 Aug 2021",
+        "Runtime": "96 min",
+        "Genre": "Documentary, Mystery",
+        "Director": "Andreas Koefoed",
+        "Writer": "Mark Monroe, Andreas Dalsgaard, Duska Zagorac",
+        "Actors": "Mohammad Bin Salman, Jerry Saltz, Martin Kemp",
+        "Plot": "The mystery surrounding the Salvator Mundi, the first painting by Leonardo da Vinci to be discovered for more than a century, which has now seemingly gone missing.",
+        "Language": "English, French, Italian",
+        "Country": "Denmark, France",
+        "Awards": "6 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMDdlZjFmNzItYzlmOS00YzMzLTgyZTgtNTQ3ZTdjNzQxN2QxXkEyXkFqcGdeQXVyOTgxNDIzMTY@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.5/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "98%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "79/100"
+            }
+        ],
+        "Metascore": "79",
+        "imdbRating": "7.5",
+        "imdbVotes": "2,710",
+        "imdbID": "tt11225756",
+        "Type": "movie",
+        "DVD": "15 Nov 2021",
+        "BoxOffice": "$445,740",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Snakehead": {
+        "Title": "Snakehead",
+        "Year": "2021",
+        "Rated": "Unrated",
+        "Released": "22 Aug 2021",
+        "Runtime": "97 min",
+        "Genre": "Action, Crime, Drama",
+        "Director": "Evan Jackson Leong",
+        "Writer": "Evan Jackson Leong",
+        "Actors": "Sung Kang, Perry Yung, Devon Diep",
+        "Plot": "A Chinese immigrant get caught up in an international crime ring of human smuggling while attempting to make a better life for her family.",
+        "Language": "English",
+        "Country": "United States",
+        "Awards": "1 nomination",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BZjBmMzAyMTQtODA0NC00ODNkLTliNWUtNjYyOWZhZGZhZmExXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "5.2/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "71%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "55/100"
+            }
+        ],
+        "Metascore": "55",
+        "imdbRating": "5.2",
+        "imdbVotes": "849",
+        "imdbID": "tt4181232",
+        "Type": "movie",
+        "DVD": "29 Oct 2021",
+        "BoxOffice": "N/A",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Whirlybird": {
+        "Title": "Whirlybird",
+        "Year": "2020",
+        "Rated": "N/A",
+        "Released": "06 Aug 2021",
+        "Runtime": "103 min",
+        "Genre": "Documentary",
+        "Director": "Matt Yoka",
+        "Writer": "Andrea James",
+        "Actors": "Marika Gerrard, Jamie Tur, Katy Tur",
+        "Plot": "Soaring above the chaotic spectacle of '80s and '90s Los Angeles, a young couple revolutionized breaking news with their brazen helicopter reporting.",
+        "Language": "English",
+        "Country": "United States",
+        "Awards": "1 win & 1 nomination",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMDg2NTk3Y2UtYjJmYi00M2RjLWFjNTktYWE4NGI4YjljYTE1XkEyXkFqcGdeQXVyMTI0NTg1MQ@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.0/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "83%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "69/100"
+            }
+        ],
+        "Metascore": "69",
+        "imdbRating": "7.0",
+        "imdbVotes": "308",
+        "imdbID": "tt6128108",
+        "Type": "movie",
+        "DVD": "06 Aug 2021",
+        "BoxOffice": "N/A",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Sweet Girl": {
+        "Title": "Sweet Girl",
+        "Year": "2021",
+        "Rated": "R",
+        "Released": "20 Aug 2021",
+        "Runtime": "110 min",
+        "Genre": "Action, Drama, Thriller",
+        "Director": "Brian Andrew Mendoza",
+        "Writer": "Gregg Hurwitz, Philip Eisner",
+        "Actors": "Jason Momoa, Isabela Merced, Manuel Garcia-Rulfo",
+        "Plot": "A devastated husband vows to bring justice to the people responsible for his wife's death while protecting the only family he has left: his daughter.",
+        "Language": "English",
+        "Country": "United States",
+        "Awards": "N/A",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BOGIzOTZiZjItNTMyYS00ODcyLWE2ZDUtYWNjZDNmNTUxYjVkXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "5.5/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "23%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "46/100"
+            }
+        ],
+        "Metascore": "46",
+        "imdbRating": "5.5",
+        "imdbVotes": "35,228",
+        "imdbID": "tt10731768",
+        "Type": "movie",
+        "DVD": "20 Aug 2021",
+        "BoxOffice": "N/A",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "Language Lessons": {
+        "Title": "Language Lessons",
+        "Year": "2021",
+        "Rated": "N/A",
+        "Released": "10 Sep 2021",
+        "Runtime": "91 min",
+        "Genre": "Comedy, Drama",
+        "Director": "Natalie Morales",
+        "Writer": "Mark Duplass, Natalie Morales",
+        "Actors": "Mark Duplass, Natalie Morales, Desean Terry",
+        "Plot": "A Spanish teacher and her student develop an unexpected friendship.",
+        "Language": "English, Spanish",
+        "Country": "United States",
+        "Awards": "4 wins & 7 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BY2ZjM2YzYWMtYjk3Mi00ZjRmLThmNDktMTY0NWY0ZDJhYjc1XkEyXkFqcGdeQXVyMTAyMjQ3NzQ1._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.1/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "96%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "68/100"
+            }
+        ],
+        "Metascore": "68",
+        "imdbRating": "7.1",
+        "imdbVotes": "2,928",
+        "imdbID": "tt14031338",
+        "Type": "movie",
+        "DVD": "25 Oct 2021",
+        "BoxOffice": "$73,257",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
     }
 }
