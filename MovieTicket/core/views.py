@@ -257,6 +257,7 @@ def addMovieData():
         print(f"{movie_name} added successfully!")
 
 def search(request):
+    movies = Movie.objects.all()
     if request.method=='POST':
         query          = request.GET.getlist('query')
         genres         = request.GET.getlist('genres')
@@ -265,12 +266,13 @@ def search(request):
         actors         = request.GET.getlist('actors')
         directors      = request.GET.getlist('directors')
         if movie.name == movie_name:
-            return render(request, 'movie.html', )
-
+            return render(request, 'movie.html' )
     else:
-        movies = Movie.objects.all()
-    return render(request, 'search.html', {'result':movies_in_db
-                                          })
+        movie_names = list(set([m.name for m in movies]))
+        print(movie_names)
+
+        return render(request, 'search.html', {'searchResult' :  retriveMovieListObj(movie_names)})
+    return render(request, 'search.html', {'searchResult' : movies })
 def addSchedule(request, movie_id):
     movie =  Movie.objects.get(pk=movie_id)
     if request.method=='POST':
