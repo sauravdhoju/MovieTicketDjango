@@ -1,158 +1,158 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movies Website</title>
-    <!-- <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}"> -->
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-            *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: sans-serif;
-      }
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Movies Website</title>
+        <!-- <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}"> -->
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
 
       section{
-        width: 100%;
-        height: 100vh;
-        background: #171717;
+          width: 100%;
+          height: 100vh;
+          background: #171717;
       }
 
       section nav{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 5% 8px 5%;
-        margin-bottom: 20px;
-        background: #171717;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px 5% 8px 5%;
+          margin-bottom: 20px;
+          background: #171717;
       }
-      
+
       .swiper {
-        width: 95%;
-        height: 85%;
-        border-radius: 20px;
-        overflow: hidden;
+          width: 95%;
+          height: 85%;
+          border-radius: 20px;
+          overflow: hidden;
       }
 
       .swiper::selection{
-        user-select: none;
+          user-select: none;
       }
 
       .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+          text-align: center;
+          font-size: 18px;
+          background: #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
       }
 
       .swiper-slide .image .black{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.0),rgba(0,0,0,0.9));
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          background: linear-gradient(to bottom, rgba(0,0,0,0.0),rgba(0,0,0,0.9));
 
-        bottom: 0;
+          bottom: 0;
       }
 
       .swiper-slide .image .black h1{
-        font-size: 30px;
-        text-align: left;
-        position: relative;
-        top: 60%;
-        left: 5%;
-        color: #fff;
+          font-size: 30px;
+          text-align: left;
+          position: relative;
+          top: 60%;
+          left: 5%;
+          color: #fff;
       }
 
       .swiper-slide .image .black .star{
-        color: #ffd500;
-        text-align: left;
-        font-size: 16px;
-        margin: 10px 0;
-        position: relative;
-        top: 60%;
-        left: 5%;
+          color: #ffd500;
+          text-align: left;
+          font-size: 16px;
+          margin: 10px 0;
+          position: relative;
+          top: 60%;
+          left: 5%;
       }
 
       .swiper-slide .image .black p{
-        width: 550px;
-        text-align: justify;
-        font-size: 16px;
-        color: #cccccc;
-        margin: 10px 0;
-        position: relative;
-        top: 60%;
-        left: 5%;
-        line-height: 23px;
-        font-family: "Ink Free";
+          width: 550px;
+          text-align: justify;
+          font-size: 16px;
+          color: #cccccc;
+          margin: 10px 0;
+          position: relative;
+          top: 60%;
+          left: 5%;
+          line-height: 23px;
+          font-family: "Ink Free";
       }
 
       .swiper-slide .image .black .genre{
-        text-align: left;
-        font-size: 16px;
-        margin: 13px 0;
-        position: relative;
-        top: 60%;
-        left: 5%;
+          text-align: left;
+          font-size: 16px;
+          margin: 13px 0;
+          position: relative;
+          top: 60%;
+          left: 5%;
       }
 
       .swiper-slide .image .black .genre a.category{
-        background: #282931;
-        text-decoration: none;
-        color: #cccccc;
-        padding: 2px 7px;
+          background: #282931;
+          text-decoration: none;
+          color: #cccccc;
+          padding: 2px 7px;
       }
 
       .swiper-slide .image .black .genre a.category span{
-        color: #ffe100;
+          color: #ffe100;
       }
 
       .swiper-slide .image .black .watch{
-        width: 700px;
-        text-align: left;
-        display: flex;
-        font-size: 16px;
-        margin: 10px 0;
-        position: relative;
-        top: 60%;
-        left: 5%;
+          width: 700px;
+          text-align: left;
+          display: flex;
+          font-size: 16px;
+          margin: 10px 0;
+          position: relative;
+          top: 60%;
+          left: 5%;
       }
 
       .swiper-slide .image .black .watch i{
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        font-size: 20px;
-        text-align: center;
-        background-color: #ffe100;
-        border-radius: 50%;
-        cursor: pointer;
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          font-size: 20px;
+          text-align: center;
+          background-color: #ffe100;
+          border-radius: 50%;
+          cursor: pointer;
       }
 
       .swiper-slide .image .black .watch p{
-        position: relative;
-        left: 15px;
-        font-family: sans-serif;
+          position: relative;
+          left: 15px;
+          font-family: sans-serif;
       }
 
       .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
       }
 
       .swiper {
-        margin-left: auto;
-        margin-right: auto;
+          margin-left: auto;
+          margin-right: auto;
       }
 
 
@@ -161,178 +161,178 @@
       /*--------------*/
 
       .second{
-      width: 100%;
-      height: auto;
-      margin: 0 auto;
-      padding-bottom: 25px;
-      background: #171717;
+          width: 100%;
+          height: auto;
+          margin: 0 auto;
+          padding-bottom: 25px;
+          background: #171717;
       }
 
       .second .latest{
-      width: 95%;
-      margin: 0 auto;
+          width: 95%;
+          margin: 0 auto;
       }
 
       .second .latest h1{
-      font-size: 20px;
-      color: #fff;
-      margin-bottom: 20px;
+          font-size: 20px;
+          color: #fff;
+          margin-bottom: 20px;
       }
 
       .second .latest .box{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
       }
 
       .second .latest .box .card{
-      width: 250px;
-      height: 370px;
-      margin: 10px;
-      overflow: hidden;
-      border-radius: 8px;
+          width: 250px;
+          height: 370px;
+          margin: 10px;
+          overflow: hidden;
+          border-radius: 8px;
       }
 
       .second .latest .box .card .details{
-      width: 250px;
-      height: 370px;
-      overflow: hidden;
-      position: absolute;
-      border-radius: 8px;
-      transition: 0.3s;
-      opacity: 0;
+          width: 250px;
+          height: 370px;
+          overflow: hidden;
+          position: absolute;
+          border-radius: 8px;
+          transition: 0.3s;
+          opacity: 0;
       }
 
       .second .latest .box .card:hover .details{
-      opacity: 1;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.7));
+          opacity: 1;
+          background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.7));
       }
 
       .second .latest .box .card .details .left{
-      position: absolute;
-      bottom: 0;
-      color: #fff;
-      transform: translateX(-100px);
-      transition: 0.4s;
-      opacity: 0;
+          position: absolute;
+          bottom: 0;
+          color: #fff;
+          transform: translateX(-100px);
+          transition: 0.4s;
+          opacity: 0;
       }
 
       .second .latest .box .card:hover .details .left{
-      opacity: 1;
-      transform: translateX(0);
+          opacity: 1;
+          transform: translateX(0);
       }
 
       .second .latest .box .card .details .left p.name{
-      width: 100%;
-      font-size: 20px;
-      font-weight: bold;
-      margin-left: 10px;
-      margin-bottom: 10px;
+          width: 100%;
+          font-size: 20px;
+          font-weight: bold;
+          margin-left: 10px;
+          margin-bottom: 10px;
       }
 
       .second .latest .box .card .details .left .date_quality{
-      display: flex;
-      align-items: center;
+          display: flex;
+          align-items: center;
       }
 
       .second .latest .box .card .details .left .date_quality p.quality{
-      width: 30px;
-      font-size: 13px;
-      background: #ffe100;
-      color: #282931;
-      margin-left: 10px;
-      margin-bottom: 8px;
-      text-align: center;
-      font-weight: bold;
+          width: 30px;
+          font-size: 13px;
+          background: #ffe100;
+          color: #282931;
+          margin-left: 10px;
+          margin-bottom: 8px;
+          text-align: center;
+          font-weight: bold;
       }
 
       .second .latest .box .card .details .left .date_quality p.date{
-      color: #fff;
-      font-size: 15px;
-      font-weight: bold;
-      text-align: left;
-      margin-left: 10px;
-      margin-bottom: 8px;
+          color: #fff;
+          font-size: 15px;
+          font-weight: bold;
+          text-align: left;
+          margin-left: 10px;
+          margin-bottom: 8px;
       }
 
       .second .latest .box .card .details .left p.category{
-      margin-left: 10px;
-      font-size: 13px;
-      margin-bottom: 8px;
+          margin-left: 10px;
+          font-size: 13px;
+          margin-bottom: 8px;
       }
 
       .second .latest .box .card .details .left .info{
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
       }
 
       .second .latest .box .card .details .left .info .rate{
-      display: flex;
-      align-items: center;
-      margin-left: 10px;
-      margin-right: 10px;
+          display: flex;
+          align-items: center;
+          margin-left: 10px;
+          margin-right: 10px;
       }
 
       .second .latest .box .card .details .left .info .rate i{
-      font-size: 12px;
-      color: #ffd500;
-      margin-right: 5px;
+          font-size: 12px;
+          color: #ffd500;
+          margin-right: 5px;
       }
 
       .second .latest .box .card .details .left .info .rate p{
-      font-size: 12px;
+          font-size: 12px;
       }
 
       .second .latest .box .card .details .left .info .time{
-      display: flex;
-      align-items: center;
+          display: flex;
+          align-items: center;
       }
 
       .second .latest .box .card .details .left .info .time i{
-      font-size: 12px;
-      color: #ffd500;
-      margin-left: 5px;
+          font-size: 12px;
+          color: #ffd500;
+          margin-left: 5px;
       }
 
       .second .latest .box .card .details .left .info .time p{
-      font-size: 12px;
-      margin-left: 5px;
+          font-size: 12px;
+          margin-left: 5px;
       }
 
       .second .latest .box .card .details .right{
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      color: #fff;
-      transform: translateX(100px);
-      transition: 0.4s;
-      opacity: 0;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          color: #fff;
+          transform: translateX(100px);
+          transition: 0.4s;
+          opacity: 0;
       }
 
       .second .latest .box .card:hover .details .right{
-      opacity: 1;
-      transform: translateX(0);
+          opacity: 1;
+          transform: translateX(0);
       }
 
       .second .latest .box .card .details .right i{
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      font-size: 20px;
-      text-align: center;
-      background-color: #ffe100;
-      border-radius: 50%;
-      cursor: pointer;
-      color: #282931;
-      margin: 0 10px 8px 0;
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          font-size: 20px;
+          text-align: center;
+          background-color: #ffe100;
+          border-radius: 50%;
+          cursor: pointer;
+          color: #282931;
+          margin: 0 10px 8px 0;
       }
 
       .second .latest .box .card img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
       }
 
 
@@ -341,160 +341,160 @@
       /*---------*/
 
       .upcoming{
-      width: 100%;
-      height: auto;
-      margin: 0 auto;
-      padding-bottom: 25px;
-      background-color: #171717;
+          width: 100%;
+          height: auto;
+          margin: 0 auto;
+          padding-bottom: 25px;
+          background-color: #171717;
       }
 
       .upcoming .movies_box{
-      width: 95%;
-      margin: 0 auto;
+          width: 95%;
+          margin: 0 auto;
       }
 
       .upcoming .movies_box h1{
-      font-size: 20px;
-      color: #fff;
-      margin-bottom: 20px;
+          font-size: 20px;
+          color: #fff;
+          margin-bottom: 20px;
       }
       .upcoming .movies_box .box{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
       }
 
       .upcoming .movies_box .box .card{
-      width: 250px;
-      height: 370px;
-      margin: 10px;
-      overflow: hidden;
-      border-radius: 8px;
+          width: 250px;
+          height: 370px;
+          margin: 10px;
+          overflow: hidden;
+          border-radius: 8px;
       }
 
       .upcoming .movies_box .box .card .details{
-      width: 250px;
-      height: 370px;
-      overflow: hidden;
-      position: absolute;
-      border-radius: 8px;
-      transition: 0.3s;
-      opacity: 0;
+          width: 250px;
+          height: 370px;
+          overflow: hidden;
+          position: absolute;
+          border-radius: 8px;
+          transition: 0.3s;
+          opacity: 0;
       }
 
       .upcoming .movies_box .box .card:hover .details{
-      opacity: 1;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.7));
+          opacity: 1;
+          background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.7));
       }
 
       .upcoming .movies_box .box .card .details .left{
-      position: absolute;
-      bottom: 0;
-      color: #fff;
-      transform: translateX(-100px);
-      transition: 0.4s;
-      opacity: 0;
+          position: absolute;
+          bottom: 0;
+          color: #fff;
+          transform: translateX(-100px);
+          transition: 0.4s;
+          opacity: 0;
       }
 
       .upcoming .movies_box .box .card:hover .details .left{
-      opacity: 1;
-      transform: translateX(0);
+          opacity: 1;
+          transform: translateX(0);
       }
 
       .upcoming .movies_box .box .card .details .left p.name{
-      width: 100%;
-      font-size: 20px;
-      font-weight: bold;
-      margin-left: 10px;
-      margin-bottom: 10px;
+          width: 100%;
+          font-size: 20px;
+          font-weight: bold;
+          margin-left: 10px;
+          margin-bottom: 10px;
       }
 
       .upcoming .movies_box .box .card .details .left .date_quality{
-      display: flex;
-      align-items: center;
+          display: flex;
+          align-items: center;
       }
 
       .upcoming .movies_box .box .card .details .left .date_quality p.quality{
-      width: 30px;
-      font-size: 13px;
-      background: #ffe100;
-      color: #282931;
-      margin-left: 10px;
-      margin-bottom: 8px;
-      text-align: center;
-      font-weight: bold;
+          width: 30px;
+          font-size: 13px;
+          background: #ffe100;
+          color: #282931;
+          margin-left: 10px;
+          margin-bottom: 8px;
+          text-align: center;
+          font-weight: bold;
       }
 
       .upcoming .movies_box .box .card .details .left .date_quality p.date{
-      color: #fff;
-      font-size: 15px;
-      font-weight: bold;
-      text-align: left;
-      margin-left: 10px;
-      margin-bottom: 8px;
+          color: #fff;
+          font-size: 15px;
+          font-weight: bold;
+          text-align: left;
+          margin-left: 10px;
+          margin-bottom: 8px;
       }
 
       .upcoming .movies_box .box .card .details .left p.category{
-      margin-left: 10px;
-      font-size: 13px;
-      margin-bottom: 8px;
+          margin-left: 10px;
+          font-size: 13px;
+          margin-bottom: 8px;
       }
 
       .upcoming .movies_box .box .card .details .left .info{
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
       }
 
       .upcoming .movies_box .box .card .details .left .info .time{
-      display: flex;
-      align-items: center;
+          display: flex;
+          align-items: center;
       }
 
       .upcoming .movies_box .box .card .details .left .info .time i{
-      font-size: 12px;
-      color: #ffd500;
-      margin-left: 5px;
+          font-size: 12px;
+          color: #ffd500;
+          margin-left: 5px;
       }
 
       .upcoming .movies_box .box .card .details .left .info .time p{
-      font-size: 12px;
-      margin-left: 5px;
+          font-size: 12px;
+          margin-left: 5px;
       }
 
       .upcoming .movies_box .box .card .details .right{
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      color: #fff;
-      transform: translateX(100px);
-      transition: 0.4s;
-      opacity: 0;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          color: #fff;
+          transform: translateX(100px);
+          transition: 0.4s;
+          opacity: 0;
       }
 
       .upcoming .movies_box .box .card:hover .details .right{
-      opacity: 1;
-      transform: translateX(0);
+          opacity: 1;
+          transform: translateX(0);
       }
 
       .upcoming .movies_box .box .card .details .right i{
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      font-size: 20px;
-      text-align: center;
-      background-color: #ffe100;
-      border-radius: 50%;
-      cursor: pointer;
-      color: #282931;
-      margin: 0 10px 8px 0;
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          font-size: 20px;
+          text-align: center;
+          background-color: #ffe100;
+          border-radius: 50%;
+          cursor: pointer;
+          color: #282931;
+          margin: 0 10px 8px 0;
       }
 
       .upcoming .movies_box .box .card img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
       }
 
 
@@ -503,887 +503,520 @@
       /*----------*/
 
       .show{
-      width: 100%;
-      height: auto;
-      margin: 0 auto;
-      padding-bottom: 25px;
-      background-color: #171717;
+          width: 100%;
+          height: auto;
+          margin: 0 auto;
+          padding-bottom: 25px;
+          background-color: #171717;
       }
 
       .show .tv_show{
-      width: 95%;
-      margin: 0 auto;
+          width: 95%;
+          margin: 0 auto;
       }
 
       .show .tv_show h1{
-      font-size: 20px;
-      color: #fff;
-      margin-bottom: 20px;
+          font-size: 20px;
+          color: #fff;
+          margin-bottom: 20px;
       }
 
       .show .tv_show .box{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
       }
 
       .show .tv_show .box .card{
-      width: 250px;
-      height: 370px;
-      margin: 10px;
-      overflow: hidden;
-      border-radius: 8px;
+          width: 250px;
+          height: 370px;
+          margin: 10px;
+          overflow: hidden;
+          border-radius: 8px;
       }
 
       .show .tv_show .box .card .details{
-      width: 250px;
-      height: 370px;
-      overflow: hidden;
-      position: absolute;
-      border-radius: 8px;
-      transition: 0.3s;
-      opacity: 0;
+          width: 250px;
+          height: 370px;
+          overflow: hidden;
+          position: absolute;
+          border-radius: 8px;
+          transition: 0.3s;
+          opacity: 0;
       }
 
       .show .tv_show .box .card:hover .details{
-      opacity: 1;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.7));
+          opacity: 1;
+          background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.7));
       }
 
       .show .tv_show .box .card .details .left{
-      position: absolute;
-      bottom: 0;
-      color: #fff;
-      transform: translateX(-100px);
-      transition: 0.4s;
-      opacity: 0;
+          position: absolute;
+          bottom: 0;
+          color: #fff;
+          transform: translateX(-100px);
+          transition: 0.4s;
+          opacity: 0;
       }
 
       .show .tv_show .box .card:hover .details .left{
-      opacity: 1;
-      transform: translateX(0);
+          opacity: 1;
+          transform: translateX(0);
       }
 
       .show .tv_show .box .card .details .left p.name{
-      width: 100%;
-      font-size: 20px;
-      font-weight: bold;
-      margin-left: 10px;
-      margin-bottom: 10px;
+          width: 100%;
+          font-size: 20px;
+          font-weight: bold;
+          margin-left: 10px;
+          margin-bottom: 10px;
       }
 
       .show .tv_show .box .card .details .left .date_quality{
-      display: flex;
-      align-items: center;
+          display: flex;
+          align-items: center;
       }
 
       .show .tv_show .box .card .details .left .date_quality p.quality{
-      width: 30px;
-      font-size: 13px;
-      background: #ffe100;
-      color: #282931;
-      margin-left: 10px;
-      margin-bottom: 8px;
-      text-align: center;
-      font-weight: bold;
+          width: 30px;
+          font-size: 13px;
+          background: #ffe100;
+          color: #282931;
+          margin-left: 10px;
+          margin-bottom: 8px;
+          text-align: center;
+          font-weight: bold;
       }
 
       .show .tv_show .box .card .details .left .date_quality p.date{
-      color: #fff;
-      font-size: 15px;
-      font-weight: bold;
-      text-align: left;
-      margin-left: 10px;
-      margin-bottom: 8px;
+          color: #fff;
+          font-size: 15px;
+          font-weight: bold;
+          text-align: left;
+          margin-left: 10px;
+          margin-bottom: 8px;
       }
 
       .show .tv_show .box .card .details .left p.category{
-      margin-left: 10px;
-      font-size: 13px;
-      margin-bottom: 8px;
+          margin-left: 10px;
+          font-size: 13px;
+          margin-bottom: 8px;
       }
 
       .show .tv_show .box .card .details .left .info{
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
       }
 
       .show .tv_show .box .card .details .left .info .rate{
-      display: flex;
-      align-items: center;
-      margin-left: 10px;
-      margin-right: 10px;
+          display: flex;
+          align-items: center;
+          margin-left: 10px;
+          margin-right: 10px;
       }
 
       .show .tv_show .box .card .details .left .info .rate i{
-      font-size: 12px;
-      color: #ffd500;
-      margin-right: 5px;
+          font-size: 12px;
+          color: #ffd500;
+          margin-right: 5px;
       }
 
       .show .tv_show .box .card .details .left .info .rate p{
-      font-size: 12px;
+          font-size: 12px;
       }
 
       .show .tv_show .box .card .details .left .info .time{
-      display: flex;
-      align-items: center;
+          display: flex;
+          align-items: center;
       }
 
       .show .tv_show .box .card .details .left .info .time i{
-      font-size: 12px;
-      color: #ffd500;
-      margin-left: 5px;
+          font-size: 12px;
+          color: #ffd500;
+          margin-left: 5px;
       }
 
       .show .tv_show .box .card .details .left .info .time p{
-      font-size: 12px;
-      margin-left: 5px;
+          font-size: 12px;
+          margin-left: 5px;
       }
 
       .show .tv_show .box .card .details .right{
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      color: #fff;
-      transform: translateX(100px);
-      transition: 0.4s;
-      opacity: 0;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          color: #fff;
+          transform: translateX(100px);
+          transition: 0.4s;
+          opacity: 0;
       }
 
       .show .tv_show .box .card:hover .details .right{
-      opacity: 1;
-      transform: translateX(0);
+          opacity: 1;
+          transform: translateX(0);
       }
 
       .show .tv_show .box .card .details .right i{
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      font-size: 20px;
-      text-align: center;
-      background-color: #ffe100;
-      border-radius: 50%;
-      cursor: pointer;
-      color: #282931;
-      margin: 0 10px 8px 0;
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          font-size: 20px;
+          text-align: center;
+          background-color: #ffe100;
+          border-radius: 50%;
+          cursor: pointer;
+          color: #282931;
+          margin: 0 10px 8px 0;
       }
 
       .show .tv_show .box .card img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
       }
 
 
 
 
       .newsletter{
-      width: 100%;
-      height: auto;
-      padding: 0 0 40px 0;
-      background-color: #171717;
+          width: 100%;
+          height: auto;
+          padding: 0 0 40px 0;
+          background-color: #171717;
       }
 
       .newsletter h1{
-      text-align: center;
-      color: #ffe100;
+          text-align: center;
+          color: #ffe100;
       }
 
       .newsletter .news_card{
-      width: 550px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
+          width: 550px;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
       }
 
       .newsletter .news_card input{
-      width: 550px;
-      height: 55px;
-      margin-top: 20px;
-      border-radius: 35px;
-      border: 3px solid #ffe100;
-      padding: 0 10px;
-      outline: none;
-      background: none;
-      color: #cccccc;
+          width: 550px;
+          height: 55px;
+          margin-top: 20px;
+          border-radius: 35px;
+          border: 3px solid #ffe100;
+          padding: 0 10px;
+          outline: none;
+          background: none;
+          color: #cccccc;
       }
 
       .newsletter .news_card button{
-      position: absolute;
-      right: 0;
-      width: 100px;
-      height: 45px;
-      border-radius: 25px;
-      margin-top: 20px;
-      margin-right: 8px;
-      border: 0;
-      outline: none;
-      background-color: #ffe100;
-      font-weight: bold;
-      font-size: 15px;
-      cursor: pointer;
+          position: absolute;
+          right: 0;
+          width: 100px;
+          height: 45px;
+          border-radius: 25px;
+          margin-top: 20px;
+          margin-right: 8px;
+          border: 0;
+          outline: none;
+          background-color: #ffe100;
+          font-weight: bold;
+          font-size: 15px;
+          cursor: pointer;
       }
 
 
       p.end{
-      background: #171717;
-      text-align: center;
-      color: #cccccc;
-      padding: 15px 0;
+          background: #171717;
+          text-align: center;
+          color: #cccccc;
+          padding: 15px 0;
       }
 
       p.end span{
-      color: #ffe100;
+          color: #ffe100;
       }
 
       p.end span i{
-      margin: 0 8px;
+          margin: 0 8px;
       }
-    </style>
-  </head>
-<body>
-  {% include 'navbar.html' %}
-    <section>
-        <!-- <nav>
-            <div class="logo">
-                <h1>AK<span>RS</span></h1>
-            </div>
-            <div class="right">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Search</a></li>
-                </ul>
-            </div>
-        </nav> -->
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-
-                <div class="image">
-
-                    <div class="black">
-
-                        <h1>Death on the Nile</h1>
-                        <div class="star">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-stroke"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                            Consectetur distinctio quis, ea commodi repellendus 
-                            fugiat aspernatur perspiciatis optio pariatur quod est, 
-                            nihil enim nemo saepe possimus sequi consequuntur, neque 
-                            eius.
-                        </p>
-                        <div class="genre">
-
-                            <a href="#" class="category">Action</a>
-                            <a href="#" class="category">Drama</a>
-                            <a href="#" class="category"><span>4K</span></a>
-
-                        </div>
-                        <div class="watch">
-                            <i class="fa-solid fa-play"></i>
-                            <p>watch the trailer</p>
-                        </div>
-
-                    </div>
-
-                    <img src="{% static 'DeathOnTheNile.jpg' %}">
-
-                </div>
-
-              </div>
-
-              <div class="swiper-slide">
-
-                <div class="image">
-
-                    <div class="black">
-
-                        <h1>The Maze Runer</h1>
-                        <div class="star">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-stroke"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                            Consectetur distinctio quis, ea commodi repellendus 
-                            fugiat aspernatur perspiciatis optio pariatur quod est, 
-                            nihil enim nemo saepe possimus sequi consequuntur, neque 
-                            eius.
-                        </p>
-                        <div class="genre">
-
-                            <a href="#" class="category">Action</a>
-                            <a href="#" class="category">Drama</a>
-                            <a href="#" class="category"><span>4K</span></a>
-
-                        </div>
-                        <div class="watch">
-                            <i class="fa-solid fa-play"></i>
-                            <p>watch the trailer</p>
-                        </div>
-
-                    </div>
-
-                    <img src="{% static 'TheMazeRunner.jpg' %}">
-
-                </div>
-
-              </div>
-
-              <div class="swiper-slide">
-
-                <div class="image">
-
-                    <div class="black">
-
-                        <h1>The Avengers</h1>
-                        <div class="star">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-stroke"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                            Consectetur distinctio quis, ea commodi repellendus 
-                            fugiat aspernatur perspiciatis optio pariatur quod est, 
-                            nihil enim nemo saepe possimus sequi consequuntur, neque 
-                            eius.
-                        </p>
-                        <div class="genre">
-
-                            <a href="#" class="category">Action</a>
-                            <a href="#" class="category">Drama</a>
-                            <a href="#" class="category"><span>4K</span></a>
-
-                        </div>
-                        <div class="watch">
-                            <i class="fa-solid fa-play"></i>
-                            <p>watch the trailer</p>
-                        </div>
-
-                    </div>
-
-                    <img src="{% static 'TheAvengers.jpg' %}">
-
-                </div>
-
-              </div>
-
-              <div class="swiper-slide">
-
-                <div class="image">
-
-                    <div class="black">
-
-                        <h1>Fullmetal Alchemist: Final Transmutation</h1>
-                        <div class="star">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-stroke"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                            Consectetur distinctio quis, ea commodi repellendus 
-                            fugiat aspernatur perspiciatis optio pariatur quod est, 
-                            nihil enim nemo saepe possimus sequi consequuntur, neque 
-                            eius.
-                        </p>
-                        <div class="genre">
-
-                            <a href="#" class="category">Action</a>
-                            <a href="#" class="category">Drama</a>
-                            <a href="#" class="category"><span>4K</span></a>
-
-                        </div>
-                        <div class="watch">
-                            <i class="fa-solid fa-play"></i>
-                            <p>watch the trailer</p>
-                        </div>
-
-                    </div>
-
-                    <img src="{% static 'FullMetalAlchimiest.jpg' %}">
-
-                </div>
-
-              </div>
-
-              <div class="swiper-slide">
-
-                <div class="image">
-
-                    <div class="black">
-
-                        <h1>Apocalypto</h1>
-                        <div class="star">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-stroke"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                            Consectetur distinctio quis, ea commodi repellendus 
-                            fugiat aspernatur perspiciatis optio pariatur quod est, 
-                            nihil enim nemo saepe possimus sequi consequuntur, neque 
-                            eius.
-                        </p>
-                        <div class="genre">
-
-                            <a href="#" class="category">Action</a>
-                            <a href="#" class="category">Drama</a>
-                            <a href="#" class="category"><span>4K</span></a>
-
-                        </div>
-                        <div class="watch">
-                            <i class="fa-solid fa-play"></i>
-                            <p>watch the trailer</p>
-                        </div>
-
-                    </div>
-
-                    <img src="{% static 'Apocalypto.jpg' %}">
-
-                </div>
-
-              </div>
-
-
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
-          </div>
-
-    </section>
-
-
-
-
-    <div class="second">
-
-        <div class="latest">
-
-            <h1>Popular Movies</h1>
-
-            <div class="box">
-
-                <div class="card">
-
-                    <div class="details">
-
-                        <div class="left">
-
-                            <p class="name">Gajaman</p>
-                            <div class="date_quality">
-                                <p class="quality">HD</p>
-                                <p class="date">2023</p>
-                            </div>
-                            <p class="category">Animation/Comedy</p>
-
-                            <div class="info">
-
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i>
-                                    <p>9.2</p>
+        </style>
+    </head>
+    <body>
+        {% include 'navbar.html' %}
+        <section>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        {% for mg in swipierMovieGenre%}
+                        <div class="swiper-slide">
+                            <div class="image">
+                                <div class="black">
+                                    <h1>{{mg.movie.name}}</h1>
+                                    <div class="star">
+                                        <span>{{mg.movie.average_rating}}</span>
+                                        <i class="fa-solid fa-star"></i>
+                                        <span>{{mg.movie.length}}</span>
+                                    </div>
+                                    <p> {{mg.movie.description}} </p>
+                                    <div class="genre">
+                                        {%for g in mg.genres%}
+                                        <a class="category">{{g.genre}}</a>
+                                        {%endfor%}
+                                    </div>
+                                    <div class="watch">
+                                        <i class="fa-solid fa-play"></i>
+                                        <p>watch the trailer</p>
+                                    </div>
                                 </div>
-                                <div class="time">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p>120min</p>
+                                <img src="{{mg.movie.poster}}" alt="{{mg.movie.name}}">
+                            </div>
+                        </div>
+                        {%endfor%}
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+        </section>
+
+
+
+        <div class="second">
+            <div class="latest">
+                <h1>Popular Movies</h1>
+                <div class="box">
+                    <div class="card">
+                        <div class="details">
+                            <div class="left">
+                                <p class="name">Gajaman</p>
+                                <div class="date_quality">
+                                    <p class="quality">HD</p>
+                                    <p class="date">2023</p>
+                                </div>
+                                <p class="category">Animation/Comedy</p>
+                                <div class="info">
+                                    <div class="rate">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>9.2</p>
+                                    </div>
+                                    <div class="time">
+                                        <i class="fa-regular fa-clock"></i>
+                                        <p>{{movie.length}}</p>
+                                    </div>
                                 </div>
 
                             </div>
 
+                            <div class="right">
+
+                                <i class="fa-solid fa-play"></i>
+
+                            </div>
+
                         </div>
-
-                        <div class="right">
-
-                            <i class="fa-solid fa-play"></i>
-
-                        </div>
-
+                        <img src="{% static 'gajaman.jpg' %}">
                     </div>
-
-                    <img src="{% static 'gajaman.jpg' %}">
-
                 </div>
-
-                <div class="card">
-
-                    <div class="details">
-
-                        <div class="left">
-
-                            <p class="name">Black Panther: Wakanda Forever</p>
-                            <div class="date_quality">
-                                <p class="quality">HD</p>
-                                <p class="date">2022</p>
-                            </div>
-                            <p class="category">Action/Adventure</p>
-
-                            <div class="info">
-
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i>
-                                    <p>7.1</p>
-                                </div>
-                                <div class="time">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p>120min</p>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="right">
-
-                            <i class="fa-solid fa-play"></i>
-
-                        </div>
-
-                    </div>
-
-                    <img src="{% static 'Black_Panther.jpg' %}">
-
-                </div>
-
-                <div class="card">
-
-                    <div class="details">
-
-                        <div class="left">
-
-                            <p class="name">Interceptor</p>
-                            <div class="date_quality">
-                                <p class="quality">HD</p>
-                                <p class="date">2022</p>
-                            </div>
-                            <p class="category">Action/Adventure</p>
-
-                            <div class="info">
-
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i>
-                                    <p>4.6</p>
-                                </div>
-                                <div class="time">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p>120min</p>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="right">
-
-                            <i class="fa-solid fa-play"></i>
-
-                        </div>
-
-                    </div>
-
-                    <img src="{% static 'Interceptor.jpg' %}">
-
-                </div>
-
-                <div class="card">
-
-                    <div class="details">
-
-                        <div class="left">
-
-                            <p class="name">Thor: Love and Thunder</p>
-                            <div class="date_quality">
-                                <p class="quality">HD</p>
-                                <p class="date">2022</p>
-                            </div>
-                            <p class="category">Action/Adventure</p>
-
-                            <div class="info">
-
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i>
-                                    <p>6.3</p>
-                                </div>
-                                <div class="time">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p>120min</p>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="right">
-
-                            <i class="fa-solid fa-play"></i>
-
-                        </div>
-
-                    </div>
-
-                    <img src="{% static 'Thor.jpg' %}">
-
-                </div>
-
-                <div class="card">
-
-                    <div class="details">
-
-                        <div class="left">
-
-                            <p class="name">Black Adam</p>
-                            <div class="date_quality">
-                                <p class="quality">HD</p>
-                                <p class="date">2022</p>
-                            </div>
-                            <p class="category">Action/Adventure</p>
-
-                            <div class="info">
-
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i>
-                                    <p>6.4</p>
-                                </div>
-                                <div class="time">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p>120min</p>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="right">
-
-                            <i class="fa-solid fa-play"></i>
-
-                        </div>
-
-                    </div>
-
-                    <img src="{% static 'Black_Adam.jpg' %}">
-
-                </div>
-
-
 
             </div>
 
         </div>
 
-    </div>
 
 
 
 
+        <div class="upcoming">
 
-    <div class="upcoming">
+            <div class="movies_box">
 
-        <div class="movies_box">
+                <h1>Upcoming Movies</h1>
 
-            <h1>Upcoming Movies</h1>
+                <div class="box">
 
-            <div class="box">
+                    <div class="card">
 
-                <div class="card">
+                        <div class="details">
 
-                    <div class="details">
+                            <div class="left">
 
-                        <div class="left">
+                                <p class="name">Plane</p>
+                                <div class="date_quality">
+                                    <p class="quality">HD</p>
+                                    <p class="date">2023</p>
+                                </div>
+                                <p class="category">Action/Thriller</p>
 
-                            <p class="name">Plane</p>
-                            <div class="date_quality">
-                                <p class="quality">HD</p>
-                                <p class="date">2023</p>
-                            </div>
-                            <p class="category">Action/Thriller</p>
+                                <div class="info">
 
-                            <div class="info">
+                                    <div class="time">
+                                        <i class="fa-regular fa-clock"></i>
+                                        <p>120min</p>
+                                    </div>
 
-                                <div class="time">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p>120min</p>
                                 </div>
 
                             </div>
 
+                            <div class="right">
+
+                                <i class="fa-solid fa-play"></i>
+
+                            </div>
+
                         </div>
 
-                        <div class="right">
-
-                            <i class="fa-solid fa-play"></i>
-
-                        </div>
+                        <img src="{% static 'plane.jpg' %}">
 
                     </div>
 
-                    <img src="{% static 'plane.jpg' %}">
+                    <div class="card">
 
-                </div>
+                        <div class="details">
 
-                <div class="card">
+                            <div class="left">
 
-                    <div class="details">
+                                <p class="name">John Wick: Chapter 4</p>
+                                <div class="date_quality">
+                                    <p class="quality">HD</p>
+                                    <p class="date">2023</p>
+                                </div>
+                                <p class="category">Action/Neo-noir</p>
 
-                        <div class="left">
+                                <div class="info">
 
-                            <p class="name">John Wick: Chapter 4</p>
-                            <div class="date_quality">
-                                <p class="quality">HD</p>
-                                <p class="date">2023</p>
-                            </div>
-                            <p class="category">Action/Neo-noir</p>
+                                    <div class="time">
+                                        <i class="fa-regular fa-clock"></i>
+                                        <p>120min</p>
+                                    </div>
 
-                            <div class="info">
-
-                                <div class="time">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p>120min</p>
                                 </div>
 
                             </div>
 
+                            <div class="right">
+
+                                <i class="fa-solid fa-play"></i>
+
+                            </div>
+
                         </div>
 
-                        <div class="right">
-
-                            <i class="fa-solid fa-play"></i>
-
-                        </div>
+                        <img src="{% static 'john_wick.jpg' %}">
 
                     </div>
 
-                    <img src="{% static 'john_wick.jpg' %}">
+                    <div class="card">
 
-                </div>
+                        <div class="details">
 
-                <div class="card">
+                            <div class="left">
 
-                    <div class="details">
+                                <p class="name">Meg 2: The Trench</p>
+                                <div class="date_quality">
+                                    <p class="quality">HD</p>
+                                    <p class="date">2023</p>
+                                </div>
+                                <p class="category">Adventure</p>
 
-                        <div class="left">
+                                <div class="info">
 
-                            <p class="name">Meg 2: The Trench</p>
-                            <div class="date_quality">
-                                <p class="quality">HD</p>
-                                <p class="date">2023</p>
-                            </div>
-                            <p class="category">Adventure</p>
+                                    <div class="time">
+                                        <i class="fa-regular fa-clock"></i>
+                                        <p>120min</p>
+                                    </div>
 
-                            <div class="info">
-
-                                <div class="time">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p>120min</p>
                                 </div>
 
                             </div>
 
+                            <div class="right">
+
+                                <i class="fa-solid fa-play"></i>
+
+                            </div>
+
                         </div>
 
-                        <div class="right">
-
-                            <i class="fa-solid fa-play"></i>
-
-                        </div>
+                        <img src="{% static 'meg.jpg' %}">
 
                     </div>
 
-                    <img src="{% static 'meg.jpg' %}">
+                    <div class="card">
 
-                </div>
+                        <div class="details">
 
-                <div class="card">
+                            <div class="left">
 
-                    <div class="details">
+                                <p class="name">Aquaman and the Lost Kingdom</p>
+                                <div class="date_quality">
+                                    <p class="quality">HD</p>
+                                    <p class="date">2023</p>
+                                </div>
+                                <p class="category">Action/Fantasy</p>
 
-                        <div class="left">
+                                <div class="info">
 
-                            <p class="name">Aquaman and the Lost Kingdom</p>
-                            <div class="date_quality">
-                                <p class="quality">HD</p>
-                                <p class="date">2023</p>
-                            </div>
-                            <p class="category">Action/Fantasy</p>
+                                    <div class="time">
+                                        <i class="fa-regular fa-clock"></i>
+                                        <p>120min</p>
+                                    </div>
 
-                            <div class="info">
-
-                                <div class="time">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p>120min</p>
                                 </div>
 
                             </div>
 
+                            <div class="right">
+
+                                <i class="fa-solid fa-play"></i>
+
+                            </div>
+
                         </div>
 
-                        <div class="right">
-
-                            <i class="fa-solid fa-play"></i>
-
-                        </div>
+                        <img src="{% static 'aquaman.jpg' %}">
 
                     </div>
 
-                    <img src="{% static 'aquaman.jpg' %}">
+                    <div class="card">
 
-                </div>
+                        <div class="details">
 
-                <div class="card">
+                            <div class="left">
 
-                    <div class="details">
+                                <p class="name">Ant-Man and the Wasp: Quantumania</p>
+                                <div class="date_quality">
+                                    <p class="quality">HD</p>
+                                    <p class="date">2023</p>
+                                </div>
+                                <p class="category">Action/Adventure</p>
 
-                        <div class="left">
+                                <div class="info">
 
-                            <p class="name">Ant-Man and the Wasp: Quantumania</p>
-                            <div class="date_quality">
-                                <p class="quality">HD</p>
-                                <p class="date">2023</p>
-                            </div>
-                            <p class="category">Action/Adventure</p>
+                                    <div class="time">
+                                        <i class="fa-regular fa-clock"></i>
+                                        <p>120min</p>
+                                    </div>
 
-                            <div class="info">
-
-                                <div class="time">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p>120min</p>
                                 </div>
 
                             </div>
 
+                            <div class="right">
+
+                                <i class="fa-solid fa-play"></i>
+
+                            </div>
+
                         </div>
 
-                        <div class="right">
-
-                            <i class="fa-solid fa-play"></i>
-
-                        </div>
+                        <img src="{% static 'ant_man.jpg' %}">
 
                     </div>
-
-                    <img src="{% static 'ant_man.jpg' %}">
 
                 </div>
 
@@ -1391,263 +1024,261 @@
 
         </div>
 
-    </div>
 
 
 
 
 
+        <div class="show">
 
-    <div class="show">
+            <div class="tv_show">
 
-        <div class="tv_show">
+                <h1>World Best TV Show</h1>       
 
-            <h1>World Best TV Show</h1>       
-            
-            <div class="box">
+                <div class="box">
 
-                <div class="card">
+                    <div class="card">
 
-                    <div class="details">
+                        <div class="details">
 
-                        <div class="left">
+                            <div class="left">
 
-                            <p class="name">Money Heist</p>
-                            <div class="date_quality">
-                                <p class="quality">HD</p>
-                                <p class="date">2017</p>
+                                <p class="name">Money Heist</p>
+                                <div class="date_quality">
+                                    <p class="quality">HD</p>
+                                    <p class="date">2017</p>
+                                </div>
+                                <p class="category">Thriller</p>
+
+                                <div class="info">
+
+                                    <div class="rate">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>8.2</p>
+                                    </div>
+                                    <div class="time">
+                                        <i class="fa-regular fa-clock"></i>
+                                        <p>120min</p>
+                                    </div>
+
+                                </div>
+
                             </div>
-                            <p class="category">Thriller</p>
 
-                            <div class="info">
+                            <div class="right">
 
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i>
-                                    <p>8.2</p>
-                                </div>
-                                <div class="time">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p>120min</p>
-                                </div>
+                                <i class="fa-solid fa-play"></i>
 
                             </div>
 
                         </div>
 
-                        <div class="right">
-
-                            <i class="fa-solid fa-play"></i>
-
-                        </div>
+                        <img src="{% static '/money_heist.jpg' %}">
 
                     </div>
 
-                    <img src="{% static '/money_heist.jpg' %}">
+                    <div class="card">
 
-                </div>
+                        <div class="details">
 
-                <div class="card">
+                            <div class="left">
 
-                    <div class="details">
-
-                        <div class="left">
-
-                            <p class="name">Wednseday</p>
-                            <div class="date_quality">
-                                <p class="quality">HD</p>
-                                <p class="date">2022</p>
-                            </div>
-                            <p class="category">Comedy</p>
-
-                            <div class="info">
-
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i>
-                                    <p>8.2</p>
+                                <p class="name">Wednseday</p>
+                                <div class="date_quality">
+                                    <p class="quality">HD</p>
+                                    <p class="date">2022</p>
                                 </div>
-                                <div class="time">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p>120min</p>
+                                <p class="category">Comedy</p>
+
+                                <div class="info">
+
+                                    <div class="rate">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>8.2</p>
+                                    </div>
+                                    <div class="time">
+                                        <i class="fa-regular fa-clock"></i>
+                                        <p>120min</p>
+                                    </div>
+
                                 </div>
 
                             </div>
 
-                        </div>
+                            <div class="right">
 
-                        <div class="right">
-
-                            <i class="fa-solid fa-play"></i>
-
-                        </div>
-
-                    </div>
-                    <img src="{% static 'wednesday.jpg' %}" alt="wednesday">
-
-                </div>
-
-                <div class="card">
-
-                    <div class="details">
-
-                        <div class="left">
-
-                            <p class="name">1899</p>
-                            <div class="date_quality">
-                                <p class="quality">HD</p>
-                                <p class="date">2022</p>
-                            </div>
-                            <p class="category">Mystery</p>
-
-                            <div class="info">
-
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i>
-                                    <p>7.4</p>
-                                </div>
-                                <div class="time">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p>120min</p>
-                                </div>
+                                <i class="fa-solid fa-play"></i>
 
                             </div>
 
                         </div>
-
-                        <div class="right">
-
-                            <i class="fa-solid fa-play"></i>
-
-                        </div>
+                        <img src="{% static 'wednesday.jpg' %}" alt="wednesday">
 
                     </div>
 
-                    <img src="{% static '1899.jpg' %}">
+                    <div class="card">
 
-                </div>
+                        <div class="details">
 
-                <div class="card">
+                            <div class="left">
 
-                    <div class="details">
+                                <p class="name">1899</p>
+                                <div class="date_quality">
+                                    <p class="quality">HD</p>
+                                    <p class="date">2022</p>
+                                </div>
+                                <p class="category">Mystery</p>
 
-                        <div class="left">
+                                <div class="info">
 
-                            <p class="name">Game of Thrones</p>
-                            <div class="date_quality">
-                                <p class="quality">HD</p>
-                                <p class="date">2011</p>
+                                    <div class="rate">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>7.4</p>
+                                    </div>
+                                    <div class="time">
+                                        <i class="fa-regular fa-clock"></i>
+                                        <p>120min</p>
+                                    </div>
+
+                                </div>
+
                             </div>
-                            <p class="category">Drama</p>
 
-                            <div class="info">
+                            <div class="right">
 
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i>
-                                    <p>9.2</p>
-                                </div>
-                                <div class="time">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p>120min</p>
-                                </div>
+                                <i class="fa-solid fa-play"></i>
 
                             </div>
 
                         </div>
 
-                        <div class="right">
-
-                            <i class="fa-solid fa-play"></i>
-
-                        </div>
+                        <img src="{% static '1899.jpg' %}">
 
                     </div>
 
-                    <img src="{% static 'game_of_thrones.jpg' %}">
+                    <div class="card">
 
-                </div>
+                        <div class="details">
 
-                <div class="card">
+                            <div class="left">
 
-                    <div class="details">
+                                <p class="name">Game of Thrones</p>
+                                <div class="date_quality">
+                                    <p class="quality">HD</p>
+                                    <p class="date">2011</p>
+                                </div>
+                                <p class="category">Drama</p>
 
-                        <div class="left">
+                                <div class="info">
 
-                            <p class="name">Arrow</p>
-                            <div class="date_quality">
-                                <p class="quality">HD</p>
-                                <p class="date">2012</p>
+                                    <div class="rate">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>9.2</p>
+                                    </div>
+                                    <div class="time">
+                                        <i class="fa-regular fa-clock"></i>
+                                        <p>120min</p>
+                                    </div>
+
+                                </div>
+
                             </div>
-                            <p class="category">Drama</p>
 
-                            <div class="info">
+                            <div class="right">
 
-                                <div class="rate">
-                                    <i class="fa-solid fa-star"></i>
-                                    <p>7.5</p>
-                                </div>
-                                <div class="time">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p>120min</p>
-                                </div>
+                                <i class="fa-solid fa-play"></i>
 
                             </div>
 
                         </div>
 
-                        <div class="right">
-
-                            <i class="fa-solid fa-play"></i>
-
-                        </div>
+                        <img src="{% static 'game_of_thrones.jpg' %}">
 
                     </div>
 
-                    <img src="{% static 'arrow.jpg' %}">
+                    <div class="card">
+
+                        <div class="details">
+
+                            <div class="left">
+
+                                <p class="name">Arrow</p>
+                                <div class="date_quality">
+                                    <p class="quality">HD</p>
+                                    <p class="date">2012</p>
+                                </div>
+                                <p class="category">Drama</p>
+
+                                <div class="info">
+
+                                    <div class="rate">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>7.5</p>
+                                    </div>
+                                    <div class="time">
+                                        <i class="fa-regular fa-clock"></i>
+                                        <p>120min</p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="right">
+
+                                <i class="fa-solid fa-play"></i>
+
+                            </div>
+
+                        </div>
+
+                        <img src="{% static 'arrow.jpg' %}">
+
+                    </div>
+
+
 
                 </div>
-
-
 
             </div>
 
         </div>
 
-    </div>
+        <div class="newsletter">
 
-    <div class="newsletter">
+            <h1>Newsletter</h1>
 
-        <h1>Newsletter</h1>
+            <div class="news_card">
 
-        <div class="news_card">
+                <input type="email" name="" id="" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
 
-            <input type="email" name="" id="" placeholder="Enter your email">
-            <button type="submit">Subscribe</button>
+            </div>
 
         </div>
 
-    </div>
+
+        <p class="end">Design By<span><i class="fa-solid fa-face-grin"></i>Anish-Kiran-Roj-Saurav</span></p>
 
 
-    <p class="end">Design By<span><i class="fa-solid fa-face-grin"></i>Anish-Kiran-Roj-Saurav</span></p>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-  <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  </script>
-    
-</body>
+    </body>
 </html>
