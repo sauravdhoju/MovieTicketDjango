@@ -1,0 +1,14 @@
+<form method="post">
+    <h3>Movie_schedule</h3>
+    {% csrf_token %} 
+    <label for="Scheduled_DateTime">Scheduled Date and Time:</label>
+    <input type="datetime-local" name="Scheduled_DateTime" id="Scheduled_DateTime">
+    <label for="location">location</label>
+    <input type="text" placeholder="location" id="location" name="location">
+    <label for="seat_count">Seat count</label>
+    <input type="number" id="seat_count" name="seat_count" min="60" step="10" required>
+    {% for message in messages %}
+    <p class="error-message" id="error">{{ message }}</p>
+    {% endfor %}
+    <button type="submit">submit</button>
+</form>
