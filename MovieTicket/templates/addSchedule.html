@@ -1,5 +1,5 @@
 <form method="post">
-    <h3>Movie_schedule</h3>
+    <h3>Movie_schedule for {{movie.name}}</h3>
     {% csrf_token %} 
     <label for="Scheduled_DateTime">Scheduled Date and Time:</label>
     <input type="datetime-local" name="Scheduled_DateTime" id="Scheduled_DateTime">
