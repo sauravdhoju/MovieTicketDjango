@@ -12,12 +12,6 @@ class Movie(models.Model):
     length = models.TextField(default='0 min')
     poster = models.URLField(null=True, blank=True)  # Poster link
 
-class MovieSchedule(models.Model):
-    def __str__(self):
-        return self.name+' at '+ str(self.schedule_date )
-    schedule_date= models.DateTimeField()
-    movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
-
 class MovieToGenre(models.Model):
     movie  = models.CharField(max_length=255)
     genre  = models.CharField(max_length=255)
@@ -49,10 +43,11 @@ class MovieToLanguage(models.Model):
 class Language(models.Model):
     name = models.CharField(max_length=255)
 
-class Hall(models.Model):
-    title = models.CharField(max_length=40)
+class MovieSchedule(models.Model):
+    movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
+    schedule_date= models.DateTimeField()
     location = models.CharField(max_length=255)
-    seats_count = models.PositiveIntegerField()
+    seat_count = models.PositiveIntegerField()
 
 class MovieUserRating(models.Model):
     user     = models.ForeignKey('auth.User', on_delete = models.CASCADE)
