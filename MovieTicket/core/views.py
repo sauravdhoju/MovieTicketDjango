@@ -258,23 +258,18 @@ def addMovieData():
 
 def search(request):
     if request.method=='POST':
-        query=request.POST.get('query')
-        genres=request.POST.get('genres')
-        writers=request.POST.get('writers')
-        languages=request.POST.get('languages')
-        actors=request.POST.get('actors')
-        directors=request.POST.get('directors')
-        if not username or not password:
-            messages.error(request, 'Please fill out all the fields.')
-        if user is None:
-            messages.error(request, 'Couldn\'t find your account!')
-    for movie in movies_in_db:
+        query          = request.GET.getlist('query')
+        genres         = request.GET.getlist('genres')
+        writers        = request.GET.getlist('writers')
+        languages      = request.GET.getlist('languages')
+        actors         = request.GET.getlist('actors')
+        directors      = request.GET.getlist('directors')
         if movie.name == movie_name:
             return render(request, 'movie.html', )
 
     else:
-        movies_in_db = Movie.objects.all()
-    return render(request, 'search.html', {'movies_in_db':movies_in_db
+        movies = Movie.objects.all()
+    return render(request, 'search.html', {'result':movies_in_db
                                           })
 
 def ticket(request):
