@@ -7,8 +7,10 @@ class Movie(models.Model):
     name  = models.CharField(max_length=255)
     description = models.TextField()
     added_date  = models.DateTimeField()
-    average_rating = models.FloatField(default=0) 
-
+    # released_date  = models.DateField(default =None )
+    average_rating = models.TextField(default=0) 
+    length = models.TextField(default='0 min')
+    poster = models.URLField(null=True, blank=True)  # Poster link
 
 class MovieSchedule(models.Model):
     def __str__(self):
@@ -17,11 +19,39 @@ class MovieSchedule(models.Model):
     schedule_date= models.DateTimeField()
 
 class MovieToGenre(models.Model):
-    Movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
-    Genre = models.ForeignKey('Genre', on_delete = models.CASCADE)
+    movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
+    genre = models.ForeignKey('Genre', on_delete = models.CASCADE)
 
 class Genre(models.Model):
     name = models.CharField(max_length=40)
+
+class MovieToActor(models.Model):
+    movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
+    actor = models.ForeignKey('Actor', on_delete = models.CASCADE)
+
+class Actor(models.Model):
+    name = models.CharField(max_length=200)
+
+class MovieToWriter(models.Model):
+    movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
+    writer = models.ForeignKey('Writer', on_delete = models.CASCADE)
+
+class Writer(models.Model):
+    name = models.CharField(max_length=200)
+
+class MovieToDirector(models.Model):
+    movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
+    director = models.ForeignKey('Director', on_delete = models.CASCADE)
+
+class Director(models.Model):
+    name = models.CharField(max_length=200)
+
+class MovieToLanguage(models.Model):
+    movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
+    language = models.ForeignKey('Language', on_delete = models.CASCADE)
+
+class Language(models.Model):
+    name = models.CharField(max_length=200)
 
 class Hall(models.Model):
     title = models.CharField(max_length=40)
