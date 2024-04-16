@@ -29,25 +29,27 @@ def retriveMovieListObj(movieList):
 
 def home(request):
     addMovieData()
-    return render(request, 'home.html', {'swipierMovieGenre': retriveMovieListObj([ "Spider-Man: No Way Home",
-                                                                                    "Doctor Strange in the Multiverse of Madness",
-                                                                                    "Dog",]),
-                                                  's1movies': retriveMovieListObj([ "Dune",
-                                                                                    "Eternals",
-                                                                                    "The Matrix Resurrections",
-                                                                                    "Uncharted",
-                                                                                    "Ambulance", ]),
-                                                  's2movies': retriveMovieListObj([ "The Lost City",
-                                                                                    "Morbius",
-                                                                                    "Marry Me",
-                                                                                    "Old",
-                                                                                    "Free Guy", ]),
-                                                  's3movies': retriveMovieListObj([ "The Night House",
-                                                                                    "In the Heights",
-                                                                                    "Queen Bees",
-                                                                                    "Luca",
-                                                                                    "No Sudden Move", ]),
-                                                 })
+    return render(request, 'home.html', {
+        'swipierMovieGenre': retriveMovieListObj([  "Spider-Man: No Way Home",
+                                                    "Doctor Strange in the Multiverse of Madness",
+                                                    "Dog",]),
+                  's1movies': retriveMovieListObj([ "Dune",
+                                                    "Eternals",
+                                                    "The Matrix Resurrections",
+                                                    "Uncharted",
+                                                    "Ambulance", ]),
+                  's2movies': retriveMovieListObj([ "The Lost City",
+                                                    "Morbius",
+                                                    "Marry Me",
+                                                    "Old",
+                                                    "Free Guy", ]),
+                  's3movies': retriveMovieListObj([ "The Night House",
+                                                    "In the Heights",
+                                                    "Queen Bees",
+                                                    "Luca",
+                                                    "No Sudden Move", ]),
+                                                 }
+    )
 
 @login_required(login_url = 'login')
 def moviePage(request, movie_id):
@@ -263,22 +265,12 @@ def search(request):
     if request.method=='POST':
         query          = request.POST.get('query')
         if not query:
-            return render(request, 'search.html', {'searchResult' :  retriveMovieListObj(movie_names)})
-
-        # print(movie_names)
-        # print(query)
-        # print(movie_names)
-        # genres         = request.GET.getlist('genres')
-        # writers        = request.GET.getlist('writers')
-        # languages      = request.GET.getlist('languages')
-        # actors         = request.GET.getlist('actors')
-        # directors      = request.GET.getlist('directors')
+            return render(request, 'search.html', {'searchResult' :  retriveMovieListObj(movie_names), 'previousQuery': ""})
         results = process.extract(query, movie_names, scorer=fuzz.partial_ratio, limit=None)
         sortedL = sorted(results, key=lambda x: x[1], reverse=True)
         movie_names = [result[0] for result in sortedL]
-        # print(movie_names)
-        return render(request, 'search.html', {'searchResult' :  retriveMovieListObj(movie_names)})
-    return render(request, 'search.html', {'searchResult' :  retriveMovieListObj(movie_names)})
+        return render(request, 'search.html', {'searchResult' :  retriveMovieListObj(movie_names), 'previousQuery': query})
+    return render(request, 'search.html', {'searchResult' :  retriveMovieListObj(movie_names), 'previousQuery': ""})
 
 def addSchedule(request, movie_id):
     movie =  Movie.objects.get(pk=movie_id)
