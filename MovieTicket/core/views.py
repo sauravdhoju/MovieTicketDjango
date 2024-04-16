@@ -29,24 +29,24 @@ def retriveMovieListObj(movieList):
 def home(request):
     addMovieData()
     return render(request, 'home.html', {'swipierMovieGenre': retriveMovieListObj([ "Spider-Man: No Way Home",
-                                                            "Doctor Strange in the Multiverse of Madness",
-                                                            "Dog",]),
-                                          's1movies': retriveMovieListObj([ "Dune",
-                                                                            "Eternals",
-                                                                            "The Matrix Resurrections",
-                                                                            "Uncharted",
-                                                                            "Ambulance", ]),
-                                          's2movies': retriveMovieListObj([ "The Lost City",
-                                                                            "Morbius",
-                                                                            "Marry Me",
-                                                                            "Old",
-                                                                            "Free Guy", ]),
-                                          's3movies': retriveMovieListObj([ "The Night House",
-                                                                            "In the Heights",
-                                                                            "Queen Bees",
-                                                                            "Luca",
-                                                                            "No Sudden Move", ]),
-                                         })
+                                                                                    "Doctor Strange in the Multiverse of Madness",
+                                                                                    "Dog",]),
+                                                  's1movies': retriveMovieListObj([ "Dune",
+                                                                                    "Eternals",
+                                                                                    "The Matrix Resurrections",
+                                                                                    "Uncharted",
+                                                                                    "Ambulance", ]),
+                                                  's2movies': retriveMovieListObj([ "The Lost City",
+                                                                                    "Morbius",
+                                                                                    "Marry Me",
+                                                                                    "Old",
+                                                                                    "Free Guy", ]),
+                                                  's3movies': retriveMovieListObj([ "The Night House",
+                                                                                    "In the Heights",
+                                                                                    "Queen Bees",
+                                                                                    "Luca",
+                                                                                    "No Sudden Move", ]),
+                                                 })
 
 @login_required(login_url = 'login')
 def moviePage(request, movie_id):
