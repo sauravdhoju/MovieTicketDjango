@@ -22,7 +22,8 @@ def retriveMovieListObj(movieList):
     movies = []
     for m in movieList:
         movie = moviex(m)
-        movies.append(movie)
+        if len(movie.languages)>0:
+            movies.append(movie)
     return movies
 
 def home(request):
@@ -166,7 +167,6 @@ def log_out(request):
 #     return render(request, 'addMovie.html')
 
 def addMovieData():
-
     with open('movies_data.json', 'r') as file:
         data = json.load(file)
     for movie_name, movie_data in data.items():
@@ -176,7 +176,7 @@ def addMovieData():
 
         if Movie.objects.filter(name=movie_name).exists():
             print(f"{movie_name} already exists in db.")
-            continue  
+            return  
         movie = Movie(
             name=movie_data['Title'],
             description=movie_data['Plot'] + '\nAwards' + movie_data['Awards'],
@@ -253,7 +253,7 @@ def addMovieData():
             mlanguages_to_create.append(Language(name=language_name))
         Language.objects.bulk_create(languages_to_create)
         for language in Language.objects.filter(name__in=[g.name for g in mlanguages_to_create]):
-            MovieToLanguage.objects.create(movie=movie, language=language)
+            MovieToLanguage.objects.create(movie=movie.name, language=language.name)
         print(f"{movie_name} added successfully!")
 
 def search(request):
@@ -270,9 +270,9 @@ def search(request):
     else:
         movie_names = list(set([m.name for m in movies]))
         print(movie_names)
-
         return render(request, 'search.html', {'searchResult' :  retriveMovieListObj(movie_names)})
     return render(request, 'search.html', {'searchResult' : movies })
+
 def addSchedule(request, movie_id):
     movie =  Movie.objects.get(pk=movie_id)
     if request.method=='POST':
