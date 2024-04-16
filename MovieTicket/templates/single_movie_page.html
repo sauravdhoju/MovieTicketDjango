@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Ticket booking management system</title>
+    <style>
+/* Global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+header {
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav a.button {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #04AA6D;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav a.button:hover {
+    background-color: #008CBA;
+}
+
+/* Movie details section styles */
+.movie-details-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.image-container {
+    width: 45%;
+}
+
+.movie-details {
+    width: calc(55% - 20px);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.movie-details h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.content {
+    width: calc(100%);
+}
+
+.content h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.movie-info {
+    margin-top: 20px;
+}
+
+.movie-info h3 {
+    margin-top: 10px;
+    color: #333;
+}
+
+.movie-info p {
+    margin-bottom: 5px;
+    color: #666;
+}
+
+/* Comments section styles */
+.comments textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.comments button {
+    background-color: #04AA6D;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.comments button:hover {
+    background-color: #008CBA;
+}
+
+.rating {
+    margin-top: 20px;
+}
+
+.stars input {
+    display: none;
+}
+
+.stars label {
+    font-size: 30px;
+    cursor: pointer;
+    color: #aaa;
+    transition: color 0.3s;
+}
+
+.stars label:hover,
+.stars input:checked ~ label {
+    color: #fd6565;
+}
+
+.stars label:before {
+    content: '\2605'; /* Unicode star symbol */
+}
+
+.stars input:checked ~ label:before {
+    content: '\2605'; /* Unicode filled star symbol */
+}
+
+.image-container {
+    position: relative;
+    display: inline-block; /* Ensures the container wraps around the image */
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.play-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background: #fd6565;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s;
+    z-index: 1; /* Ensures the button appears above the image */
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+}
+
+/* Additional CSS */
+.movie-info p.produced-by {
+    font-weight: bold;
+    color: #333;
+}
+
+/* CSS for the "Book Ticket" button */
+.button7 {
+    background-color: red; /* Green */
+    margin-left: 30px;
+    border: none;
+    color: white;
+    padding: 7px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50px; /* Button border radius */
+    transition: background-color 0.3s;
+}
+
+.button7:hover {
+    background-color: #008CBA; /* Button background color on hover */
+}
+    </style>
+</head>
+<body>
+    <header>
+    </header>
+    <div class="container">
+        <section class="movie-details-container">
+            <div class="image-container">
+                <img src="pathan2.jpg" alt="Pathaan">
+                <div class="play-button">
+                    <i class="bi bi-play-fill"></i>
+                </div>
+            </div>
+            <div class="movie-details">
+                <div class="content">
+                    <div class="content">
+                        <h2 id="movie-title"></h2>
+                        <h3>Description of movie</h3>
+                        <p id="movie-description"></p>
+                        <div class="movie-info">
+                            <h3>Directed by</h3>
+                            <p id="movie-director"></p>
+                            <h3>Starring</h3>
+                            <p id="movie-cast"></p>
+                            <h3>Produced by</h3>
+                            <p id="movie-producer"></p>
+                        </div>
+                    <section class="rating">
+                        <h3>Rating</h3>
+                        <div class="stars">
+                            <input type="radio" id="star5" name="rating" value="5">
+                            <label for="star5" title="5 stars"></label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4" title="4 stars"></label>
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3" title="3 stars"></label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2" title="2 stars"></label>
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1" title="1 star"></label>
+                        </div>
+                    </section>
+                    <a href="#" class="button button7">Book Ticket</a> <!-- Changed from Buy Ticket to Book Ticket -->
+                    
+                </div>
+            </div>
+        </section>
+        <section class="comments">
+            <h3>Comments</h3>
+            <form>
+                <textarea name="comment" id="comment" rows="4" cols="50" placeholder="Enter your comment here..."></textarea>
+                <br>
+                <button type="submit" class="button">Submit</button>
+            </form>
+        </section>
+    </div>
+
+
+    <script>
+        // Define a JavaScript object containing movie details
+        var movieDetails = {
+            title: "Sultan",
+            description: "\"Pathaan\" is an upcoming Indian action-thriller film directed by Siddharth Anand. The movie stars Shah Rukh Khan, Deepika Padukone, John Abraham, Dimple Kapadia, and Ashutosh Rana in key roles.",
+            director: "Siddharth Anand",
+            cast: "Shah Rukh Khan, Deepika Padukone, John Abhraham, Dimple Kapadia, Ashutosh Rana",
+            producer: "Aditya Chopra"
+        };
+
+        // Populate the HTML elements with movie details
+        document.getElementById("movie-title").textContent = movieDetails.title;
+        document.getElementById("movie-description").textContent = movieDetails.description;
+        document.getElementById("movie-director").textContent = movieDetails.director;
+        document.getElementById("movie-cast").textContent = movieDetails.cast;
+        document.getElementById("movie-producer").textContent = movieDetails.producer;
+    </script>
+</body>
+</html>
