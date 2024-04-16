@@ -1,15 +1,17 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.utils import timezone
+from datetime import datetime
 from django.contrib.auth import login, authenticate, logout, get_user_model
 from django.contrib.auth.models import User 
 from django.contrib.auth.decorators import login_required
 from core.models import MovieSchedule
 import requests, json
-from . models import Movie, Genre, MovieToGenre
+from . models import Movie, Genre, MovieToGenre, Actor, MovieToActor, Writer, MovieToWriter, Director, MovieToDirector, Language, MovieToLanguage
 from django.contrib import messages
 import re
 
 def home(request):
+    addMovieData()
     return render(request, 'home.html')
 
 # @login_required(login_url = 'loginSignup')
@@ -83,35 +85,173 @@ def log_out(request):
     logout(request)
     return redirect('login')
 
-def addMovie(request):
-    if request.method=='POST':
-        name = request.POST.get('name')
-        description = request.POST.get('description'),
-        if Movie.objects.filter(name=movie_name).exists():
-            messages.error(request, 'The movie is already added! add another movie.')
-            return render(request, 'addMovie.html')
-        elif not name or not description:
-            messages.error(request, 'please fill all the forms!')
-            return render(request, 'addMovie.html')
-        else:
-            movie = Movie(name = name, description  = description, added_date=timezone.now())
-            movie.save()
-            genre_string = dic['Genre']
-            for g in genre_string.split(","):
-                if not Genre.objects.filter(name=g).exists():
-                    new_genre = Genre(name=genre)
-                    print(f'{g} is new.')
-                    # new_genre.save()
-                else:
-                    print(f'{g} is already present.')
-                gen = Genre.objects.get(name=g)
-                movie.genre_set.add(gen)
-            # movie.save()
-            print(genre_string, ' ? ', movie.genre_set.all())
-            messages.success(request, movie_name+' was successfully added!.')
-            return render(request, 'addMovie.html')
-    return render(request, 'addMovie.html')
+# def addMovie(request):
+#     if request.method=='POST':
+#         name = request.POST.get('name')
+#         description = request.POST.get('description'),
+#         if Movie.objects.filter(name=movie_name).exists():
+#             messages.error(request, 'The movie is already added! add another movie.')
+#             return render(request, 'addMovie.html')
+#         elif not name or not description:
+#             messages.error(request, 'please fill all the forms!')
+#             return render(request, 'addMovie.html')
+#         else:
+#             movie = Movie(name = name, description  = description, added_date=timezone.now())
+#             movie.save()
+#             genre_string = dic['Genre']
+#             for g in genre_string.split(","):
+#                 if not Genre.objects.filter(name=g).exists():
+#                     new_genre = Genre(name=genre)
+#                     print(f'{g} is new.')
+#                     # new_genre.save()
+#                 else:
+#                     print(f'{g} is already present.')
+#                 gen = Genre.objects.get(name=g)
+#                 movie.genre_set.add(gen)
+#             # movie.save()
+#             print(genre_string, ' ? ', movie.genre_set.all())
+#             messages.success(request, movie_name+' was successfully added!.')
+#             return render(request, 'addMovie.html')
+#     return render(request, 'addMovie.html')
 
+def addMovieData():
+    with open('movies_data.json', 'r') as file:
+        data = json.load(file)
+    for movie_name, movie_data in data.items():
+        if movie_data["Response"] == "False":
+            print(f"Couldn't find the {movie_name} in JSON.")
+            continue  
+
+        if Movie.objects.filter(name=movie_name).exists():
+            print(f"{movie_name} already exists in db.")
+            continue  
+        movie = Movie(
+            name=movie_data['Title'],
+            description=movie_data['Plot'] + '\nAwards' + movie_data['Awards'],
+            added_date=timezone.now(),  # Use datetime.now(timezone.utc)
+            # released_date=datetime.strptime(movie_data['Released'], "%d %b %Y").date(),  # Parse date format
+            average_rating=movie_data['imdbRating'],
+            length=movie_data['Runtime'],
+            poster=movie_data['Poster'],
+        )
+        movie.save() 
+
+        genre_string = movie_data['Genre']
+        genres_to_create = []  # List for bulk creation
+        for genre_name in genre_string.split(","):
+            genre_name = genre_name.strip()
+            if not Genre.objects.filter(name=genre_name).exists():
+                genres_to_create.append(Genre(name=genre_name))
+                print(f'{genre_name} added')
+        Genre.objects.bulk_create(genres_to_create)
+        # Associate genres with movie using MovieToGenre (avoid unnecessary save)
+        for genre in Genre.objects.filter(name__in=[g.name for g in genres_to_create]):
+            MovieToGenre.objects.create(movie=movie, genre=genre)
+
+        actor_string = movie_data['Actors']
+        actors_to_create = []  # List for bulk creation
+        for actor_name in actor_string.split(","):
+            actor_name = actor_name.strip()
+            if not Actor.objects.filter(name=actor_name).exists():
+                actors_to_create.append(Actor(name=actor_name))
+                print(f'{actor_name} added')
+        Actor.objects.bulk_create(actors_to_create)
+        # Associate actors with movie using MovieToactor (avoid unnecessary save)
+        for actor in Actor.objects.filter(name__in=[g.name for g in actors_to_create]):
+            MovieToActor.objects.create(movie=movie, actor=actor)
+
+        writer_string = movie_data['Writer']
+        writers_to_create = []  # List for bulk creation
+        for writer_name in writer_string.split(","):
+            writer_name = writer_name.strip()
+            if not Writer.objects.filter(name=writer_name).exists():
+                writers_to_create.append(Writer(name=writer_name))
+                print(f'{writer_name} added')
+        Writer.objects.bulk_create(writers_to_create)
+        # Associate writers with movie using MovieToWriter (avoid unnecessary save)
+        for writer in Writer.objects.filter(name__in=[g.name for g in writers_to_create]):
+            MovieToWriter.objects.create(movie=movie, writer=writer)
+
+        director_string = movie_data['Director']
+        directors_to_create = []  # List for bulk creation
+        for director_name in director_string.split(","):
+            director_name = director_name.strip()
+            if not Director.objects.filter(name=director_name).exists():
+                directors_to_create.append(Director(name=director_name))
+                print(f'{director_name} added')
+        Director.objects.bulk_create(directors_to_create)
+        # Associate directors with movie using MovieToDirector (avoid unnecessary save)
+        for director in Director.objects.filter(name__in=[g.name for g in directors_to_create]):
+            MovieToDirector.objects.create(movie=movie, director=director)
+        print(f"{movie_name} added successfully!")
+
+        language_string = movie_data['Language']
+        languages_to_create = []  # List for bulk creation
+        for language_name in language_string.split(","):
+            language_name = language_name.strip()
+            if not Language.objects.filter(name=language_name).exists():
+                languages_to_create.append(Language(name=language_name))
+                print(f'{language_name} added')
+        Language.objects.bulk_create(languages_to_create)
+        # Associate languages with movie using MovieToLanguage (avoid unnecessary save)
+        for language in Language.objects.filter(name__in=[g.name for g in languages_to_create]):
+            MovieToLanguage.objects.create(movie=movie, language=language)
+        print(f"{movie_name} added successfully!")
+
+# Example usage (assuming you have a file named 'movies_data.json')
+# addMovieData()
+# def addMovieData():
+#     with open('movies_data.json', 'r') as file:
+#         data = json.load(file)
+#         for movie in data:
+#             for entity in data[movie]:
+#                 if entity == "Response" and data[movie][entity] == "False":
+#                     print(f"couldn't find the {movie} in json")
+#                     break
+#                 else:
+#                     if Movie.objects.filter(name=movie).exists():
+#                         print(f"{movie} already exist in db.")
+#                         break
+#                     else:
+#                         movie = Movie(name = data[movie]['Title'],
+#                          description  = data[movie]['Plot']+'\nAwards'+data[movie]['Awards'],
+#                          added_date=timezone.now(),
+#                          released_date = data[movie]['Released'],
+#                          average_rating = data[movie]['imdbRating'],
+#                          length = data[movie]['Runtime'],
+#                          poster = data[movie]['Poster'],
+#                         )
+#                         genrestring = str(data[movie]['Genre'])
+#                         for g in genre_string.split(","):
+#                             print(g)
+#                             # if not Genre.objects.filter(name=g).exists():
+#                             #     new_genre = Genre(name=genre)
+#                             #     print(f'{g} is new.')
+#                             #     # new_genre.save()
+#                             # else:
+#                             #     print(f'{g} is already present.')
+#                             # gen = Genre.objects.get(name=g)
+#                             # movie.genre_set.add(gen)
+#                         # movie.save()
+#                         print(genre_string, ' ? ', movie.genre_set.all())
+#
+#                         da = [
+#                             data[movie]['Title'],
+#                             data[movie]['Plot']+'\nAwards'+data[movie]['Awards'],
+#                             # timezone.now()
+#                             data[movie]['imdbRating'],
+#                             data[movie]['Released'],
+#                             data[movie]['Runtime'],
+#                             data[movie]['Poster'],
+#                             data[movie]['Genre'],
+#                             data[movie]['Writer'],
+#                             data[movie]['Actors'],
+#                             data[movie]['Director'],
+#                             data[movie]['Language'],
+#                         ]
+#                         # for d in da: 
+#                         #     print(d)
+# addMovieData()
 # def addMovie(request):
 #     if request.method=='POST':
 #         movie_name = request.POST.get('movie_name')
@@ -119,6 +259,7 @@ def addMovie(request):
 #             messages.error(request, 'The movie is already added! add another movie.')
 #             return render(request, 'addMovie.html', {'created': True})
 #         # dic = parse(movie_name) api not working at all + json is unparsable
+#         dic = parse(movie_name)
 #         # print(dic)
 #         dic = {
 #                 'Name':          movie_name,
