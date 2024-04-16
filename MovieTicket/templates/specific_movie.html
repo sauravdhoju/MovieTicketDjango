@@ -223,7 +223,8 @@ nav a.button:hover {
     <div class="container">
         <section class="movie-details-container">
             <div class="image-container">
-                <img src="{{movie.name}}.jpg" alt="{{movie.name}}">
+                <!-- <img src="{{movie.name}}.jpg" alt="{{movie.name}}"> -->
+                <img src="{{movie.poster}}" alt="{{movie.name}}">
                 <div class="play-button">
                     <i class="bi bi-play-fill"></i>
                 </div>
@@ -263,7 +264,7 @@ nav a.button:hover {
                             <label for="star5" title="5 stars"></label>
                         </div>
                     </section>
-                    <a href="#" class="button button7">Book Ticket</a> <!-- Changed from Buy Ticket to Book Ticket -->
+                    <a href="#" class="button button7" href="{% url 'book' movie.id %}">Book Ticket</a>
                     
                 </div>
             </div>
