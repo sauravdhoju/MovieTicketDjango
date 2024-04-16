@@ -271,6 +271,21 @@ def search(request):
         movies = Movie.objects.all()
     return render(request, 'search.html', {'result':movies_in_db
                                           })
-
+def addSchedule(request, movie_id):
+    if request.method=='POST':
+        dateTime=request.POST.get('Scheduled_DateTime')
+        location=request.POST.get('location')  
+        seatCount=request.POST.get('seat_count')  
+        print(dateTime, location, seatCount)
+        if not dateTime or not location or not seatCount:
+            messages.error(request, 'Please fill out all the fields.')
+        if not dateTime or not location or not seatCount:
+            messages.error(request, 'Please fill out all the fields.')
+        else:
+            MovieSchedule(movie=movie_id,
+                          schedule_date=dateTime,
+                          location =
+                          ) 
+    return render(request, 'addSchedule.html')
 def ticket(request):
     return render(request, 'ticket.html')
