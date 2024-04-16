@@ -1,16 +1,17 @@
 TODO: 
 ======
-- [ ] load Movies model object / db with IMDB api
+- [x] load Movies model object / db with IMDB api
 - [x] make login/ register form work
-- [ ] create specific movie page with url pattern /movie-id/
+- [x] create specific movie page with url pattern /movie-id/
 - [ ] create admin dashboard for editing and selecting homepage movies
-- [ ] make search functional: incase searched movie is not in db. try adding it thru api. if failed tell
-- [ ] add movies through api
-
+- [ ] create admin dashboard for editing hall, movie_schedule
+- [ ] create search, that supports filtering with name, genre, actors, language, director
+- [ ] create dynaimc ticket booking system
+- [ ] add movies through json
 
 optional:
 - [ ] add functional comment section and user review page for specific movie
-- [ ] 
+- [ ] add movies through api
 
 
         ux:
