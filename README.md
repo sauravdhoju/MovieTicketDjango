@@ -7,7 +7,7 @@ TODO:
 - [ ] create admin dashboard for editing hall, movie_schedule
 - [ ] create search, that supports filtering with name, genre, actors, language, director
 - [ ] create dynaimc ticket booking system
-- [ ] add movies through json
+- [x] add movies through json
 
 optional:
 - [ ] add functional comment section and user review page for specific movie
