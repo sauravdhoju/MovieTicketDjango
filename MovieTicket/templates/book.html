@@ -35,7 +35,6 @@
             position: relative; /* Required for absolute positioning of child elements */
             width: 20px;
             height: 20px;
-            background-color: #ccc;
             border: 1px solid #999;
             cursor: pointer;
             display: flex;
@@ -57,25 +56,30 @@
             color: #000;
         }
 
+        .seat.available{
+            background-color: #ccc;
+            <!-- border-color: #000000; -->
+        }
         .seat.selected {
             background-color: #007bff;
-            border-color: #0056b3;
+            <!-- border-color: #0056b3; -->
         }
 
         .seat.premium {
             background-color: #ff9900;
-            border-color: #cc6600;
-        }
-
-        .seat.available {
-            background-color: #4caf50;
-            border-color: #388e3c;
+            <!-- border-color: #cc6600; -->
         }
 
         .seat.booked {
             background-color: #f44336;
             border-color: #d32f2f;
             cursor: not-allowed; /* Make booked seats not selectable */
+        }
+
+
+        .seat.User {
+            background-color: #4caf50;
+            border-color: #388e3c;
         }
     </style>
 </head>
@@ -86,9 +90,17 @@
             {%for seat in seats%}
             {% if forloop.counter|divisibleby:10  %}
             <div class="column">
-                {% endif %}
-                <div class="seat {% if seat.booked %} booked {% endif %}" id="{{seat.id}}"> 
-                    <!-- <a>{{seat.id}}</a> -->
+            {% endif %}
+            {%if seat.id in userSeat%}
+                <div class="seat User" id="{{seat.id}}"> 
+            {%elif not seat.isAvailable%}
+                <div class="seat booked" id="{{seat.id}}"> 
+            {%elif seat.isPremium%}
+                <div class="seat premium" id="{{seat.id}}"> 
+            {%elif seat.isAvailable%}
+                <div class="seat available" id="{{seat.id}}"> 
+            {%endif%}
+            <!-- <a>{{seat.id}}</a> -->
                 </div>
                 {% if forloop.counter|divisibleby:10  %}
             </div>
@@ -98,7 +110,7 @@
         <h1>{{schedule.schedule_date}}</h1>
         <form action="" method="post" id="seatForm">
             {% csrf_token %} 
-            <input type="hidden" name="selected_seats" id="selectedSeats" value="">
+            <input type="text" name="selectedSeats" id="selectedSeats" value="">
             <button type="submit">Submit</button>
         </form>
     </div>
@@ -121,8 +133,8 @@
                     selectedSeats.push(seat.id);
                 }
             });
-            document.getElementById('selectedSeats').value = selectedSeats.join(',');
-            console.log(selectedSeats)
+            document.getElementById('selectedSeats').value = selectedSeats
+            console.log(selectedSeats);
         }
     </script>
 </body>
