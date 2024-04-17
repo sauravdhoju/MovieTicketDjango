@@ -51,14 +51,26 @@ def home(request):
                   })
 @login_required(login_url = 'login')
 def moviePage(request, movie_id):
+    if request.method=='POST':
+        comment =request.POST.get('user_comment')
+        c = Comment( movie = Movie.objects.get(pk=movie_id),
+                    user = request.user,
+                    comment = comment,
+                    likes = 0,
+                    dislikes = 0,
+                    added_date = timezone.now()
+                )
+        c.save()
     if Movie.objects.filter(id=movie_id).exists():
         movie = Movie.objects.get(pk=movie_id)
         m=retriveMovieListObj([movie.name]),
         schedules = MovieSchedule.objects.filter(movie=movie_id)
+        comments = Comment.objects.filter(movie=movie_id)
         return render(request, 'specific_movie.html', {
             'movie': m[0][0], 
             'schedules': schedules,
             'isSuperuser': request.user.is_superuser,
+            'comments': comments
             })
     else:
         return render(request, 'page_not_found.html')

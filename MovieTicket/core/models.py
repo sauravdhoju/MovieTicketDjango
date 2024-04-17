@@ -55,15 +55,15 @@ class MovieUserRating(models.Model):
     Movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
     rating = models.FloatField(default=0)  # Average rating
 
-class Comment:
-    Movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
+class Comment(models.Model):
+    movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
     user     = models.ForeignKey('auth.User', on_delete = models.CASCADE)
     comment = models.TextField()
     added_date = models.DateTimeField()
-    likes = models.PositiveIntegerField()
-    dislikes = models.PositiveIntegerField()
+    likes = models.PositiveIntegerField(default=0)
+    dislikes = models.PositiveIntegerField(default=0)
 
-class Reply:
+class Reply(models.Model):
     reply_to_a_comment = models.BooleanField(default=True) 
     parentComment_id = models.PositiveIntegerField()
     user     = models.ForeignKey('auth.User', on_delete = models.CASCADE)
