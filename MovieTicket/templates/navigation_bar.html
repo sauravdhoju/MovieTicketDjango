@@ -259,16 +259,14 @@ main {
                     <a href="{% url 'home' %}" class="nav__link">Home</a>
                 </li>
                 <li class="nav__item">
+                    <i href="{% url 'search' %}" class="ri-search-line search__icon"></i>
                     <a href="{% url 'search' %}" class="nav__link">Search</a>
                 </li>
                 <li class="nav__item">
                     <a href="#" class="nav__link">My Tickets</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#" class="nav__link">Contact Us</a>
-                </li>
-                <li class="nav__item">
-                    <a href="{%url 'aboutUs' %}" class="nav__link">About Us</a>
+                    <a href="{% url 'aboutUs' %}" class="nav__link">About Us</a>
                 </li>
             </ul>
         </div>

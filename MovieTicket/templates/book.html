@@ -92,10 +92,18 @@
             background-color: #007bff;
         }
 
-        .seat.booked,
-        .seat.User {
+        .seat.booked{
             background-color: #f44336;
             cursor: not-allowed;
+        }
+
+        .seat.User {
+            background-color: #83fc2f;
+            cursor: not-allowed;
+        }
+
+        .seat.premium {
+            <!-- background-color: gold; -->
         }
 
         form {
@@ -128,12 +136,13 @@
 </head>
 <body>
     <div class="container">
-        <h1>Seat Booking</h1>
+        <h1>{{movie.movie.name}}</h1>
+        <h1>{{schedule.schedule_date}}</h1>
         <div class="header">         
         </div>
         <div class="screen">
             <div class="splash"></div>
-        </div> <!-- Screen element -->
+        </div> 
         <div class="seat-container">
             {% for seat in seats %}
             {% if forloop.counter|divisibleby:10 %}
@@ -186,6 +195,9 @@
                 seats.forEach(seat => {
                     seat.classList.remove('selected');
                 });
+                <!-- seats.forEach(seat.premium=> { -->
+                <!--     seat.classList.remove('selected'); -->
+                <!-- }); -->
                 updateSelectedSeats();
             });
 
