@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seat Booking</title>
     <style>
+        /* Your CSS styles here */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -16,127 +17,189 @@
             background-color: #f0f0f0;
         }
 
-        .flex-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
+            position: relative; /* Position relative for screen positioning */
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: #007bff;
+            margin: 0;
+            text-align: center; /* Center the title */
+            width: 100%; /* Ensure the title takes full width */
+        }
+
+        .screen {
+            position: relative;
+            width: 100%;
+            height: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .splash {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200%;
+            height: 200%;
+            background-color: rgba(0, 123, 255, 0.7);
+            border-radius: 50%;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            pointer-events: none;
         }
 
         .seat-container {
             display: grid;
-            grid-template-columns: repeat(10, 1fr); /* 10 seats per row */
-            gap: 10px; /* Increased gap between seats */
-            justify-content: center;
-            background-color: #dddddd;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 10px;
+            position: relative; /* Position relative for absolute positioning of seats */
         }
-        
+
         .seat {
-            position: relative; /* Required for absolute positioning of child elements */
-            width: 20px;
-            height: 20px;
-            border: 1px solid #999;
+            width: 40px;
+            height: 40px;
+            background-color: #e0e0e0;
+            border-radius: 10px; /* Make seats rounded */
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            transition: background-color 0.3s ease;
+            position: relative;
+            z-index: 1; /* Ensure seats are above the screen */
         }
 
-        .seat:hover::before {
-            content: "  ";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: RGBA(255,0,100,0.5);
-            color: RGBA(255,0,100,0.5);
-            padding: 4px;
-            border-radius: 4px;
-            font-size: 12px;
-            color: #000;
+        .seat:hover {
+            background-color: #bfbfbf;
         }
 
-        .seat.available{
-            background-color: #ccc;
-            <!-- border-color: #000000; -->
-        }
         .seat.selected {
             background-color: #007bff;
-            <!-- border-color: #0056b3; -->
         }
 
-        .seat.premium {
-            background-color: #ff9900;
-            <!-- border-color: #cc6600; -->
-        }
-
-        .seat.booked {
-            background-color: #f44336;
-            border-color: #d32f2f;
-            cursor: not-allowed; /* Make booked seats not selectable */
-        }
-
-
+        .seat.booked,
         .seat.User {
-            background-color: #4caf50;
-            border-color: #388e3c;
-            cursor: not-allowed; /* Make booked seats not selectable */
+            background-color: #f44336;
+            cursor: not-allowed;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            display: none; /* Hide the selected seats input */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:focus {
+            outline: none;
         }
     </style>
 </head>
 <body>
-    <div class="flex-container">
-        <h1>{{movie.movie.name}}</h1>
+    <div class="container">
+        <h1>Seat Booking</h1>
+        <div class="header">         
+        </div>
+        <div class="screen">
+            <div class="splash"></div>
+        </div> <!-- Screen element -->
         <div class="seat-container">
-            {%for seat in seats%}
-            {% if forloop.counter|divisibleby:10  %}
+            {% for seat in seats %}
+            {% if forloop.counter|divisibleby:10 %}
             <div class="column">
             {% endif %}
             {% if seat.id in userSeats %}
-                <div class="seat User" id="{{seat.id}}"> 
-            {%elif not seat.isAvailable%}
-                <div class="seat booked" id="{{seat.id}}"> 
-            {%elif seat.isPremium%}
-                <div class="seat premium" id="{{seat.id}}"> 
-            {%elif seat.isAvailable%}
-                <div class="seat available" id="{{seat.id}}"> 
-            {%endif%}
-            <!-- <a>{{seat.id}}</a> -->
-                </div>
-                {% if forloop.counter|divisibleby:10  %}
+                <div class="seat User" id="{{ seat.id }}"></div>
+            {% elif not seat.isAvailable %}
+                <div class="seat booked" id="{{ seat.id }}"></div>
+            {% elif seat.isPremium %}
+                <div class="seat premium" id="{{ seat.id }}"></div>
+            {% elif seat.isAvailable %}
+                <div class="seat available" id="{{ seat.id }}"></div>
+            {% endif %}
+            {% if forloop.counter|divisibleby:10 %}
             </div>
             {% endif %}
             {% endfor %}
         </div>
-        <h1>{{schedule.schedule_date}}</h1>
         <form action="" method="post" id="seatForm">
-            {% csrf_token %} 
+            {% csrf_token %}
             <input type="text" name="selectedSeats" id="selectedSeats" value="">
             <button type="submit">Submit</button>
+            <button type="button" id="resetBtn">Reset</button>
         </form>
     </div>
 
     <script>
-        const seats = document.querySelectorAll('.seat');
-        seats.forEach(seat => {
-            seat.addEventListener('click', () => {
-                if (!seat.classList.contains('booked')) { // Check if seat is not booked
-                    seat.classList.toggle('selected');
-                    updateSelectedSeats();
-                }
-            });
-        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const seats = document.querySelectorAll('.seat');
+            const resetBtn = document.getElementById('resetBtn');
+            const selectedSeatsInput = document.getElementById('selectedSeats');
+            const splash = document.querySelector('.splash');
 
-        function updateSelectedSeats() {
-            const selectedSeats = [];
             seats.forEach(seat => {
-                if (seat.classList.contains('selected')) {
-                    selectedSeats.push(seat.id);
-                }
+                seat.addEventListener('click', () => {
+                    if (!seat.classList.contains('booked')) {
+                        seat.classList.toggle('selected');
+                        updateSelectedSeats();
+                        // Add splash effect
+                        splash.style.transform = 'scale(0)';
+                        setTimeout(() => {
+                            splash.style.transform = 'scale(1)';
+                        }, 10);
+                    }
+                });
             });
-            document.getElementById('selectedSeats').value = selectedSeats
-            console.log(selectedSeats);
-        }
+
+            resetBtn.addEventListener('click', () => {
+                seats.forEach(seat => {
+                    seat.classList.remove('selected');
+                });
+                updateSelectedSeats();
+            });
+
+            function updateSelectedSeats() {
+                const selectedSeats = [];
+                seats.forEach(seat => {
+                    if (seat.classList.contains('selected')) {
+                        selectedSeats.push(seat.id);
+                    }
+                });
+                selectedSeatsInput.value = selectedSeats.join(',');
+                console.log(selectedSeats);
+            }
+        });
     </script>
 </body>
 </html>
