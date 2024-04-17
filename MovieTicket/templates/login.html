@@ -17,7 +17,10 @@
       box-sizing: border-box;
     }
     body{
-      background-color: #080710;
+      background-image: url('staticfiles/wednesday.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: cover;
     }
     .background{
       width: 430px;
@@ -31,35 +34,36 @@
       height: 200px;
       width: 200px;
       position: absolute;
-      border-radius: 50%;
+      border-radius: 50%; 
     }
+  
     .shape:first-child{
       background: linear-gradient(
-        #1845ad,
-        #23a2f6
+        #23304e,
+        #0e69a5
         );
       left: -80px;
       top: -80px;
-    }
+    } 
     .shape:last-child{
       background: linear-gradient(
         to right,
-        #ff512f,
-        #f09819
+        #5e0a0a,
+        #d65050
         );
       right: -30px;
       bottom: -80px;
     }
     form{
-      height: 620px;
+      height: 500px;
       width: 400px;
-      background-color: rgba(255,255,255,0.13);
+      background-color: rgba(53, 51, 51, 0.712);
       position: absolute;
       transform: translate(-50%,-50%);
       top: 50%;
       left: 50%;
       border-radius: 10px;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px); 
       border: 2px solid rgba(255,255,255,0.1);
       box-shadow: 0 0 40px rgba(8,7,16,0.6);
       padding: 50px 35px;
@@ -86,9 +90,9 @@
     }
     input{
       display: block;
-      height: 50px;
+      height: 40px;
       width: 100%;
-      background-color: rgba(255,255,255,0.07);
+      background-color: rgba(240, 231, 231, 0.89);
       border-radius: 3px;
       padding: 0 10px;
       margin-top: 8px;
@@ -96,13 +100,14 @@
       font-weight: 300;
     }
     ::placeholder{
-      color: #e5e5e5;
+      color: #4d4b4b;
     }
     button{
       margin-top: 50px;
+      margin-bottom: 25px;
       width: 100%;
-      background-color: #ffffff;
-      color: #080710;
+      background-color: #1f2155;
+      color: #fefeff;
       padding: 15px 0;
       font-size: 18px;
       font-weight: 600;
@@ -118,7 +123,7 @@
       width: 150px;
       border-radius: 3px;
       padding: 5px 10px 10px 5px;
-      background-color: rgba(255,255,255,0.27);
+      background-color: rgb(102, 47, 47);
       color: #eaf0fb;
       text-align: center;
     }
@@ -136,21 +141,21 @@
   </head>
   <body>
     <div class="background">
-      <div class="shape"></div>
-      <div class="shape"></div>
+      
+     
     </div>
     <form method="post">
-      <h3>Login Here</h3>
+      <h3>Login </h3>
       {% csrf_token %} 
       <label for="username">Username</label>
       <input type="text" placeholder="Enter Username" id="username" name="username">
       <label for="password">Password</label>
-      <input type="password" placeholder="Password" id="password" name="password">
+      <input type="password" placeholder="Enter Password" id="password" name="password">
         {% for message in messages %}
         <p class="error-message" id="error">{{ message }}</p>
         {% endfor %}
-      <button type="submit">Log In</button>
-      <a href="{% url 'signup' %}" >Create a account</a>
+        <button type="submit">Log In  ⤷</button>
+      <a href="{% url 'signup' %}" >Create an account</a>
     </form>
   </body>
 </html>
