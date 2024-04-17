@@ -50,8 +50,9 @@ class MovieSchedule(models.Model):
     seat_count = models.PositiveIntegerField(default = 0)
 
 class Seat(models.Model):
-    schedule = models.ForeignKey('MovieSchedule', on_delete = models.CASCADE)
+    schedule_id = models.ForeignKey('MovieSchedule', on_delete = models.CASCADE)
     isPremium = models.BooleanField(default=False)
+    isAvailable = models.BooleanField(default=True)
 
 
 class MovieUserRating(models.Model):
@@ -77,8 +78,8 @@ class Reply:
     dislikes = models.PositiveIntegerField()
 
 class Ticket:
+    seat        = models.ForeignKey('Seat', on_delete = models.CASCADE)
     user     = models.ForeignKey('auth.User', on_delete = models.CASCADE)
     movie_schedule = models.ForeignKey('Movie', on_delete = models.CASCADE)
     ticket_code = models.CharField(max_length=255)
-    seat        = models.ForeignKey('Seat', on_delete = models.CASCADE)
     creation_date = models.DateTimeField()

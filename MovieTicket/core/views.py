@@ -5,7 +5,7 @@ from django.contrib.auth import login, authenticate, logout, get_user_model
 from django.contrib.auth.models import User 
 from django.contrib.auth.decorators import login_required
 import requests, json
-from . models import Movie, Genre, MovieToGenre, Actor, MovieToActor, Writer, MovieToWriter, Director, MovieToDirector, Language, MovieToLanguage, MovieSchedule
+from . models import *
 from django.contrib import messages
 import re
 from fuzzywuzzy import fuzz, process
@@ -72,16 +72,56 @@ def bookMoviePage(request, movie_id, schedule_id):
         movie = Movie.objects.get(pk=movie_id)
         m=retriveMovieListObj([movie.name]),
         schedule = MovieSchedule.objects.get(pk=schedule_id)
-        print(schedule.schedule_date)
-        print(schedule.seat_count)
-        print(schedule.location)
+        seats = Seat.objects.filter(schedule_id=schedule_id)
+        print(len(seats))
         return render(request, 'book.html', {
             'movie': m[0][0],
             'schedule': schedule,
+            'seats' : seats
                                                        })
     else:
         return render(request, 'page_not_found.html')
 
+def addSchedule(request, movie_id):
+    movie =  Movie.objects.get(pk=movie_id)
+    if request.method=='POST':
+        dateTime=request.POST.get('Scheduled_DateTime')
+        location=request.POST.get('location')  
+        seat_count=request.POST.get('seat_count')  
+        premiumSeats = request.POST.get('premiumSeats')
+        print(seat_count)
+        if not dateTime or not location or not seat_count or not premiumSeats:
+            messages.error(request, 'Please fill out all the fields.')
+        # if not dateTime or not location or not seatCount:
+        #     messages.error(request, 'Please fill out all the fiel
+        else:
+            premiumSeats = parse_integers(premiumSeats)
+            schedule = MovieSchedule(movie=movie,
+                          schedule_date=dateTime,
+                          location = location,
+                          seat_count= seat_count
+                          ) 
+            schedule.save()
+            for i in range(1, int(seat_count)+1):
+                if i not in premiumSeats:
+                    create_seat = Seat( schedule_id = schedule,
+                                       isPremium = False,
+                                       isAvailable = True)
+                else:
+                    create_seat = Seat( schedule_id = schedule,
+                                       isPremium = True,
+                                       isAvailable = True)
+                create_seat.save()
+            messages.success(request, 'successfully added the schedule.')
+    return render(request, 'addSchedule.html', {'movie':movie})
+
+def parse_integers(string):
+    integer_list = []
+    for part in string.split(','):
+        part = part.strip()
+        if part.isdigit():  
+            integer_list.append(int(part))
+    return integer_list
 
 def is_valid_email(email):
     pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
@@ -240,7 +280,6 @@ def addMovieData():
         for director in Director.objects.filter(name__in=[g.name for g in mdirectors_to_create]):
             MovieToDirector.objects.create(movie=movie.name, director=director.name)
         print(f"{movie_name} added successfully!")
-
         language_string = movie_data['Language']
         languages_to_create = []  # List for bulk creation
         mlanguages_to_create = []  # List for bulk creation
@@ -268,26 +307,6 @@ def search(request):
         return render(request, 'search.html', {'searchResult' :  retriveMovieListObj(movie_names), 'previousQuery': query})
     return render(request, 'search.html', {'searchResult' :  retriveMovieListObj(movie_names), 'previousQuery': ""})
 
-def addSchedule(request, movie_id):
-    movie =  Movie.objects.get(pk=movie_id)
-    if request.method=='POST':
-        dateTime=request.POST.get('Scheduled_DateTime')
-        location=request.POST.get('location')  
-        seat_count=request.POST.get('seat_count')  
-        # print(dateTime, location, seatCount)
-        if not dateTime or not location or not seat_count:
-            messages.error(request, 'Please fill out all the fields.')
-        # if not dateTime or not location or not seatCount:
-        #     messages.error(request, 'Please fill out all the fields.')
-        else:
-            schedule = MovieSchedule(movie=movie,
-                          schedule_date=dateTime,
-                          location = location,
-                          seat_count= seat_count
-                          ) 
-            schedule.save()
-            messages.success(request, 'successfully added the schedule.')
-    return render(request, 'addSchedule.html', {'movie':movie})
 
 def ticket(request):
     return render(request, 'ticket.html')
