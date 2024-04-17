@@ -68,19 +68,37 @@ def moviePage(request, movie_id):
 
 @login_required(login_url = 'login')
 def bookMoviePage(request, movie_id, schedule_id):
-    if Movie.objects.filter(id=movie_id).exists():
-        movie = Movie.objects.get(pk=movie_id)
-        m=retriveMovieListObj([movie.name]),
-        schedule = MovieSchedule.objects.get(pk=schedule_id)
-        seats = Seat.objects.filter(schedule_id=schedule_id)
-        print(len(seats))
-        return render(request, 'book.html', {
-            'movie': m[0][0],
-            'schedule': schedule,
-            'seats' : seats
-                                                       })
+    if request.method=='POST':
+        seatsSelected =request.POST.get('selectedSeats')
+        seatSelected  = parse_integers(seatsSelected)
+        for seat in seatsSelected:
+            newTicket = Ticket(seat=seat,
+                               user = request.user,
+                               schedule = schedule_id,
+                               ticket_code = str(request.user)+str(schedule_id)+str(seat),
+                               creation_date = timezone.now())
+            newTicket.save()
+        # print("seats:",seatsSelected)
+        return render(request, 'ticket.html')
     else:
-        return render(request, 'page_not_found.html')
+        if Movie.objects.filter(id=movie_id).exists():
+            movie = Movie.objects.get(pk=movie_id)
+            m=retriveMovieListObj([movie.name]),
+            schedule = MovieSchedule.objects.get(pk=schedule_id)
+            seats = Seat.objects.filter(schedule_id=schedule_id)
+            tickets = Ticket.objects.filter(user=request.user)
+            userSeats = [ticket.seat for ticket in tickets]
+            print(userSeats)
+            print(len(seats))
+            return render(request, 'book.html', {
+                'movie': m[0][0],
+                'schedule': schedule,
+                'seats' : seats,
+                'userSeats': userSeats
+                })
+        else:
+            return render(request, 'page_not_found.html')
+
 
 def addSchedule(request, movie_id):
     movie =  Movie.objects.get(pk=movie_id)
