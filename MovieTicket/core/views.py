@@ -32,7 +32,7 @@ def home(request):
     return render(request, 'home.html', {
         'swipierMovieGenre': retriveMovieListObj([  "Spider-Man: No Way Home",
                                                     "Doctor Strange in the Multiverse of Madness",
-                                                    "Dog",]),
+                                                    "Black Panther: Wakanda Forever"]),
                   's1movies': retriveMovieListObj([ "Dune",
                                                     "Eternals",
                                                     "The Matrix Resurrections",
@@ -47,10 +47,8 @@ def home(request):
                                                     "In the Heights",
                                                     "Queen Bees",
                                                     "Luca",
-                                                    "No Sudden Move", ]),
-                                                 }
-    )
-
+                                                    "No Sudden Move", ])
+                  })
 @login_required(login_url = 'login')
 def moviePage(request, movie_id):
     if Movie.objects.filter(id=movie_id).exists():
@@ -65,6 +63,7 @@ def moviePage(request, movie_id):
     else:
         return render(request, 'page_not_found.html')
 
+@login_required(login_url = 'login')
 def ticket(request):
     t=Ticket.objects.filter(user=request.user)
     return render(request, 'yourticket.html', { 'yourTickets' : t})
@@ -74,12 +73,14 @@ def bookMoviePage(request, movie_id, schedule_id):
     if request.method=='POST':
         seatsSelected =request.POST.get('selectedSeats')
         seatsSelected  = parse_integers(seatsSelected)
-        firstIndex = seatsSelected[0]
+        seats = Seat.objects.filter(schedule_id=schedule_id).order_by('id')
+        firstIndex = seats[0].id
+        print(firstIndex)
         for seat in seatsSelected:
             s=Seat.objects.get(pk=seat)
             s.isAvailable= False
             s.number = s.id-firstIndex+1
-            print('number', s.number)
+            # print('number', firstIndex)
             s.save()
             newTicket = Ticket(seat=s,
                                user = request.user,
@@ -98,7 +99,7 @@ def bookMoviePage(request, movie_id, schedule_id):
             tickets = Ticket.objects.filter(user=request.user)
             # print(tickets)
             userSeats = [ticket.seat.id for ticket in tickets]
-            print(userSeats)
+            # print(userSeats)
             # print(len(seats))
             return render(request, 'book.html', {
                 'movie': m[0][0],
