@@ -80,6 +80,7 @@
         .seat.User {
             background-color: #4caf50;
             border-color: #388e3c;
+            cursor: not-allowed; /* Make booked seats not selectable */
         }
     </style>
 </head>
@@ -91,7 +92,7 @@
             {% if forloop.counter|divisibleby:10  %}
             <div class="column">
             {% endif %}
-            {%if seat.id in userSeat%}
+            {% if seat.id in userSeats %}
                 <div class="seat User" id="{{seat.id}}"> 
             {%elif not seat.isAvailable%}
                 <div class="seat booked" id="{{seat.id}}"> 
@@ -100,7 +101,7 @@
             {%elif seat.isAvailable%}
                 <div class="seat available" id="{{seat.id}}"> 
             {%endif%}
-            <!-- <a>{{seat.id}}</a> -->
+            <a>{{seat.id}}</a>
                 </div>
                 {% if forloop.counter|divisibleby:10  %}
             </div>
