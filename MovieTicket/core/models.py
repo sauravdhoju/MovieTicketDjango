@@ -81,6 +81,6 @@ class Seat(models.Model):
 class Ticket(models.Model):
     seat        = models.ForeignKey('Seat', on_delete = models.CASCADE)
     user     = models.ForeignKey('auth.User', on_delete = models.CASCADE)
-    movie_schedule = models.ForeignKey('MovieSchedule', on_delete = models.CASCADE)
+    schedule = models.ForeignKey('MovieSchedule', on_delete = models.CASCADE, default=1)
     ticket_code = models.CharField(max_length=255)
     creation_date = models.DateTimeField()
