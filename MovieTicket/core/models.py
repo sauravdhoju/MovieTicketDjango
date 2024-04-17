@@ -47,7 +47,7 @@ class MovieSchedule(models.Model):
     movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
     schedule_date= models.DateTimeField()
     location = models.TextField(default='AKRS')
-    seat_count = models.PositiveIntegerField(default = 60)
+    seat_count = models.PositiveIntegerField(default = 40)
 
 class MovieUserRating(models.Model):
     user     = models.ForeignKey('auth.User', on_delete = models.CASCADE)

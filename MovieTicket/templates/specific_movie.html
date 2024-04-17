@@ -226,8 +226,7 @@ nav a.button:hover {
     <div class="container">
         <section class="movie-details-container">
             <div class="image-container">
-                <!-- <img src="{{movie.name}}.jpg" alt="{{movie.name}}"> -->
-                <img src="{{movie.poster}}" alt="{{movie.name}}">
+                <img src="{{movie.movie.poster}}" alt="{{movie.movie.name}}">
                 <div class="play-button">
                     <i class="bi bi-play-fill"></i>
                 </div>
@@ -235,19 +234,19 @@ nav a.button:hover {
             <div class="movie-details">
                 <div class="content">
                     <div class="content">
-                        <h2 id="movie-title">{{movie.name}}</h2>
+                        <h2 id="movie-title">{{movie.movie.name}}</h2>
                         <h3>Description of movie</h3>
-                        <p id="movie-description">{{movie.description}}</p>
+                        <p id="movie-description">{{movie.movie.description}}</p>
                         <div class="movie-info">
                             <h3>Directed by</h3>
                             <p id="movie-director">Director:
-                                {%for a in directors%}
+                                {%for a in movie.directors%}
                                     {{a.director}},
                                 {%endfor%}
                             </p>
                             <h3>Starring</h3>
                             <p id="movie-cast">Actors: 
-                            {%for a in actors%}
+                            {%for a in movie.actors%}
                                 {{a.actor}},
                             {%endfor%}
                             </p>
@@ -269,11 +268,12 @@ nav a.button:hover {
                             </div>
                         </div>
                     </section>
-                    <a class="button button7" href="{% url 'book' movie.id %}">Book Ticket </a>
+                    {%for s in schedules%}
+                        <a class="button button7" href="{% url 'book' movie.movie.id s.id %}">{{s.schedule_date}}</a>
+                    {%endfor%}
                     {%if isSuperuser%}
-                        <a class="button button7" href="{% url 'addSchedule' movie.id %}">Add Schedule</a>
-                        <!-- <a class="button button7" href="{% url 'addSchedule' movie.id %}">Edit Movie</a> -->
-                        <!-- <a class="button button7" href="{% url 'addSchedule' movie.id %}">Delete Movie</a> -->
+                        <a class="button button7" href="{% url 'addSchedule' movie.movie.id %}">Add Schedule</a>
+                        <!-- <a class="button button7" href="{% url 'editMovie' movie.movie.id %}">Edit Movie</a> -->
                     {% endif %}
                     </div>
                 </div>

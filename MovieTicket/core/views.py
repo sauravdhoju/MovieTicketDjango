@@ -55,13 +55,11 @@ def home(request):
 def moviePage(request, movie_id):
     if Movie.objects.filter(id=movie_id).exists():
         movie = Movie.objects.get(pk=movie_id)
-        actors = MovieToActor.objects.filter(movie=movie.name)
-        directors = MovieToDirector.objects.filter(movie=movie.name)
-        print( request.user.is_superuser)
+        m=retriveMovieListObj([movie.name]),
+        schedules = MovieSchedule.objects.filter(movie=movie_id)
         return render(request, 'specific_movie.html', {
-            'movie': movie, 
-            'actors': actors,
-            'directors': directors,
+            'movie': m[0][0], 
+            'schedules': schedules,
             'isSuperuser': request.user.is_superuser,
             })
     else:
@@ -69,18 +67,14 @@ def moviePage(request, movie_id):
 
 
 @login_required(login_url = 'login')
-def bookMoviePage(request, movie_id):
-    print('here')
+def bookMoviePage(request, movie_id, schedule_id):
     if Movie.objects.filter(id=movie_id).exists():
         movie = Movie.objects.get(pk=movie_id)
-        actors = MovieToActor.objects.filter(movie=movie.name)
-        directors = MovieToDirector.objects.filter(movie=movie.name)
-        print(actors)
-        print(directors)
+        m=retriveMovieListObj([movie.name]),
+        schedule = MovieSchedule.objects.get(pk=schedule_id)
         return render(request, 'book.html', {
-            'movie': movie, 
-            'actors': actors,
-            'directors': directors,
+            'movie': m[0][0],
+            'schedule': schedule,
                                                        })
     else:
         return render(request, 'page_not_found.html')
@@ -294,3 +288,18 @@ def addSchedule(request, movie_id):
 
 def ticket(request):
     return render(request, 'ticket.html')
+
+
+@login_required(login_url = 'login')
+def editMovie(request, movie_id):
+    if Movie.objects.filter(id=movie_id).exists():
+        movie = Movie.objects.get(pk=movie_id)
+        m=retriveMovieListObj([movie.name]),
+        schedules = MovieSchedule.objects.get(movie=movie_id)
+        return render(request, 'editMovie.html', {
+            'movie': m[0][0], 
+            'schedules': schedules,
+            'isSuperuser': request.user.is_superuser,
+            })
+    else:
+        return render(request, 'page_not_found.html')
