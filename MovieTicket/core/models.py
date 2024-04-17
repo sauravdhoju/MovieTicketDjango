@@ -74,6 +74,7 @@ class Reply:
 
 class Seat(models.Model):
     schedule_id = models.ForeignKey('MovieSchedule', on_delete = models.CASCADE)
+    number = models.PositiveIntegerField(default = 1)
     isPremium = models.BooleanField(default=False)
     isAvailable = models.BooleanField(default=True)
 

@@ -65,15 +65,21 @@ def moviePage(request, movie_id):
     else:
         return render(request, 'page_not_found.html')
 
+def ticket(request):
+    t=Ticket.objects.filter(user=request.user)
+    return render(request, 'yourticket.html', { 'yourTickets' : t})
 
 @login_required(login_url = 'login')
 def bookMoviePage(request, movie_id, schedule_id):
     if request.method=='POST':
         seatsSelected =request.POST.get('selectedSeats')
         seatsSelected  = parse_integers(seatsSelected)
+        firstIndex = seatsSelected[0]
         for seat in seatsSelected:
             s=Seat.objects.get(pk=seat)
             s.isAvailable= False
+            s.number = s.id-firstIndex+1
+            print('number', s.number)
             s.save()
             newTicket = Ticket(seat=s,
                                user = request.user,
@@ -82,7 +88,7 @@ def bookMoviePage(request, movie_id, schedule_id):
                                creation_date = timezone.now())
             newTicket.save()
         # print("seats:",seatsSelected)
-        return render(request, 'ticket.html')
+        return redirect('yourTickets')
     else:
         if Movie.objects.filter(id=movie_id).exists():
             movie = Movie.objects.get(pk=movie_id)
@@ -130,11 +136,13 @@ def addSchedule(request, movie_id):
                 if i not in premiumSeats:
                     create_seat = Seat( schedule_id = schedule,
                                        isPremium = False,
-                                       isAvailable = True)
+                                       isAvailable = True,
+                                       number = i)
                 else:
                     create_seat = Seat( schedule_id = schedule,
                                        isPremium = True,
-                                       isAvailable = True)
+                                       isAvailable = True,
+                                       number = i)
                 create_seat.save()
             messages.success(request, 'successfully added the schedule.')
     return render(request, 'addSchedule.html', {'movie':movie})
@@ -330,10 +338,6 @@ def search(request):
         movie_names = [result[0] for result in sortedL]
         return render(request, 'search.html', {'searchResult' :  retriveMovieListObj(movie_names), 'previousQuery': query})
     return render(request, 'search.html', {'searchResult' :  retriveMovieListObj(movie_names), 'previousQuery': ""})
-
-
-def ticket(request):
-    return render(request, 'ticket.html')
 
 
 @login_required(login_url = 'login')

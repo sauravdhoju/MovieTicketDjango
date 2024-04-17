@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -171,15 +172,16 @@
     <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
 </head>
 <body style="background-color: #a5a5a5;">
+{%for t in yourTickets%}
 <div class="container">
     <div class="card card-left">
         <h1>AK <span>RS </span></h1>
         <div class="title">
-            <h2>CAPTAIN AMERICA: CIVIL WAR</h2>
+            <h2>{{t.schedule.movie.name}}</h2>
         </div>
         <div class="name" style>
             <div style="display: inline-block;">
-                <h2><span id="name" style="color: black; font-size: 20px;">SAURAV DHOJU</span></h2>
+                <h2><span id="name" style="color: black; font-size: 20px;">{{t.user.username}}</span></h2>
             </div>
             <span style="display: inline-block; font-size: 0.6em;">name</span>
         </div>
@@ -187,20 +189,12 @@
 
         <div class="flex-container">
             <div style="text-align:center;">
-                <h2>1</h2>
-                <span class="fieldName" style="font-size: 1em;">Hall</span> <!-- Increased font size -->
+                <h2>{{t.schedule.schedule_date}}</h2>
+                <span class="fieldName" style="font-size: 1em;">date.Time</span> <!-- Increased font size -->
             </div>
             <div style="text-align:center;">
-                <h2>100</h2>
+                <h2>{{t.seat.number}}</h2>
                 <span class="fieldName" style="font-size: 1em;">Seat</span> <!-- Increased font size -->
-            </div>
-            <div style="text-align:center;">
-                <h2>12.00</h2>
-                <span class="fieldName" style="font-size: 1em;">Time</span> <!-- Increased font size -->
-            </div>
-            <div style="text-align:center;">
-                <h2>2003.04.10</h2>
-                <span class="fieldName" style="font-size: 1em;">Date</span> <!-- Increased font size -->
             </div>
         </div>
     </div>
@@ -212,11 +206,12 @@
         </div>
         <div class="eye"></div>
         <div class="number">
-            <h3>100</h3>
+            <h3>{{t.seat.number}}</h3>
             <span>seat</span>
         </div>
     </div>
 </div>
+{%endfor%}
 
 <script>
     var randomNumber = Math.floor(Math.random() * 900000) + 100000;
