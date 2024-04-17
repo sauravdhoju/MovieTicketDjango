@@ -47,7 +47,12 @@ class MovieSchedule(models.Model):
     movie = models.ForeignKey('Movie', on_delete = models.CASCADE)
     schedule_date= models.DateTimeField()
     location = models.TextField(default='AKRS')
-    seat_count = models.PositiveIntegerField(default = 40)
+    seat_count = models.PositiveIntegerField(default = 0)
+
+class Seat(models.Model):
+    schedule = models.ForeignKey('MovieSchedule', on_delete = models.CASCADE)
+    isPremium = models.BooleanField(default=False)
+
 
 class MovieUserRating(models.Model):
     user     = models.ForeignKey('auth.User', on_delete = models.CASCADE)
@@ -73,7 +78,7 @@ class Reply:
 
 class Ticket:
     user     = models.ForeignKey('auth.User', on_delete = models.CASCADE)
+    movie_schedule = models.ForeignKey('Movie', on_delete = models.CASCADE)
     ticket_code = models.CharField(max_length=255)
     seat        = models.ForeignKey('Seat', on_delete = models.CASCADE)
-    movie_schedule = models.ForeignKey('Movie', on_delete = models.CASCADE)
     creation_date = models.DateTimeField()

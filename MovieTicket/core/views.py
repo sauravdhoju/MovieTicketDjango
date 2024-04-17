@@ -72,6 +72,9 @@ def bookMoviePage(request, movie_id, schedule_id):
         movie = Movie.objects.get(pk=movie_id)
         m=retriveMovieListObj([movie.name]),
         schedule = MovieSchedule.objects.get(pk=schedule_id)
+        print(schedule.schedule_date)
+        print(schedule.seat_count)
+        print(schedule.location)
         return render(request, 'book.html', {
             'movie': m[0][0],
             'schedule': schedule,

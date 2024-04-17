@@ -261,9 +261,7 @@
                         <div class="item">Premium</div>
                     </div>
                     <div class="all-seats" id="seatSelection">
-                        {%for seat in seats%}
-
-                        {%endfor%}
+                        <!-- Dynamic seat selection checkboxes will be inserted here -->
                     </div>
                 </div>
                 <div class="screentext">All Eyes Here Please</div>
@@ -282,7 +280,151 @@
         </div>
     </div>
 
-    <script></script>
+    <script>
+        // JavaScript code
+
+        // Movie details object
+        let movieDetails = {
+            title: "{{movie.movie.name}}",
+            dates: [],
+            times: [],
+            seats: []
+        };
+        console.log("{{movie.movie.name}}")
+
+        // Function to add a new date
+        function addDate(day, fullDate) {
+            movieDetails.dates.push({ day, fullDate });
+        }
+
+        // Function to add a new time
+        function addTime(time) {
+            movieDetails.times.push(time);
+        }
+
+        // Function to add a new seat
+        function addSeat(seatNumber, isPremium) {
+            movieDetails.seats.push({ seatNumber, isPremium });
+        }
+
+        // Example: Admin adds new dates, times, and seats
+        const numRows = 6; // Specify the number of rows
+        const seatsPerRow = 20; // Specify the number of seats per row
+
+        const totalSeats = {{schedule.seat_count}}
+
+        // Assuming two middle rows are premium
+        const premiumRowStart = Math.floor(numRows / 2);
+        const premiumRowEnd = premiumRowStart + 1;
+
+        for (let i = 1; i <= totalSeats; i++) {
+            const row = Math.ceil(i / seatsPerRow); // Calculate the row number
+            const isPremium = row === premiumRowStart || row === premiumRowEnd; // Rows matching premiumRowStart or premiumRowEnd are premium
+            addSeat(i, isPremium);
+        }
+            // Function to dynamically populate movie details
+        function populateMovieDetails() {
+            document.getElementById('movieTitle').textContent = movieDetails.title;
+
+            const seatSelection = document.getElementById('seatSelection');
+            const timings = document.getElementById('timings');
+
+            // Populate seat selection
+            seatSelection.innerHTML = '';
+            movieDetails.seats.forEach(seat => {
+                // Determine the class based on premium status
+                const seatClass = seat.isPremium ? 'premium-seat' : 'non-premium-seat';
+                seatSelection.insertAdjacentHTML(
+                    "beforeend",
+                    `<input type="checkbox" name="tickets" id="s${seat.seatNumber}" data-seat="${seat.seatNumber}" data-price="${seat.isPremium ? 350 : 250}"/>
+                    <label for="s${seat.seatNumber}" class="seat ${seatClass}"></label>`
+                );
+            });
+
+
+            // Populate date selection
+            timings.innerHTML = '';
+            movieDetails.dates.forEach((date, index) => {
+                // Determine the class based on premium status
+                const dateClass = date.isPremium ? 'premium' : 'non-premium';
+
+                timings.insertAdjacentHTML(
+                    "beforeend",
+                    `<input type="radio" name="date" id="d${index + 1}" ${index === 0 ? 'checked' : ''}>
+                    <label for="d${index + 1}" class="dates-item ${dateClass}">
+                        <div class="day">${date.day}</div>
+                        <div class="date">${date.fullDate}</div>
+                    </label>`
+                );
+            });
+
+            // Populate time selection
+            timings.insertAdjacentHTML(
+                "beforeend",
+                `<div class="times">
+                    ${movieDetails.times.map(time => `<input type="radio" name="time" id="${time}" checked>
+                    <label for="${time}" class="time">${time}</label>`).join('')}
+                </div>`
+            );
+        }
+
+        // Call the function to populate movie details
+        populateMovieDetails();
+
+
+        // Function to update total ticket count and amount
+        function updateTotalCountAndAmount(ticket) {
+            let amount = parseInt(document.querySelector(".amount").innerHTML);
+            let count = parseInt(document.querySelector(".count").innerHTML);
+            let price = ticket.getAttribute('data-price');
+
+            if (ticket.checked) {
+                count++;
+                amount += parseInt(price);
+            } else {
+                count--;
+                amount -= parseInt(price);
+            }
+
+            document.querySelector(".amount").innerHTML = amount;
+            document.querySelector(".count").innerHTML = count;
+        }
+
+        // Add event listeners to the checkboxes for seat selection
+        let tickets = document.querySelectorAll(".all-seats input[type='checkbox']");
+        tickets.forEach((ticket) => {
+            ticket.addEventListener("change", () => {
+                updateTotalCountAndAmount(ticket);
+            });
+        });
+
+        // Function to dynamically update seat availability based on selected date
+        function updateSeatAvailability(dateIndex) {
+            const selectedDate = movieDetails.dates[dateIndex];
+            const bookedSeats = []; // Placeholder for booked seats (you can populate this with actual data)
+
+            // Iterate through all seats and update their availability
+            movieDetails.seats.forEach(seat => {
+                const seatCheckbox = document.getElementById(`s${seat.seatNumber}`);
+                if (bookedSeats.includes(seat.seatNumber)) {
+                    seatCheckbox.disabled = true; // Disable checkbox if seat is booked
+                    seatCheckbox.checked = false; // Uncheck checkbox if seat is booked
+                    seatCheckbox.classList.add('booked'); // Add 'booked' class for styling
+                } else {
+                    seatCheckbox.disabled = false; // Enable checkbox if seat is available
+                    seatCheckbox.classList.remove('booked'); // Remove 'booked' class if seat is available
+                }
+            });
+        }
+
+        // Add event listeners to date selection radio buttons
+        const dateRadios = document.querySelectorAll('.timings input[type="radio"][name="date"]');
+        dateRadios.forEach((radio, index) => {
+            radio.addEventListener('change', () => {
+                updateSeatAvailability(index); // Call function to update seat availability when date is selected
+            });
+        });
+    </script>
 </body>
 
 </html>

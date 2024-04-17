@@ -238,18 +238,37 @@ nav a.button:hover {
                         <h3>Description of movie</h3>
                         <p id="movie-description">{{movie.movie.description}}</p>
                         <div class="movie-info">
-                            <h3>Directed by</h3>
-                            <p id="movie-director">Director:
+                            <!-- <h3>Directed by</h3> -->
+                            <p id="movie-director"><b>Director:</b>
                                 {%for a in movie.directors%}
                                     {{a.director}},
                                 {%endfor%}
                             </p>
-                            <h3>Starring</h3>
-                            <p id="movie-cast">Actors: 
+                            <!-- <h3>Starring</h3> -->
+                            <p id="movie-cast"><b>Actors:</b> 
                             {%for a in movie.actors%}
                                 {{a.actor}},
                             {%endfor%}
                             </p>
+
+                            <p id="movie-cast"><b>writer:</b> 
+                            {%for a in movie.writers%}
+                                {{a.writer}},
+                            {%endfor%}
+                            </p>
+
+                            <p id="movie-cast"><b>languages:</b> 
+                            {%for a in movie.languages%}
+                                {{a.language}},
+                            {%endfor%}
+                            </p>
+
+                            <p id="movie-cast">Genre: 
+                            {%for a in movie.genres%}
+                                {{a.genre}},
+                            {%endfor%}
+                            </p>
+                            
                         </div>
                     <section class="rating">
                         <div style="flex-container">
