@@ -22,6 +22,7 @@
     --body-font: "Syne", sans-serif;
     --h2-font-size: 1.25rem;
     --normal-font-size: .938rem;
+    padding-top: 56px;
 
     /*========== Font weight ==========*/
     --font-regular: 400;
@@ -55,6 +56,8 @@ button {
 body {
     background-color: var(--body-color);
     color: var(--text-color);
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 input,
@@ -127,126 +130,124 @@ img {
     align-items: center;
     padding-left: 15px; 
     padding-right: 15px;
+}
 
-    .nav__login-text {
-        margin-right: 1rem;
-        padding-left: 15px;
-        font-size: 1rem;
-    }
+.nav__login-text {
+    margin-right: 1rem;
+    padding-left: 15px;
+    font-size: 1rem;
+}
 
 
-    .search {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: var(--z-modal);
-        background-color: hsla(230, 75%, 15%, .1);
-        backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px); /* For safari */
-        padding: 8rem 1.5rem 0;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity .4s;
-    }
+.search {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-modal);
+    background-color: hsla(230, 75%, 15%, .1);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px); /* For safari */
+    padding: 8rem 1.5rem 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .4s;
+}
 
-    .search__form {
-        display: flex;
-        align-items: center;
-        column-gap: .5rem;
-        background-color: var(--container-color);
-        box-shadow: 0 8px 32px hsla(230, 75%, 15%, .2);
-        padding-inline: 1rem;
-        border-radius: .5rem;
-        transform: translateY(-1rem);
-        transition: transform .4s;
-    }
+.search__form {
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+    background-color: var(--container-color);
+    box-shadow: 0 8px 32px hsla(230, 75%, 15%, .2);
+    padding-inline: 1rem;
+    border-radius: .5rem;
+    transform: translateY(-1rem);
+    transition: transform .4s;
+}
 
-    .search__icon {
-        font-size: 1.25rem;
-        color: var(--title-color);
-    }
 
-    .search__input {
-        width: 100%;
-        padding-block: 1rem;
-        background-color: var(--container-color);
-        color: var(--text-color);
-    }
 
-    .search__input::placeholder {
-        color: var(--text-color);
-    }
+.search__input {
+    width: 100%;
+    padding-block: 1rem;
+    background-color: var(--container-color);
+    color: var(--text-color);
+}
 
-    /* Login Styles */
+.search__input::placeholder {
+    color: var(--text-color);
+}
 
-    .login {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: var(--z-modal);
-        background-color: hsla(230, 75%, 15%, .1);
-        backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px); /* For safari */
-        padding: 8rem 1.5rem 0;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity .4s;
-    }
+/* Login Styles */
 
-    .login__label {
-        display: block;
-        text-align: initial;
-        color: var(--title-color);
-        font-weight: var(--font-medium);
-        margin-bottom: .25rem;
-    }
+.login {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-modal);
+    background-color: hsla(230, 75%, 15%, .1);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px); /* For safari */
+    padding: 8rem 1.5rem 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .4s;
+}
+
+.login__label {
+    display: block;
+    text-align: initial;
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+    margin-bottom: .25rem;
+}
 
 
 
 
-    .login__button:hover {
-        box-shadow: 0 4px 24px hsla(230, 75%, 40%, .4);
-    }
+.login__button:hover {
+    box-shadow: 0 4px 24px hsla(230, 75%, 40%, .4);
+}
 
-    /* Show search */
-    .show-search {
-        opacity: 1;
-        pointer-events: initial;
-    }
+/* Show search */
+.show-search {
+    opacity: 1;
+    pointer-events: initial;
+}
 
-    .show-search .search__form {
-        transform: translateY(0);
-    }
+.show-search .search__form {
+    transform: translateY(0);
+}
 
-    /* Show login */
-    .show-login {
-        opacity: 1;
-        pointer-events: initial;
-    }
+/* Show login */
+.show-login {
+    opacity: 1;
+    pointer-events: initial;
+}
 
 
-    /* Replace icon with name */
-    .nav__logo {
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        text-decoration: none;
-        color: var(--title-color);
-    }
+/* Replace icon with name */
+.nav__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--title-color);
+}
 
-    /* Remove Services from navigation */
-    .nav__list .nav__link:nth-child(3) {
-        display: none;
-    }
+/* Remove Services from navigation */
+.nav__list .nav__link:nth-child(3) {
+    display: none;
+}
 
-    /* Adjust layout to start just below the header */
-    main {
-        padding-top: var(--header-height);
-    }   
+/* Adjust layout to start just below the header */
+main {
+    padding-top: var(--header-height); 
+}   
 </style>
 <!--==================== HEADER ====================-->
 <header class="header" id="header">
@@ -259,11 +260,17 @@ img {
                     <a href="{% url 'home' %}" class="nav__link">Home</a>
                 </li>
                 <li class="nav__item">
-                    <a href="{% url 'search' %}" class="nav__link">Search</a>
                     <i href="{% url 'search' %}" class="ri-search-line search__icon"></i>
+                    <a href="{% url 'search' %}" class="nav__link">Search</a>
                 </li>
                 <li class="nav__item">
                     <a href="#" class="nav__link">My Tickets</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#" class="nav__link">Contact Us</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#" class="nav__link">About Us</a>
                 </li>
             </ul>
         </div>
@@ -277,6 +284,5 @@ img {
         </div>
     </nav>
 </header>
-<script></script>
 </body>
 </html>
