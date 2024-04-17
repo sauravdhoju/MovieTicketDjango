@@ -325,3 +325,6 @@ def editMovie(request, movie_id):
             })
     else:
         return render(request, 'page_not_found.html')
+    
+def aboutUs(request):
+    return render(request, 'aboutUs.html')
