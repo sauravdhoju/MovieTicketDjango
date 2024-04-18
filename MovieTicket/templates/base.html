@@ -283,10 +283,9 @@ main {
                 </div>
 
                 <div class="nav__actions">
-                    {%if logged%}
                     <button id="login-btn" class="nav__login" onclick="window.location.href='{% url 'login' %}'">Login   </button>
                     <button id="register-btn" class="nav__login" onclick="window.location.href='{% url 'signup' %}'">   Signup</button>
-                    {%endif%}
+                    <button id="register-btn" class="nav__login" onclick="window.location.href='{% url 'logout' %}'">    logout</button>
                     <!-- <div class="nav__toggle" id="nav-toggle"> -->
                     <!--    <i class="ri-menu-line"></i> -->
                     <!-- </div> -->
