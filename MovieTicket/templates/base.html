@@ -1,8 +1,20 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AKRS{% endblock %}</title>
+    <!-- Include any CSS or other meta tags -->
+    <!-- @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600&display=swap"); -->
+</head>
+<body>
+    <header>
+    </header>
+    
+    <nav>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
 
-<style>
-/*=============== GOOGLE FONTS ===============*/
-<!-- @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600&display=swap"); -->
+        <style>
 
 :root {
     --header-height: 3.5rem;
@@ -246,37 +258,51 @@ img {
 main {
     padding-top: var(--header-height); 
 }   
-</style>
-<!--==================== HEADER ====================-->
-<header class="header" id="header">
-    <nav class="nav container">
-        <a href="{% url 'home' %}" class="nav__logo">akrs</a>
-        <div class="nav__menu" id="nav-menu">
-            <ul class="nav__list">
-                <li class="nav__item">
-                    <a href="{% url 'home' %}" class="nav__link">Home</a>
-                </li>
-                <li class="nav__item">
-                    <!-- <i href="{% url 'search' %}" class="ri-search-line search__icon"></i> -->
-                    <a href="{% url 'search' %}" class="nav__link">Search</a>
-                </li>
-                <li class="nav__item">
-                            <a href="{% url 'yourTickets' %}" class="nav__link">Tickets</a>
-                </li>
-                <li class="nav__item">
-                    <a href="{% url 'aboutUs' %}" class="nav__link">Info</a>
-                </li>
-            </ul>
-        </div>
+        </style>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href= "{% url 'home' %}"class="nav__logo">akrs</a>
 
-        <div class="nav__actions">
-            <button id="login-btn" class="nav__login" onclick="window.location.href='{% url 'login' %}'">Login</button>
-            <button id="register-btn" class="nav__login" onclick="window.location.href='{% url 'signup' %}'">Signup</button>
-            <!-- <div class="nav__toggle" id="nav-toggle"> -->
-            <!--    <i class="ri-menu-line"></i> -->
-            <!-- </div> -->
-        </div>
-    </nav>
-</header>
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="{% url 'home' %}" class="nav__link">Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <!-- <i href="{% url 'search' %}" class="ri-search-line search__icon"></i> -->
+                            <a href="{% url 'search' %}" class="nav__link">Search</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="{% url 'yourTickets' %}" class="nav__link">Tickets</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="{% url 'aboutUs' %}" class="nav__link">Info</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav__actions">
+                    {%if logged%}
+                    <button id="login-btn" class="nav__login" onclick="window.location.href='{% url 'login' %}'">Login</button>
+                    <button id="register-btn" class="nav__login" onclick="window.location.href='{% url 'signup' %}'">Signup</button>
+                    {%endif%}
+                    <!-- <div class="nav__toggle" id="nav-toggle"> -->
+                    <!--    <i class="ri-menu-line"></i> -->
+                    <!-- </div> -->
+                </div>
+            </nav>
+        </header>
 </body>
 </html>
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+    </footer>
+    </body>
+    </html>

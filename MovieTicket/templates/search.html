@@ -27,6 +27,13 @@ body, input {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
+.nav__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--title-color);
+}
     .search-bar {
         display: flex;
         align-items: center;
@@ -156,6 +163,8 @@ body, input {
     </head>
     <body>
         <header>
+            <a href="{% url 'home' %}" style="" class="nav__logo">akrs</a>
+            <br>
             <form class="search-bar" method="post">
                 {% csrf_token %} 
                 <input type="search" id="search-input" name="query" placeholder="Search for movies...">

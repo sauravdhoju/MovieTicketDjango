@@ -97,11 +97,17 @@ def bookMoviePage(request, movie_id, schedule_id):
             newTicket = Ticket(seat=s,
                                user = request.user,
                                schedule = MovieSchedule.objects.get(pk=schedule_id),
-                               ticket_code = str(request.user)+str(schedule_id)+str(seat),
+                               ticket_code = str(schedule_id)+str(seat),
                                creation_date = timezone.now())
             newTicket.save()
-        # print("seats:",seatsSelected)
-        return redirect('yourTickets')
+            movie = Movie.objects.get(pk=movie_id)
+            schedule = MovieSchedule.objects.get(pk=schedule_id)
+            yourTickets = Ticket.objects.filter(user=request.user, schedule=schedule)
+        return render(request, 'youBooked.html', {
+            'movie': movie,
+            'schedule': schedule,
+            'yourTickets' : yourTickets,
+            })
     else:
         if Movie.objects.filter(id=movie_id).exists():
             movie = Movie.objects.get(pk=movie_id)

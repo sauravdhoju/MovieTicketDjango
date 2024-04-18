@@ -3,7 +3,6 @@
 {% block title %}Your Tickets{% endblock %}
 
 {% block content %}
-    <h1>Welcome to My Website!</h1>
     <style>
         .container {
             width: 27em;
@@ -170,6 +169,8 @@
     <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
 </head>
 <body style="background-color: #a5a5a5;">
+    <a>.</a><br> <br> <br> <br>
+<h1 style="font-size: 40px; text-align: center;">You booked the tickets for {{movie.name}} at {{schedule.schedule_date}}</h1>
 {%for t in yourTickets%}
 <div class="container">
     <div class="card card-left">
@@ -186,7 +187,7 @@
         
 
         <div class="flex-container">
-            <div style="text-align:center;">
+            <div style="text-align:center;font-size: 9px">
                 <h2>{{t.schedule.schedule_date}}</h2>
                 <span class="fieldName" style="font-size: 1em;">date.Time</span> <!-- Increased font size -->
             </div>

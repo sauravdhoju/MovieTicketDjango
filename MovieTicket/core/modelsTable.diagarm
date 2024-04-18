@@ -3,7 +3,6 @@ Table User {
   name varchar
   password varchar //[encrypted]
   email varchar
-  phonenumber integer
   isAdmin bool
 }
 
@@ -12,7 +11,9 @@ Table Movie {
   name string
   description varchar
   added_date date
-  stars integer
+  average_rating integer
+  length integer
+  poster image
 }
 
 Table MovieToGenre {
@@ -26,60 +27,80 @@ Table Genre {
   name string
 }
 
+Table MovieToActor {
+  id integer [primary key]
+  Movie_id integer//[foreign key]
+  Actor_id integer//[foreign key]
+}
+
+Table Actor {
+  id integer [primary key]
+  name string
+}
+
+Table MovieToWriter {
+  id integer [primary key]
+  Movie_id integer//[foreign key]
+  Writer_id integer//[foreign key]
+}
+
+Table Writer {
+  id integer [primary key]
+  name string
+}
+
+Table MovieToDirector {
+  id integer [primary key]
+  Movie_id integer//[foreign key]
+  Director_id integer//[foreign key]
+}
+
+Table Director {
+  id integer [primary key]
+  name string
+}
+
+Table MovieToLanguage {
+  id integer [primary key]
+  Movie_id integer//[foreign key]
+  Language_id integer//[foreign key]
+}
+
+Table Language {
+  id integer [primary key]
+  name string
+}
 
 Table MovieSchedule {
   id integer [primary key]
   Movie_id int//[foreign key]
-  Hall_id int//[foreign key]
   scheduled_date date
+  location string
+  seat_count integer
 }
-
-Table Hall {
-  id integer [primary key]
-  title varchar
-  location varchar
-  created_at timestamp
-  seats_count integer
-}
-// body text [note: 'Content of the post']
 
 Table Seat {
   id integer [primary key]
-  number integer
-  reserved_to integer //[note: foreign keey user.id]
-  status varchar
-  created_at timestamp
   schedule_id integer //[foreign key]
+  number integer
+  isPremium bool
+  isAvailale bool
 }
 
 Table Comment {
   id integer [primary key]
   movie_id integer //[foreign]
   user_id integer //[foreign]
-  stars integer
-  text varchar
+  comment varchar
   added_date date
-  likes integer
-  dislikes integer
-}
-
-Table Reply {
-  id integer [primary key]
-  parent_reply_id integer //foreign
-  user_id integer //[foreign]
-  bool reply_to_a_comment //false
-  text varchar
-  added_date date
-  likes integer
-  dislikes integer
 }
 
 Table Ticket {
   id integer [primary key]
   user_id integer //foreign key
-  ticket_code varchar //Unique
-  seat_id integer
-  movie_schedule_id integer //foreign key
+  seat_id integer  //foreign key
+  schedule_id integer //foreign key
+  ticket_code string
   creation_date integer
 }
 
@@ -88,6 +109,21 @@ Ref: MovieSchedule.(Hall_id) > Hall.(id)
 
 Ref: MovieToGenre.Movie_id > Movie.id
 Ref: MovieToGenre.Genre_id > Genre.id
+
+Ref: MovieToActor.Movie_id > Movie.id
+Ref: MovieToActor.Actor_id > Actor.id
+
+Ref: MovieToWriter.Movie_id > Movie.id
+Ref: MovieToWriter.Writer_id > Writer.id
+
+
+Ref: MovieToDirector.Movie_id > Movie.id
+Ref: MovieToDirector.Director_id > Director.id
+
+
+Ref: MovieToLanguage.Movie_id > Movie.id
+Ref: MovieToLanguage.Language_id > Language.id
+
 
 Ref: Seat.reserved_to > User.id
 Ref: Seat.schedule_id > MovieSchedule.id
