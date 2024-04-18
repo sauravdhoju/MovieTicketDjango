@@ -6,11 +6,11 @@ TODO:
 - [ ] create admin dashboard for editing and selecting homepage movies
 - [x] create admin dashboard for editing hall, movie_schedule
 - [x] create search, that supports filtering with name, genre, actors, language, director
-- [ ] create dynaimc ticket booking system
+- [x] create dynaimc ticket booking system
 - [x] add movies through json
 
 optional:
-- [ ] add functional comment section and user review page for specific movie
+- [x] add functional comment section and user review page for specific movie
 - [ ] add movies through api
 
 
